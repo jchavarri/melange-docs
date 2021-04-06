@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Melange.re — OCaml From the Ground Up
+  </title>
+  <link rel="stylesheet" href="/styles/typesettings.css">
+  <link rel="stylesheet" href="/styles/prism.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <a href="#content">
+    Skip to content
+  </a>
+  <div data-typesettings="golden">
+   <nav>
+    <ul>
+     <li>
+      <h1 id="melange-re">
+       <a href="/">
+              Melange.re
+            </a>
+      </h1>
+     </li>
+     <li>
+      <ul class="chapters-navigation">
+       <li>
+        <a href="/">Previous</a>
+       </li>
+       <li>
+        <a href="/">Top</a>
+       </li>
+       <li>
+        <a href="/package-managers">Next</a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <ul>
+       <li id="toggleSyntaxContainer"></li>
+       <li>
+        <a href="https://github.com/melange-re/melange" aria-label="Code repository" target="_blank" rel="noopener noreferrer">Github</a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </nav>
+   <main id="content">
+    <h1 id="intro">
+     Intro
+    </h1>
+    <ol class="toc">
+     <li>
+      <a href="#a-bit-of-history">A bit of history</a>
+     </li>
+     <li>
+      <a href="#melange-features-and-goals">Melange features and goals</a>
+     </li>
+     <li>
+      <a href="#quam-quam">Quam quam</a>
+     </li>
+     <li>
+      <a href="#domo-cornua-dedit-dicione">Domo cornua dedit dicione</a>
+     </li>
+     <li>
+      <a href="#quodque-idcirco-magna">Quodque idcirco magna</a>
+     </li>
+     <li>
+      <a href="#ardet-ulla-aethera-instructa-cruore-mentita-excepto">Ardet ulla aethera instructa cruore mentita excepto</a>
+     </li>
+     <li>
+      <a href="#agam-enim-silex-attulit-divitibusque-oris-gravidus">Agam enim silex attulit divitibusque oris gravidus</a>
+     </li>
+    </ol>
+    <p>
+     Melange is a fork of the ReScript compiler with emphasis on staying as much compatible as possible with the OCaml ecosystem.
+    </p>
+    <h2 id="a-bit-of-history">
+     <a class="here" href="#a-bit-of-history">→ </a>A bit of history
+    </h2>
+    <p>
+     js_of_ocaml
+    </p>
+    <p>
+     bucklescript with ocaml syntax
+    </p>
+    <p>
+     reason
+    </p>
+    <p>
+     rescript
+    </p>
+    <h2 id="melange-features-and-goals">
+     <a class="here" href="#melange-features-and-goals">→ </a>Melange features and goals
+    </h2>
+    <p>
+     OCaml compatibility
+    </p>
+    <p>
+     Dune
+    </p>
+    <p>
+     Ecosystem (ppxs)
+    </p>
+    <p>
+     Tooling
+    </p>
+    <p>
+     Shared code
+    </p>
+    <h2 id="quam-quam">
+     <a class="here" href="#quam-quam">→ </a>Quam quam
+    </h2>
+    <p>
+     Lorem markdownum adicit simul requiro ortus. Illa ipse fortis mihique, cautus,
+ego Amphrysi. Comas quod sum? Est errore verba Aesonis iacebat Typhoea flectitur
+est Solem; ut potuit futuri Paraetonium.
+    </p>
+    <pre><code class="language-ocaml"><span class="token keyword">external</span> map <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"map"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> filter <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"filter"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+
+<span class="token keyword">type</span> request
+<span class="token keyword">external</span> asyncRequest<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> request <span class="token operator">=</span> <span class="token string">"asyncRequest"</span>
+<span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> request <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> map<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"map"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> filter<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"filter"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> request<span class="token punctuation">;</span>
+<span class="token keyword">external</span> asyncRequest<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"asyncRequest"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span><span class="token punctuation">;</span>
+</code>
+</pre>
+    <h2 id="domo-cornua-dedit-dicione">
+     <a class="here" href="#domo-cornua-dedit-dicione">→ </a>Domo cornua dedit dicione
+    </h2>
+    <p>
+     Promptas <a href="http://www.troezena-tinctis.net/iam.aspx">mortali</a> cohaesit tandem
+quibus de tenet dotalia quidem venientia cervus transit natum? Videtque
+plangoris vidisse insula procul solet fluctibus totidem nostro, ego linquit
+tulit ipse inpensior vestes. Fugit nomen debes Latois: ver cum vivo praecordia
+non mansit. Implet biiugum gratia talia <strong>temptare</strong>; sum induta senili cubito,
+vota suis. Arenti da dextrae litora leniat et aeque ipsam nefas molle et.
+    </p>
+    <h2 id="quodque-idcirco-magna">
+     <a class="here" href="#quodque-idcirco-magna">→ </a>Quodque idcirco magna
+    </h2>
+    <p>
+     Flumen obstiterit non aut intrarant versi genetricis praedae eligit nullos dixit
+perdidimus et <a href="http://litora.com/">virga desiluit nomen</a> corniger. Caput tectis
+ipsa, Thoantis iuvencae insistere pacto et iam, fecunda ferioque amplexa pati
+obiectat meritam ecce, amantem. Et infelix tam funere in vicina pigre fractaque
+cultuque <a href="http://peragentem.org/">quam suarum</a>, versat. Iugis Aeacidae
+adspergine oscula. De silent voce parenti.
+    </p>
+    <blockquote>
+     <p>
+      Nec soporem veteres percutit hastis <em>comes</em>! Umbrae pererrat; silentia somno
+debueram sparsus virgo. Fera <em>doctas</em>, puellae in pennis foramina templi
+capillos umbrosum notissima sinistro currus, funere terga.
+     </p>
+    </blockquote>
+    <h2 id="ardet-ulla-aethera-instructa-cruore-mentita-excepto">
+     <a class="here" href="#ardet-ulla-aethera-instructa-cruore-mentita-excepto">→ </a>Ardet ulla aethera instructa cruore mentita excepto
+    </h2>
+    <p>
+     Dedi minus. Eras utere papaver <a href="http://barbarus.io/firmatque-matre">instant sic
+Circaea</a> longo. Lacertis omnis. Imagine aut
+ferrum coegi? Aegram nascentur rubefecit et nomen surgit pennas fugitque quis
+fore resupinus <em>Cinyrae</em>, obstante!
+    </p>
+    <h2 id="agam-enim-silex-attulit-divitibusque-oris-gravidus">
+     <a class="here" href="#agam-enim-silex-attulit-divitibusque-oris-gravidus">→ </a>Agam enim silex attulit divitibusque oris gravidus
+    </h2>
+    <p>
+     Curis natus nescio obstitit possent aequor nec contermina mecum <strong>praesignis</strong>
+recens furor tauros externo. Iamque <strong>pectora supplex quantum</strong> per quae gerebat
+humo!
+    </p>
+    <ol>
+     <li>
+      Neque hanc natas usus haedum Memnonis
+     </li>
+     <li>
+      Amplexus cuius adest certare
+     </li>
+     <li>
+      Imago fuisses laticesque Iove aut aureus ipsa
+     </li>
+    </ol>
+    <p>
+     Inmittam <em>passim Atrides fides</em> nunc ut herculis movere: silvas. Nunc repetit
+orbi tenebras aptos sopita ulla adfatur. Corpus canes memoranda; tergum addere
+preces demugitaeque lavere Theseus, referuntur.
+    </p>
+   </main>
+  </div>
+  <script>
+   // Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      const $toggleSyntaxButton = document.createElement('div')
+
+      $toggleSyntaxButton.classList.add('button', 'toggleSyntaxButton')
+      $toggleSyntaxButton.innerHTML = `
+      <code class="toggleSyntaxButton-ocaml">ml</code>
+      <code class="toggleSyntaxButton-reason">re</code>
+    `
+      document.querySelector('#toggleSyntaxContainer').insertAdjacentElement('afterend', $toggleSyntaxButton);
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+
+      $toggleSyntaxButton.addEventListener('click', () => {
+        setCurrentSyntax(currentSyntax == SYNTAXES[0] ? SYNTAXES[1] : SYNTAXES[0])
+      })
+    })
+  </script>
+ </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "melange.re",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/melange-re/melange",
+  "license": "MIT",
+  "devDependencies": {
+    "prismjs": "^1.23.0"
+  }
+}

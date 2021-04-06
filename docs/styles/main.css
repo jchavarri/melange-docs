@@ -1,0 +1,27 @@
+/* Navigation */
+div.chapters-navigation
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button.toggleSyntaxButton {
+  cursor:pointer;
+}
+.toggleSyntaxButton code {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  color:none;
+}
+.syntax__ocaml .toggleSyntaxButton-ocaml,
+.syntax__reason .toggleSyntaxButton-reason {
+  text-decoration: underline;
+}
+.syntax__ocaml .language-reason,
+.syntax__reason .language-ocaml {
+  display:none
+}
+ 

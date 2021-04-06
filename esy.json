@@ -1,0 +1,12 @@
+{
+  "name": "melange-project",
+  "dependencies": {
+    "@opam/ocaml-lsp-server": "*",
+    "@opam/omd": "2.0.0~alpha1",
+    "@opam/reason": "3.7.0",
+    "@opam/soupault": "2.5.0",
+    "melange": "melange-re/melange",
+    "ocaml": "4.12.x"
+  },
+  "installConfig": { "pnp": false }
+}

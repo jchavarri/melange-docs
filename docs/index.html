@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Melange.re — OCaml From the Ground Up
+  </title>
+  <link rel="stylesheet" href="/styles/typesettings.css">
+  <link rel="stylesheet" href="/styles/prism.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <a href="#content">
+    Skip to content
+  </a>
+  <div data-typesettings="golden">
+   <nav>
+    <ul>
+     <li>
+      <h1>
+       <a href="/">
+              Melange.re
+            </a>
+      </h1>
+     </li>
+     <li>
+      <ul class="chapters-navigation"></ul>
+     </li>
+     <li>
+      <ul>
+       <li id="toggleSyntaxContainer"></li>
+       <li>
+        <a href="https://github.com/melange-re/melange" aria-label="Code repository" target="_blank" rel="noopener noreferrer">Github</a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </nav>
+   <main id="content">
+    <header>
+     <h1 role="presentation">
+      🍹 Melange
+     </h1>
+     <h2>
+      A mixture of 🔧 tooling combined to produce JavaScript from 🐫 OCaml &amp; Reason.
+     </h2>
+     <p>
+      This project is a fork of the <a href="https://github.com/rescript-lang/rescript-compiler/" target="_blank" rel="noopener noreferrer">ReScript compiler</a> with a focus on compatibility with the wider OCaml ecosystem. A
+    small write-up with more details on the motivation behind this project can be found in <a href="https://anmonteiro.com/2021/03/on-ocaml-and-the-js-platform/" target="_blank" rel="noopener noreferrer">
+      this blog post</a>.
+     </p>
+    </header>
+    <section aria-labelledby="features">
+     <h3 id="features">
+      Features
+     </h3>
+     <ul data-comfortable="">
+      <li>
+       Write your code in any syntax: ReScript, OCaml or Reason
+      </li>
+      <li>
+       Use any existing ReScript or OCaml libraries and tools without hassle
+      </li>
+      <li>
+       Compile using the latest version of the OCaml compiler
+      </li>
+      <li>
+       Write your code once, share between native and browser apps using Dune virtual libraries
+      </li>
+     </ul>
+    </section>
+    <section aria-labelledby="basic-usage">
+     <h3 id="basic-usage">
+      Getting started
+     </h3>
+     <ol data-comfortable="">
+      <li>
+       <p>
+        You will need <a href="https://esy.sh" target="_blank" rel="noopener noreferrer">esy</a> package manager to
+        obtain OCaml and Melange sources.
+        See <code>esy</code> installation instructions <a href="https://esy.sh/docs/en/getting-started.html#install-esy" target="_blank" rel="noopener noreferrer">here</a>.
+       </p>
+      </li>
+      <li>
+       <p>
+        Clone the basic template: <a href="https://github.com/melange-re/melange" target="_blank" rel="noopener noreferrer">https://github.com/melange-re/melange</a>
+       </p>
+      </li>
+      <li>
+       <p>
+        Run <code>esy</code> from the command line to install all dependencies.
+       </p>
+      </li>
+      <li>
+       <p>
+        Run <code>esy x node _build/default/src/Main.bs.js</code> to see the result of the script running.
+       </p>
+      </li>
+     </ol>
+    </section>
+    <section aria-labelledby="learn-more">
+     <h3 id="learn-more">
+      Learn more
+     </h3>
+     <ol class="plain" id="pages-index">
+      <li>
+       <a href="/intro/">Intro</a>
+      </li>
+      <li>
+       <a href="/package-managers/">Package managers</a>
+      </li>
+      <li>
+       <a href="/dune/">Dune</a>
+      </li>
+     </ol>
+    </section>
+   </main>
+  </div>
+  <script>
+   // Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      const $toggleSyntaxButton = document.createElement('div')
+
+      $toggleSyntaxButton.classList.add('button', 'toggleSyntaxButton')
+      $toggleSyntaxButton.innerHTML = `
+      <code class="toggleSyntaxButton-ocaml">ml</code>
+      <code class="toggleSyntaxButton-reason">re</code>
+    `
+      document.querySelector('#toggleSyntaxContainer').insertAdjacentElement('afterend', $toggleSyntaxButton);
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+
+      $toggleSyntaxButton.addEventListener('click', () => {
+        setCurrentSyntax(currentSyntax == SYNTAXES[0] ? SYNTAXES[1] : SYNTAXES[0])
+      })
+    })
+  </script>
+ </body>
+</html>

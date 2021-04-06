@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Melange.re — OCaml From the Ground Up
+  </title>
+  <link rel="stylesheet" href="/styles/typesettings.css">
+  <link rel="stylesheet" href="/styles/prism.css">
+  <link rel="stylesheet" href="/styles/main.css">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <a href="#content">
+    Skip to content
+  </a>
+  <div data-typesettings="golden">
+   <nav>
+    <ul>
+     <li>
+      <h1 id="melange-re">
+       <a href="/">
+              Melange.re
+            </a>
+      </h1>
+     </li>
+     <li>
+      <ul class="chapters-navigation">
+       <li>
+        <a href="/package-managers">Previous</a>
+       </li>
+       <li>
+        <a href="/">Top</a>
+       </li>
+       <li>
+        <a href="/">Next</a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <ul>
+       <li id="toggleSyntaxContainer"></li>
+       <li>
+        <a href="https://github.com/melange-re/melange" aria-label="Code repository" target="_blank" rel="noopener noreferrer">Github</a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </nav>
+   <main id="content">
+    <h1 id="dune">
+     Dune
+    </h1>
+    <ol class="toc"></ol>
+    <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token keyword">rec</span> sort <span class="token operator">=</span> <span class="token keyword">function</span>
+  <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">-&gt;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token operator">|</span> x <span class="token punctuation">:</span><span class="token punctuation">:</span> l <span class="token operator">-&gt;</span> insert x <span class="token punctuation">(</span>sort l<span class="token punctuation">)</span>
+<span class="token operator">and</span> insert elem <span class="token operator">=</span> <span class="token keyword">function</span>
+  <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">-&gt;</span> <span class="token punctuation">[</span>elem<span class="token punctuation">]</span>
+  <span class="token operator">|</span> x <span class="token punctuation">:</span><span class="token punctuation">:</span> l <span class="token operator">-&gt;</span> <span class="token keyword">if</span> elem <span class="token operator">&lt;</span> x <span class="token keyword">then</span> elem <span class="token punctuation">:</span><span class="token punctuation">:</span> x <span class="token punctuation">:</span><span class="token punctuation">:</span> l
+<span class="token keyword">else</span> x <span class="token punctuation">:</span><span class="token punctuation">:</span> insert elem l
+</code><code class="language-reason"><span class="token keyword">let</span> <span class="token keyword">rec</span> sort <span class="token operator">=</span>
+  <span class="token keyword">fun</span>
+  <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token operator">|</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>l<span class="token punctuation">]</span> <span class="token operator">=&gt;</span> insert<span class="token punctuation">(</span>x<span class="token punctuation">,</span> sort<span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">and</span> insert <span class="token operator">=</span> elem <span class="token operator">=&gt;</span>
+  <span class="token keyword">fun</span>
+  <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>elem<span class="token punctuation">]</span>
+  <span class="token operator">|</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>l<span class="token punctuation">]</span> <span class="token operator">=&gt;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>elem <span class="token operator">&lt;</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>elem<span class="token punctuation">,</span> x<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>insert<span class="token punctuation">(</span>elem<span class="token punctuation">,</span> l<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code>
+</pre>
+   </main>
+  </div>
+  <script>
+   // Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      const $toggleSyntaxButton = document.createElement('div')
+
+      $toggleSyntaxButton.classList.add('button', 'toggleSyntaxButton')
+      $toggleSyntaxButton.innerHTML = `
+      <code class="toggleSyntaxButton-ocaml">ml</code>
+      <code class="toggleSyntaxButton-reason">re</code>
+    `
+      document.querySelector('#toggleSyntaxContainer').insertAdjacentElement('afterend', $toggleSyntaxButton);
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+
+      $toggleSyntaxButton.addEventListener('click', () => {
+        setCurrentSyntax(currentSyntax == SYNTAXES[0] ? SYNTAXES[1] : SYNTAXES[0])
+      })
+    })
+  </script>
+ </body>
+</html>
