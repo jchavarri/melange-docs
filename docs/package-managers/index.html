@@ -43,7 +43,6 @@
      </li>
      <li>
       <ul>
-       <li id="toggleSyntaxContainer"></li>
        <li>
         <a href="https://github.com/melange-re/melange" aria-label="Code repository" target="_blank" rel="noopener noreferrer">Github</a>
        </li>
@@ -78,34 +77,21 @@
    </main>
   </div>
   <script>
-   // Toggle syntax button
-    document.addEventListener('DOMContentLoaded', () => {
-      const SYNTAXES = ['reason', 'ocaml']
-      const CLASS_PREFIX = 'syntax__'
-      const $toggleSyntaxButton = document.createElement('div')
-
-      $toggleSyntaxButton.classList.add('button', 'toggleSyntaxButton')
-      $toggleSyntaxButton.innerHTML = `
-      <code class="toggleSyntaxButton-ocaml">ml</code>
-      <code class="toggleSyntaxButton-reason">re</code>
-    `
-      document.querySelector('#toggleSyntaxContainer').insertAdjacentElement('afterend', $toggleSyntaxButton);
-
-      let currentSyntax
-      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
-        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
-        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
-
-        currentSyntax = syntax
-        localStorage.setItem('syntax', currentSyntax)
+   function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function(tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
       }
-
-      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
-
-      $toggleSyntaxButton.addEventListener('click', () => {
-        setCurrentSyntax(currentSyntax == SYNTAXES[0] ? SYNTAXES[1] : SYNTAXES[0])
-      })
-    })
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) {element.click();});
   </script>
  </body>
 </html>
