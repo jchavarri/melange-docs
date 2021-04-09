@@ -53,7 +53,7 @@ The rebranding is trying to ease onboarding and adoption of the ReScript languag
 
 ### Melange: back to OCaml
 
-This is the point where Melange makes it appearance. A few weeks after The Rebranding, António Monteiro starts working on a fork of BuckleScript with a simple (not easy) goal: replace the [Ninja build system](https://ninja-build.org/), which BuckleScript had been using from its creation, with [Dune](https://dune.build/), which is the most used build system for OCaml projects.
+This is the point where Melange makes its appearance. A few weeks after The Rebranding, António Monteiro starts working on a fork of BuckleScript with a simple (not easy) goal: replace the [Ninja build system](https://ninja-build.org/), which BuckleScript had been using from its creation, with [Dune](https://dune.build/), which is the most used build system for OCaml projects.
 
 This fork of BuckleScript is later named Melange. After finishing the switch from Ninja to Dune, another number of additional features get added, to bring it closer to OCaml. Some examples are the upgrade of the compiler version used by Melange to 4.12, or modelling the changes to the OCaml compiler that Melange uses as just a plain library, instead of a full fork of the whole compiler.
 

@@ -176,7 +176,7 @@ let default = "Arwen"
 
 ## Identity External
 
-Final escape hatch converter. Do not abuse.
+Final escape hatch converter. Use with care as it converts any type to any other type, bypassing any type checking. Effectively the same as OCaml `Obj.magic`.
 
 ```ocaml
 external myShadyConversion : foo -> bar = "%identity"
