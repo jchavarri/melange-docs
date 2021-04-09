@@ -1,11 +1,8 @@
 name: Build
 on:
   push:
-    branches:    
-      - '*'         # matches every branch that doesn't contain a '/'
-      - '*/*'       # matches every branch containing a single '/'
-      - '**'        # matches every branch
-      - '!master'   # excludes master
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,3 +31,9 @@ jobs:
 
       - name: Build site
         run: make all
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
