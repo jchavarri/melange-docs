@@ -9,7 +9,6 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v2
-        if: ${{ matrix.system != 'macos-arm64' }}
         with:
           node-version: 14
 
@@ -20,6 +19,9 @@ jobs:
         uses: esy/github-action@master
         with:
           cache-key: ${{ hashFiles('esy.lock/index.json') }}
+
+      - name: Generate site index first
+        run: make gen_index
 
       - name: Build site
         run: make all
