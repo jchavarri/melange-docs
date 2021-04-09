@@ -82,7 +82,7 @@
      <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link active">Intro</a>
     </li>
     <li class="nav-list-item">
-     <a href="https://jchavarri.github.io/melange-docs/package-managers" class="nav-list-link">Package managers</a>
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
     </li>
     <li class="nav-list-item">
      <a href="#" class="nav-list-expander">
@@ -142,155 +142,121 @@
   </h1>
   <ol class="toc">
    <li>
-    <a href="#a-bit-of-history">A bit of history</a>
-   </li>
-   <li>
     <a href="#melange-features-and-goals">Melange features and goals</a>
    </li>
    <li>
-    <a href="#quam-quam">Quam quam</a>
+    <a href="#a-bit-of-history">A bit of history</a>
    </li>
-   <li>
-    <a href="#domo-cornua-dedit-dicione">Domo cornua dedit dicione</a>
-   </li>
-   <li>
-    <a href="#quodque-idcirco-magna">Quodque idcirco magna</a>
-   </li>
-   <li>
-    <a href="#ardet-ulla-aethera-instructa-cruore-mentita-excepto">Ardet ulla aethera instructa cruore mentita excepto</a>
-   </li>
-   <li>
-    <a href="#agam-enim-silex-attulit-divitibusque-oris-gravidus">Agam enim silex attulit divitibusque oris gravidus</a>
-   </li>
+   <ol class="toc">
+    <li>
+     <a href="#js-of-ocaml">Js_of_ocaml</a>
+    </li>
+    <li>
+     <a href="#bucklescript">BuckleScript</a>
+    </li>
+    <li>
+     <a href="#reason">Reason</a>
+    </li>
+    <li>
+     <a href="#the-rebranding">The Rebranding</a>
+    </li>
+    <li>
+     <a href="#melange--back-to-ocaml">Melange: back to OCaml</a>
+    </li>
+   </ol>
   </ol>
   <p>
    Melange is a fork of the ReScript compiler with emphasis on staying as much compatible as possible with the OCaml ecosystem.
-  </p>
-  <h2 id="a-bit-of-history">
-   <a class="here" href="#a-bit-of-history">→ </a>A bit of history
-  </h2>
-  <p>
-   js_of_ocaml
-  </p>
-  <p>
-   bucklescript with ocaml syntax
-  </p>
-  <p>
-   reason
-  </p>
-  <p>
-   rescript
   </p>
   <h2 id="melange-features-and-goals">
    <a class="here" href="#melange-features-and-goals">→ </a>Melange features and goals
   </h2>
   <p>
-   OCaml compatibility
+   The primary goal of Melange is to improve compatibility with the OCaml ecosystem.
   </p>
   <p>
-   Dune
+   The secondary goal is to remain compatible with existing ReScript open source libraries. But as any other fork, it is hard to know for how long, or how much this compatibility will be maintained over time.
   </p>
   <p>
-   Ecosystem (ppxs)
+   These goals lead to a series of features, that make Melange easy to use if you are already familiar with OCaml:
   </p>
-  <p>
-   Tooling
-  </p>
-  <p>
-   Shared code
-  </p>
-  <h2 id="quam-quam">
-   <a class="here" href="#quam-quam">→ </a>Quam quam
-  </h2>
-  <p>
-   Lorem markdownum adicit simul requiro ortus. Illa ipse fortis mihique, cautus,
-ego Amphrysi. Comas quod sum? Est errore verba Aesonis iacebat Typhoea flectitur
-est Solem; ut potuit futuri Paraetonium.
-  </p>
-  <div class="tab">
-   <button class="button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
-  </div>
-  <pre><code class="language-ocaml"><span class="token keyword">external</span> map <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"map"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
-<span class="token keyword">external</span> filter <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"filter"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
-
-<span class="token keyword">type</span> request
-<span class="token keyword">external</span> asyncRequest<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> request <span class="token operator">=</span> <span class="token string">"asyncRequest"</span>
-<span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> request <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
-<span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
-</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> map<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"map"</span><span class="token punctuation">;</span>
-<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> filter<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"filter"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">type</span> request<span class="token punctuation">;</span>
-<span class="token keyword">external</span> asyncRequest<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"asyncRequest"</span><span class="token punctuation">;</span>
-<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
-<span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span><span class="token punctuation">;</span>
-<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span><span class="token punctuation">;</span>
-</code>
-<code class="output-language-javascript">// Generated by Melange
-/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
-</code>
-</pre>
-  <h2 id="domo-cornua-dedit-dicione">
-   <a class="here" href="#domo-cornua-dedit-dicione">→ </a>Domo cornua dedit dicione
-  </h2>
-  <p>
-   Promptas <a href="http://www.troezena-tinctis.net/iam.aspx">mortali</a> cohaesit tandem
-quibus de tenet dotalia quidem venientia cervus transit natum? Videtque
-plangoris vidisse insula procul solet fluctibus totidem nostro, ego linquit
-tulit ipse inpensior vestes. Fugit nomen debes Latois: ver cum vivo praecordia
-non mansit. Implet biiugum gratia talia <strong>temptare</strong>; sum induta senili cubito,
-vota suis. Arenti da dextrae litora leniat et aeque ipsam nefas molle et.
-  </p>
-  <h2 id="quodque-idcirco-magna">
-   <a class="here" href="#quodque-idcirco-magna">→ </a>Quodque idcirco magna
-  </h2>
-  <p>
-   Flumen obstiterit non aut intrarant versi genetricis praedae eligit nullos dixit
-perdidimus et <a href="http://litora.com/">virga desiluit nomen</a> corniger. Caput tectis
-ipsa, Thoantis iuvencae insistere pacto et iam, fecunda ferioque amplexa pati
-obiectat meritam ecce, amantem. Et infelix tam funere in vicina pigre fractaque
-cultuque <a href="http://peragentem.org/">quam suarum</a>, versat. Iugis Aeacidae
-adspergine oscula. De silent voce parenti.
-  </p>
-  <blockquote>
-   <p>
-    Nec soporem veteres percutit hastis <em>comes</em>! Umbrae pererrat; silentia somno
-debueram sparsus virgo. Fera <em>doctas</em>, puellae in pennis foramina templi
-capillos umbrosum notissima sinistro currus, funere terga.
-   </p>
-  </blockquote>
-  <h2 id="ardet-ulla-aethera-instructa-cruore-mentita-excepto">
-   <a class="here" href="#ardet-ulla-aethera-instructa-cruore-mentita-excepto">→ </a>Ardet ulla aethera instructa cruore mentita excepto
-  </h2>
-  <p>
-   Dedi minus. Eras utere papaver <a href="http://barbarus.io/firmatque-matre">instant sic
-Circaea</a> longo. Lacertis omnis. Imagine aut
-ferrum coegi? Aegram nascentur rubefecit et nomen surgit pennas fugitque quis
-fore resupinus <em>Cinyrae</em>, obstante!
-  </p>
-  <h2 id="agam-enim-silex-attulit-divitibusque-oris-gravidus">
-   <a class="here" href="#agam-enim-silex-attulit-divitibusque-oris-gravidus">→ </a>Agam enim silex attulit divitibusque oris gravidus
-  </h2>
-  <p>
-   Curis natus nescio obstitit possent aequor nec contermina mecum <strong>praesignis</strong>
-recens furor tauros externo. Iamque <strong>pectora supplex quantum</strong> per quae gerebat
-humo!
-  </p>
-  <ol>
+  <ul>
    <li>
-    Neque hanc natas usus haedum Memnonis
+    Updated with new OCaml compiler versions
    </li>
    <li>
-    Amplexus cuius adest certare
+    Build Melange projects with Dune
    </li>
    <li>
-    Imago fuisses laticesque Iove aut aureus ipsa
+    Use the latest improvements in tooling, for example <a href="https://github.com/ocaml-ppx/ppxlib">ppxlib</a>
    </li>
-  </ol>
+   <li>
+    Leverage OCaml editor integration plugins and tooling
+   </li>
+   <li>
+    Remove build complexity from projects include native and JavaScript code written in OCaml (virtual libraries, shared <code>dune</code> configurations, ...)
+   </li>
+  </ul>
+  <h2 id="a-bit-of-history">
+   <a class="here" href="#a-bit-of-history">→ </a>A bit of history
+  </h2>
   <p>
-   Inmittam <em>passim Atrides fides</em> nunc ut herculis movere: silvas. Nunc repetit
-orbi tenebras aptos sopita ulla adfatur. Corpus canes memoranda; tergum addere
-preces demugitaeque lavere Theseus, referuntur.
+   To understand better where Melange is coming from, it might help to go through some of the related projects that have appeared over the last decade or so.
+  </p>
+  <h3 id="js-of-ocaml">
+   <a class="here" href="#js-of-ocaml">→ </a>Js_of_ocaml
+  </h3>
+  <p>
+   <a href="https://github.com/ocsigen/js_of_ocaml/">Js_of_ocaml</a> is a project that was made public in 2011. In <a href="https://www.irif.fr/~balat/publications/vouillon_balat-Js_of_ocaml.pdf">the companion paper from 2013</a>,
+it's explicitly mentioned that one of its design goals was to remain as compatible as possible with
+the OCaml compiler, without requiring a lot of maintenance work, as at the time the OCaml community was not excesively large.
+  </p>
+  <p>
+   To achieve this goal, Js_of_ocaml picks the bytecode generated by OCaml <a href="https://ocaml.org/manual/comp.html">batch compilation</a> and generates JavaScript from it.
+OCaml bytecode has a very stable interface, so Js_of_ocaml can easily upgrade to new versions of the compiler. Due to this design decision, it can also remain compatible with most of the
+OCaml ecosystem, as long as the tools or libraries don't rely on C code.
+  </p>
+  <p>
+   The downside of using bytecode is that it gets harder to communicate with existing JavaScript code. For example, a Js_of_ocaml string is not compiled as a JavaScript string, so some conversion is needed for this and other types.
+  </p>
+  <p>
+   Another downside is that the resulting JavaScript is hard to read, as it is converted from a low-level representation like bytecode.
+  </p>
+  <h3 id="bucklescript">
+   <a class="here" href="#bucklescript">→ </a>BuckleScript
+  </h3>
+  <p>
+   Then, in 2016, Bob Zhang suggests <a href="https://github.com/ocsigen/js_of_ocaml/issues/338">on a Js_of_ocaml repository issue</a> the possibility to start converting to JavaScript from an earlier stage of the compilation process, instead of using bytecode. This proposal fundamentally diverges from Js_of_ocaml original design and goals, so he starts working on what will become BuckleScript.
+  </p>
+  <p>
+   BuckleScript gets some inspiration from Js_of_ocaml, for example in the way that JavaScript objects are represented with <code>Js.t</code>. But it differs from Js_of_ocaml in many ways: it can generate more readable and lighter code. It also generates one <code>.js</code> file per module, which makes it easier to integrate with existing JavaScript codebases. BuckleScript puts a big emphasis on interop with JavaScript code through a rich collection of attributes applied to <code>external</code> primitives.
+  </p>
+  <h3 id="reason">
+   <a class="here" href="#reason">→ </a>Reason
+  </h3>
+  <p>
+   Around the same year, a project called <a href="https://reasonml.github.io/">Reason</a> appears at Facebook. Led by Jordan Walke, the idea is to create an alternate syntax for OCaml that is closer to C and JavaScript. Even if Reason has no take on which platform the code is deployed —native applications binaries, or web applications using JavaScript as a target language—, BuckleScript adds first class support for Reason from early on. At that point, it becomes evident that the combination of Reason with BuckleScript is a great match: BuckleScript provides tools and infrastructure to work with JavaScript ecosystem, while Reason allows developers to write their programs in a syntax they are familiar with.
+  </p>
+  <p>
+   Over time, and with help of other Facebook employees and the community providing bindings to pervasive JavaScript libraries like React.js with <a href="https://github.com/reasonml/reason-react/"><code>reason-react</code></a>, the combination of Reason and BuckleScript gains adoption.
+  </p>
+  <h3 id="the-rebranding">
+   <a class="here" href="#the-rebranding">→ </a>The Rebranding
+  </h3>
+  <p>
+   However, at some point the goals of both BuckleScript and Reason projects become harder to reconcile. In August 2020, BuckleScript team decides to rename to ReScript, stops adding support for the latest versions of the Reason parser, and replaces it with a new parser with some changes in syntax. The reasons for the rebranding are explained in <a href="https://rescript-lang.org/blog/bucklescript-is-rebranding">the official ReScript blog post</a>.
+  </p>
+  <p>
+   The rebranding is trying to ease onboarding and adoption of the ReScript language, which will give the project more chances to compete with mainstream compiled-to-JavaScript languages like TypeScript. However, for many existing users of BuckleScript and Reason, it is the explicit confirmation of something that had been hinted implicitly before: ReScript goals are not compatible with providing a good integration with the OCaml ecosystem.
+  </p>
+  <h3 id="melange--back-to-ocaml">
+   <a class="here" href="#melange--back-to-ocaml">→ </a>Melange: back to OCaml
+  </h3>
+  <p>
+   This is the point where Melange makes it appearance. A few weeks after The Rebranding, António Monteiro starts working on a fork of BuckleScript with a simple (not easy) goal: replace the <a href="https://ninja-build.org/">Ninja build system</a>, which BuckleScript had been using from its creation, with <a href="https://dune.build/">Dune</a>, which is the most used build system for OCaml projects.
+  </p>
+  <p>
+   This fork of BuckleScript is later named Melange. After finishing the switch from Ninja to Dune, another number of additional features get added, to bring it closer to OCaml. Some examples are the upgrade of the compiler version used by Melange to 4.12, or modelling the changes to the OCaml compiler that Melange uses as just a plain library, instead of a full fork of the whole compiler.
   </p>
  </div>
 </div>
