@@ -15,11 +15,14 @@ jobs:
       - name: Install esy
         run: npm install -g esy
 
-      - name: Cache esy artifacts
+      - name: Install OCaml dependencies
         uses: esy/github-action@master
         with:
           cache-key: ${{ hashFiles('esy.lock/index.json') }}
 
+      - name: Install JavaScript dependencies
+        run: yarn 
+        
       - name: Generate site index first
         run: make gen_index
 
