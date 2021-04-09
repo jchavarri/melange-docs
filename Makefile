@@ -13,6 +13,10 @@ assets:
 .PHONY: all
 all: site assets
 
+.PHONY: gen_index
+gen_index:
+	esy x soupault --index-only
+
 .PHONY: clean
 clean:
 	rm -rf docs/*
