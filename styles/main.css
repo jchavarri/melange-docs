@@ -1,0 +1,38 @@
+/* Navigation */
+div.chapters-navigation
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style the tab */
+.tab {
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: transparent;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  text-decoration: underline;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  text-decoration: underline;
+}
+
+/* Style the tab content */
+.language-ocaml, .language-reason, .output-language-javascript {
+  display: none;
+}
+ 
