@@ -7,12 +7,19 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
+      - name: Setup node
+        uses: actions/setup-node@v2
+        if: ${{ matrix.system != 'macos-arm64' }}
+        with:
+          node-version: 14
+
       - name: Install esy
         run: npm install -g esy
 
-      - uses: esy/github-action@master
+      - name: Cache esy artifacts
+        uses: esy/github-action@master
         with:
           cache-key: ${{ hashFiles('esy.lock/index.json') }}
 
-      - name: Run tests.
+      - name: Build site
         run: make all
