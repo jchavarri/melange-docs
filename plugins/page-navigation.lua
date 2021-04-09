@@ -11,7 +11,6 @@ current_chapter = 0
 -- If the page file name matches the chapter id, we are there.
 while (n <= count) do
   if Regex.match(page_file, "/" .. chapters[n]["id"]) then
-    Log.warning(chapters[n]["id"])
     current_chapter = n
 
     -- No break in Lua-ML, need to fix that...

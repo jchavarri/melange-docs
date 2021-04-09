@@ -15,5 +15,5 @@ This is the documentation site for the [Melange](https://github.com/melange-re/m
 This project uses:
 - [soupault](https://soupault.app) as static site generator
 - [omd](https://github.com/ocaml/omd) extensible markup library in pure OCaml
-- [typesettings.css](https://mikemai.net/typesettings/index.html) a minimal style template
+- [Just the docs](https://pmarsceill.github.io/just-the-docs/) a Jekyll theme for documentation sites, adapted for Soupault.
 - [prism.js](https://prismjs.com/) to highlight syntax (at build time, through Node.js script)

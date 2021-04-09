@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   <meta http-equiv="cleartype" content="on">
   <title>
-   Package managers — Melange.re
+   One — Melange.re
   </title>
-  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/justthedocs.css">
+  <link rel="stylesheet" href="/styles/prism.css">
+  <link rel="stylesheet" href="/styles/main.css">
   <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
  </head>
  <body>
@@ -64,7 +64,7 @@
   </svg>
   <div class="side-bar">
    <div class="site-header">
-    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+    <a href="https://github.com/melange-re/melange" class="site-title lh-tight">
         Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
     <svg viewbox="0 0 24 24" class="icon">
      
@@ -79,93 +79,57 @@
   <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
    <ul class="nav-list">
     <li class="nav-list-item">
-     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
-    </li>
-    <li class="nav-list-item active">
-     <a href="https://jchavarri.github.io/melange-docs/package-managers" class="nav-list-link active">Package managers</a>
+     <a href="/intro" class="nav-list-link">Intro</a>
     </li>
     <li class="nav-list-item">
+     <a href="/package-managers" class="nav-list-link">Package managers</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="/dune" class="nav-list-link">Dune</a>
+    </li>
+    <li class="nav-list-item active">
      <a href="#" class="nav-list-expander">
      <svg viewbox="0 0 24 24">
       <use href="#svg-arrow-right"></use>
      </svg>
     </a>
-    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <a href="/components" class="nav-list-link">Components</a>
     <ul class="nav-list ">
+     <li class="nav-list-item active">
+      <a href="/components/one" class="nav-list-link active">One</a>
+     </li>
      <li class="nav-list-item">
-      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+      <a href="/components/two" class="nav-list-link">Two</a>
      </li>
     </ul>
-   </li>
-   <li class="nav-list-item">
-    <a href="#" class="nav-list-expander">
-    <svg viewbox="0 0 24 24">
-     <use href="#svg-arrow-right"></use>
-    </svg>
-   </a>
-   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
-   <ul class="nav-list ">
-    <li class="nav-list-item">
-     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
-    </li>
-    <li class="nav-list-item">
-     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
-    </li>
-    <li class="nav-list-item">
-     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
-    </li>
-   </ul>
-  </li>
- </ul>
-</nav>
-<footer class="site-footer">
- This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
-      adapted for <a href="https://soupault.app">Soupault</a>.
-</footer>
-</div>
-<div class="main" id="top">
-<div id="main-header" class="main-header">
- <div class="search"></div>
- <nav aria-label="Auxiliary" class="aux-nav">
-  <ul class="aux-nav-list">
-   <li class="aux-nav-list-item">
-    <a href="https://github.com/melange-re/melange" class="site-button"> Melange on
-              GitHub </a>
    </li>
   </ul>
  </nav>
 </div>
-<div id="main-content-wrap" class="main-content-wrap">
- <div id="content" class="main-content" role="main">
-  <h1 id="package-managers" data-nav-order="2010-01-01">
-   Package managers
-  </h1>
-  <ol class="toc">
-   <li>
-    <a href="#esy">esy</a>
-   </li>
-   <li>
-    <a href="#opam">opam</a>
-   </li>
-   <li>
-    <a href="#nix">nix</a>
-   </li>
-  </ol>
-  <h2 id="esy">
-   <a class="here" href="#esy">→ </a>esy
-  </h2>
-  <h2 id="opam">
-   <a class="here" href="#opam">→ </a>opam
-  </h2>
-  <h2 id="nix">
-   <a class="here" href="#nix">→ </a>nix
-  </h2>
+<div class="main" id="top">
+ <div id="main-header" class="main-header">
+  <div class="search"></div>
+  <nav aria-label="Auxiliary" class="aux-nav">
+   <ul class="aux-nav-list">
+    <li class="aux-nav-list-item">
+     <a href="https://github.com/melange-re/melange" class="site-button"> Melange on
+              GitHub </a>
+    </li>
+   </ul>
+  </nav>
  </div>
-</div>
-<div class="search-overlay"></div>
+ <div id="main-content-wrap" class="main-content-wrap">
+  <div id="content" class="main-content" role="main">
+   <h1 id="one" data-nav-order="2040-02-01">
+    One
+   </h1>
+   <ol class="toc"></ol>
+  </div>
+ </div>
+ <div class="search-overlay"></div>
 </div>
 <script>
-function openLangTab(evt, langClassName) {
+ function openLangTab(evt, langClassName) {
       var i, tabcontent, tablinks;
       var target = evt.currentTarget;
       tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
@@ -181,6 +145,6 @@ function openLangTab(evt, langClassName) {
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>
-<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/just-the-docs.js"></script>
 </body>
 </html>

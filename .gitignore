@@ -8,3 +8,4 @@ _opam
 node_modules
 lib/melange
 .vscode/settings.json
+/index.json

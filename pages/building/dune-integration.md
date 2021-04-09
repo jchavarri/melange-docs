@@ -1,4 +1,4 @@
-# Dune
+<h1 data-nav-order="2050-02-01">Dune integration</h1>
 
 ```ocaml
 let rec sort = function

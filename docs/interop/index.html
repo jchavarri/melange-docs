@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   <meta http-equiv="cleartype" content="on">
   <title>
-   🍹 Melange — Melange.re
+   Interop — Melange.re
   </title>
   <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
   <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
@@ -84,13 +84,13 @@
     <li class="nav-list-item">
      <a href="https://jchavarri.github.io/melange-docs/package-managers" class="nav-list-link">Package managers</a>
     </li>
-    <li class="nav-list-item">
+    <li class="nav-list-item active">
      <a href="#" class="nav-list-expander">
      <svg viewbox="0 0 24 24">
       <use href="#svg-arrow-right"></use>
      </svg>
     </a>
-    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link active">Interop</a>
     <ul class="nav-list ">
      <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
@@ -137,84 +137,110 @@
 </div>
 <div id="main-content-wrap" class="main-content-wrap">
  <div id="content" class="main-content" role="main">
-  <header>
-   <h1 role="presentation">
-    🍹 Melange
-   </h1>
-   <h2>
-    A mixture of 🔧 tooling combined to produce JavaScript from 🐫 OCaml &amp; Reason.
-   </h2>
-   <hr>
-   <p>
-    This project is a fork of the <a href="https://github.com/rescript-lang/rescript-compiler/" target="_blank" rel="noopener noreferrer">ReScript compiler</a> with a focus on compatibility with the wider OCaml ecosystem. A
-    small write-up with more details on the motivation behind this project can be found in <a href="https://anmonteiro.com/2021/03/on-ocaml-and-the-js-platform/" target="_blank" rel="noopener noreferrer">
-      this blog post</a>.
-   </p>
-  </header>
-  <section aria-labelledby="features">
-   <h3 id="features">
-    Features
-   </h3>
-   <ul data-comfortable="">
-    <li>
-     Write your code in any syntax: ReScript, OCaml or Reason
-    </li>
-    <li>
-     Use any existing ReScript or OCaml libraries and tools without hassle
-    </li>
-    <li>
-     Compile using the latest version of the OCaml compiler
-    </li>
-    <li>
-     Write your code once, share between native and browser apps using Dune virtual libraries
-    </li>
-   </ul>
-  </section>
-  <section aria-labelledby="basic-usage">
-   <h3 id="basic-usage">
-    Getting started
-   </h3>
-   <ol data-comfortable="">
-    <li>
-     <p>
-      You will need <a href="https://esy.sh" target="_blank" rel="noopener noreferrer">esy</a> package manager to
-        obtain OCaml and Melange sources.
-        See <code>esy</code> installation instructions <a href="https://esy.sh/docs/en/getting-started.html#install-esy" target="_blank" rel="noopener noreferrer">here</a>.
-     </p>
-    </li>
-    <li>
-     <p>
-      Clone the basic template: <a href="https://github.com/melange-re/melange" target="_blank" rel="noopener noreferrer">https://github.com/melange-re/melange</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      Run <code>esy</code> from the command line to install all dependencies.
-     </p>
-    </li>
-    <li>
-     <p>
-      Run <code>esy x node _build/default/src/Main.bs.js</code> to see the result of the script running.
-     </p>
-    </li>
-   </ol>
-  </section>
-  <section aria-labelledby="learn-more">
-   <h3 id="learn-more">
-    Learn more
-   </h3>
-   <ol class="plain" id="pages-index">
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/intro/">Intro</a>
-    </li>
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/package-managers/">Package managers</a>
-    </li>
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/dune/">Dune</a>
-    </li>
-   </ol>
-  </section>
+  <h1 id="interop" data-nav-order="2040-01-01">
+   Interop
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#variables">Variables</a>
+   </li>
+   <li>
+    <a href="#data-structures">Data Structures</a>
+   </li>
+   <li>
+    <a href="#functions">Functions</a>
+   </li>
+   <li>
+    <a href="#module-file">Module/File</a>
+   </li>
+   <li>
+    <a href="#build-system">Build system</a>
+   </li>
+  </ol>
+  <p>
+   "Interop" (short for "interoperability"), in the context of Melange, means communicating with JavaScript.
+  </p>
+  <h2 id="variables">
+   <a class="here" href="#variables">→ </a>Variables
+  </h2>
+  <p>
+   Most variables' name compile to clean JavaScript names. <code>hello</code> compiles to <code>hello</code>. See the output below:
+  </p>
+  <div class="tab">
+   <button class="button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token string">"2"</span>
+
+<span class="token keyword">let</span> u <span class="token operator">=</span> <span class="token number">3</span>
+</code><code class="language-reason"><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> u <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+</code>
+<code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var t = "2";
+
+var u = 3;
+
+exports.t = t;
+exports.u = u;
+/* No side effect */
+</code>
+</pre>
+  <h2 id="data-structures">
+   <a class="here" href="#data-structures">→ </a>Data Structures
+  </h2>
+  <p>
+   Major data structures in Melange map over cleanly to JavaScript. For example, a Melange string is a JavaScript string. A Melange array is a JavaScript array. The following Melange code:
+  </p>
+  <div class="tab">
+   <button class="button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> <span class="token string">"world"</span><span class="token punctuation">;</span> <span class="token string">"how"</span><span class="token punctuation">;</span> <span class="token string">"are"</span><span class="token punctuation">;</span> <span class="token string">"you"</span> <span class="token operator">|</span><span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token keyword">let</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">,</span> <span class="token string">"how"</span><span class="token punctuation">,</span> <span class="token string">"are"</span><span class="token punctuation">,</span> <span class="token string">"you"</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code>
+<code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var messages = [
+  "hello",
+  "world",
+  "how",
+  "are",
+  "you"
+];
+
+exports.messages = messages;
+/* No side effect */
+</code>
+</pre>
+  <p>
+   This behavior doesn't hold for complex data structures; the dedicated sections for each offer more info.
+  </p>
+  <h2 id="functions">
+   <a class="here" href="#functions">→ </a>Functions
+  </h2>
+  <p>
+   In most cases, you can directly call a JavaScript function from Melange, and vice-versa.
+  </p>
+  <h2 id="module-file">
+   <a class="here" href="#module-file">→ </a>Module/File
+  </h2>
+  <p>
+   Every <code>let</code> declarations in a Melange file is exported by default and usable from JavaScript. For the other way around, you can declare in a Melange file what JavaScript module you want to use inside Melange. Melange can both output and consume CommonJS and ES6 modules.
+  </p>
+  <h2 id="build-system">
+   <a class="here" href="#build-system">→ </a>Build system
+  </h2>
+  <p>
+   Melange leverages Dune to build the projects, and it will generate simple rules that call <code>bsc</code> behind the scenes.
+  </p>
+  <p>
+   Each <code>.ml</code> (or <code>.re</code>) file compiles to 1 <code>.bs.js</code> file. The output files will be put out of source, into the <code>_build</code> folder, by Dune.
+  </p>
  </div>
 </div>
 <div class="search-overlay"></div>
