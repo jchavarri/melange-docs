@@ -1,4 +1,4 @@
-BUILD_DIR := docs/
+BUILD_DIR := build
 
 SOUPAULT := esy x soupault
 
@@ -19,10 +19,10 @@ gen_index:
 
 .PHONY: clean
 clean:
-	rm -rf docs/*
+	rm -rf $(BUILD_DIR)/*
 
 .PHONY: serve
 .ONESHELL: serve
 serve:
-	cd docs && python3 -m http.server
+	cd $(BUILD_DIR) && python3 -m http.server
 

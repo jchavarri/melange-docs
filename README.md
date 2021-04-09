@@ -4,11 +4,17 @@ This is the documentation site for the [Melange](https://github.com/melange-re/m
 
 ## Building
 
-`esy` to download all dependencies.
+`esy` to download OCaml dependencies.
 
-`make all` to build assets.
+`yarn` to download JavaScript dependencies.
+
+`make gen_index` to extract site index first without generating pages.
+
+`make all` to build site and copy assets to build folder.
 
 `make serve` to start local server.
+
+Then open `http://localhost:8000`.
 
 ## Tools
 
