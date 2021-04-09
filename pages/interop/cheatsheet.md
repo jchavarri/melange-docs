@@ -171,7 +171,7 @@ external studentName: string = "default" [@@bs.module "./student"]
 ### Export ES6 default
 
 ```ocaml
-let default = "Bob"
+let default = "Arwen"
 ```
 
 ## Identity External

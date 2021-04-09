@@ -37,4 +37,4 @@ Every `let` declarations in a Melange file is exported by default and usable fro
 
 Melange leverages Dune to build the projects, and it will generate simple rules that call `bsc` behind the scenes.
 
-Each `.ml` (or `.re`) file compiles to 1 `.bs.js` file. The output files will be put out of source, into the `_build` folder, by Dune.
+Each `.ml` (or `.re`) file compiles to one `.bs.js` file. The output files will be put out of source, into the `_build` folder, by Dune.
