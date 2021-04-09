@@ -18,7 +18,7 @@ assets:
 all: site assets
 
 .PHONY: all-live
-all: site-live assets
+all-live: site-live assets
 
 .PHONY: gen_index
 gen_index:
