@@ -1,11 +1,3 @@
-/* Navigation */
-div.chapters-navigation
-{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 /* Style the tab */
 .tab {
   padding-top: 10px;
