@@ -6,12 +6,19 @@ SOUPAULT := esy x soupault
 site:
 	$(SOUPAULT)
 
+.PHONY: site-live
+site-live:
+	$(SOUPAULT) --profile live
+
 .PHONY: assets
 assets:
 	cp -r assets/* $(BUILD_DIR)
 
 .PHONY: all
 all: site assets
+
+.PHONY: all-live
+all: site-live assets
 
 .PHONY: gen_index
 gen_index:

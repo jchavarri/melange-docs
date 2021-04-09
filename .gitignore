@@ -5,6 +5,7 @@ _opam
 .idea
 .DS_Store
 
+build
 node_modules
 lib/melange
 .vscode/settings.json
