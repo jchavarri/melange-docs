@@ -1,5 +1,5 @@
 {
-  "checksum": "3e48803a5d6347eebc8190e98b54c91c",
+  "checksum": "a91c52c55e76fb9ea1b671de21755030",
   "root": "melange-project@link-dev:./esy.json",
   "node": {
     "ocaml@4.12.0@d41d8cd9": {
@@ -24,8 +24,8 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.12.0@d41d8cd9",
-        "melange@github:melange-re/melange#077112fef7332670e11ede358e41b5ac1634b5b7@d41d8cd9",
-        "@opam/soupault@github:dmbaturin/soupault:soupault.opam#f4bdc0b150d34d490faf1ffaf54fa5b53914594f@d41d8cd9",
+        "melange@github:melange-re/melange#8f2149245acfa945e1df2aa1d901f3d452385ed2@d41d8cd9",
+        "@opam/soupault@github:dmbaturin/soupault:soupault.opam#281d443b215b7913ae9c5800f1a8df3a786d8a94@d41d8cd9",
         "@opam/reason@opam:3.7.0@191be014",
         "@opam/omd@opam:2.0.0~alpha1@263bcad9",
         "@opam/ocaml-lsp-server@opam:1.5.0@a7ce3ad8"
@@ -33,16 +33,16 @@
       "devDependencies": [],
       "installConfig": { "pnp": false }
     },
-    "melange@github:melange-re/melange#077112fef7332670e11ede358e41b5ac1634b5b7@d41d8cd9": {
+    "melange@github:melange-re/melange#8f2149245acfa945e1df2aa1d901f3d452385ed2@d41d8cd9": {
       "id":
-        "melange@github:melange-re/melange#077112fef7332670e11ede358e41b5ac1634b5b7@d41d8cd9",
+        "melange@github:melange-re/melange#8f2149245acfa945e1df2aa1d901f3d452385ed2@d41d8cd9",
       "name": "melange",
       "version":
-        "github:melange-re/melange#077112fef7332670e11ede358e41b5ac1634b5b7",
+        "github:melange-re/melange#8f2149245acfa945e1df2aa1d901f3d452385ed2",
       "source": {
         "type": "install",
         "source": [
-          "github:melange-re/melange#077112fef7332670e11ede358e41b5ac1634b5b7"
+          "github:melange-re/melange#8f2149245acfa945e1df2aa1d901f3d452385ed2"
         ]
       },
       "overrides": [],
@@ -296,16 +296,16 @@
         "@opam/base-bytes@opam:base@19d0c2ff"
       ]
     },
-    "@opam/soupault@github:dmbaturin/soupault:soupault.opam#f4bdc0b150d34d490faf1ffaf54fa5b53914594f@d41d8cd9": {
+    "@opam/soupault@github:dmbaturin/soupault:soupault.opam#281d443b215b7913ae9c5800f1a8df3a786d8a94@d41d8cd9": {
       "id":
-        "@opam/soupault@github:dmbaturin/soupault:soupault.opam#f4bdc0b150d34d490faf1ffaf54fa5b53914594f@d41d8cd9",
+        "@opam/soupault@github:dmbaturin/soupault:soupault.opam#281d443b215b7913ae9c5800f1a8df3a786d8a94@d41d8cd9",
       "name": "@opam/soupault",
       "version":
-        "github:dmbaturin/soupault:soupault.opam#f4bdc0b150d34d490faf1ffaf54fa5b53914594f",
+        "github:dmbaturin/soupault:soupault.opam#281d443b215b7913ae9c5800f1a8df3a786d8a94",
       "source": {
         "type": "install",
         "source": [
-          "github:dmbaturin/soupault:soupault.opam#f4bdc0b150d34d490faf1ffaf54fa5b53914594f"
+          "github:dmbaturin/soupault:soupault.opam#281d443b215b7913ae9c5800f1a8df3a786d8a94"
         ]
       },
       "overrides": [],
@@ -313,9 +313,9 @@
         "ocaml@4.12.0@d41d8cd9", "@opam/tsort@opam:2.0.0@60115e81",
         "@opam/toml@opam:7.0.0@fdc7098a", "@opam/spelll@opam:0.3@88809bb9",
         "@opam/re@opam:1.9.0@d4d5e13d", "@opam/odate@opam:0.6@2ab7c009",
-        "@opam/markup@opam:1.0.0-1@34682dd1",
+        "@opam/markup@opam:1.0.0-1@c60a65d9",
         "@opam/lua-ml@opam:0.9.2@627839a2", "@opam/logs@opam:0.7.0@1d03143e",
-        "@opam/lambdasoup@opam:0.7.2@ea1ac9bc",
+        "@opam/lambdasoup@opam:0.7.2@5ef1b40a",
         "@opam/jingoo@opam:1.4.3@b47a0787", "@opam/fmt@opam:0.8.9@e0843a5b",
         "@opam/fileutils@opam:0.6.3@67cadc89",
         "@opam/ezjsonm@opam:1.2.0@b3bd9c86",
@@ -328,9 +328,9 @@
         "ocaml@4.12.0@d41d8cd9", "@opam/tsort@opam:2.0.0@60115e81",
         "@opam/toml@opam:7.0.0@fdc7098a", "@opam/spelll@opam:0.3@88809bb9",
         "@opam/re@opam:1.9.0@d4d5e13d", "@opam/odate@opam:0.6@2ab7c009",
-        "@opam/markup@opam:1.0.0-1@34682dd1",
+        "@opam/markup@opam:1.0.0-1@c60a65d9",
         "@opam/lua-ml@opam:0.9.2@627839a2", "@opam/logs@opam:0.7.0@1d03143e",
-        "@opam/lambdasoup@opam:0.7.2@ea1ac9bc",
+        "@opam/lambdasoup@opam:0.7.2@5ef1b40a",
         "@opam/jingoo@opam:1.4.3@b47a0787", "@opam/fmt@opam:0.8.9@e0843a5b",
         "@opam/fileutils@opam:0.6.3@67cadc89",
         "@opam/ezjsonm@opam:1.2.0@b3bd9c86",
@@ -908,8 +908,8 @@
         "@opam/dune@opam:2.8.5@83fb0224"
       ]
     },
-    "@opam/markup@opam:1.0.0-1@34682dd1": {
-      "id": "@opam/markup@opam:1.0.0-1@34682dd1",
+    "@opam/markup@opam:1.0.0-1@c60a65d9": {
+      "id": "@opam/markup@opam:1.0.0-1@c60a65d9",
       "name": "@opam/markup",
       "version": "opam:1.0.0-1",
       "source": {
@@ -990,8 +990,8 @@
       ],
       "devDependencies": [ "ocaml@4.12.0@d41d8cd9" ]
     },
-    "@opam/lambdasoup@opam:0.7.2@ea1ac9bc": {
-      "id": "@opam/lambdasoup@opam:0.7.2@ea1ac9bc",
+    "@opam/lambdasoup@opam:0.7.2@5ef1b40a": {
+      "id": "@opam/lambdasoup@opam:0.7.2@5ef1b40a",
       "name": "@opam/lambdasoup",
       "version": "opam:0.7.2",
       "source": {
@@ -1008,11 +1008,11 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.12.0@d41d8cd9", "@opam/markup@opam:1.0.0-1@34682dd1",
+        "ocaml@4.12.0@d41d8cd9", "@opam/markup@opam:1.0.0-1@c60a65d9",
         "@opam/dune@opam:2.8.5@83fb0224", "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
-        "ocaml@4.12.0@d41d8cd9", "@opam/markup@opam:1.0.0-1@34682dd1",
+        "ocaml@4.12.0@d41d8cd9", "@opam/markup@opam:1.0.0-1@c60a65d9",
         "@opam/dune@opam:2.8.5@83fb0224"
       ]
     },

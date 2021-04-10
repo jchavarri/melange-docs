@@ -1,4 +1,4 @@
-<h1 data-nav-order="2000-01-01">Intro</h1>
+<h1 data-nav-order="1">Intro</h1>
 
 Melange is a fork of the ReScript compiler with emphasis on staying as much compatible as possible with the OCaml ecosystem.
 

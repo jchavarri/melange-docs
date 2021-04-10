@@ -1,4 +1,4 @@
-<h1 data-nav-order="2050-01-01">Build system</h1>
+<h1 data-nav-order="51">Build system</h1>
 
 One of the main differences between Melange and ReScript, and a relevant reason for Melange to become a separate project, is the replacement of the build system.
 

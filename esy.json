@@ -9,7 +9,7 @@
     "ocaml": "4.12.x"
   },
   "resolutions": {
-    "@opam/soupault": "dmbaturin/soupault:soupault.opam#f4bdc0b150d34d490faf1ffaf54fa5b53914594f"
+    "@opam/soupault": "dmbaturin/soupault:soupault.opam#281d443b215b7913ae9c5800f1a8df3a786d8a94"
   },
   "installConfig": { "pnp": false }
 }
