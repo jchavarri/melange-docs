@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Object — Melange.re
+  </title>
+  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <symbol id="svg-link" viewbox="0 0 24 24">
+    <title>
+     Link
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+   </symbol>
+   <symbol id="svg-search" viewbox="0 0 24 24">
+    <title>
+     Search
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+     <circle cx="11" cy="11" r="8"></circle>
+     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-menu" viewbox="0 0 24 24">
+    <title>
+     Menu
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+     <line x1="3" y1="12" x2="21" y2="12"></line>
+     <line x1="3" y1="6" x2="21" y2="6"></line>
+     <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+    <title>
+     Expand
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+     <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+   </symbol>
+   <symbol id="svg-doc" viewbox="0 0 24 24">
+    <title>
+     Document
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+     <polyline points="13 2 13 9 20 9"></polyline>
+    </svg>
+   </symbol>
+  </svg>
+  <div class="side-bar">
+   <div class="site-header">
+    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+        Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
+    <svg viewbox="0 0 24 24" class="icon">
+     
+          
+     <use href="#svg-menu"></use>
+     
+        
+    </svg>
+     
+   </a>
+  </div>
+  <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+   <ul class="nav-list">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
+    </li>
+    <li class="nav-list-item active">
+     <a href="#" class="nav-list-expander">
+     <svg viewbox="0 0 24 24">
+      <use href="#svg-arrow-right"></use>
+     </svg>
+    </a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <ul class="nav-list ">
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/embed-raw-javascript" class="nav-list-link">Embed Raw JavaScript</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/data-types" class="nav-list-link">Representation of Types</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/intro-to-external" class="nav-list-link">Intro to External</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/bind-to-global-values" class="nav-list-link">Bind to global values</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/null-undefined-option" class="nav-list-link">Null, Undefined &amp; Option</a>
+     </li>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/object" class="nav-list-link active">Object</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/class" class="nav-list-link">Class</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/function" class="nav-list-link">Function</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/regular-expression" class="nav-list-link">Regular expressions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/exceptions" class="nav-list-link">Exceptions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/json" class="nav-list-link">JSON</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/pipe-first" class="nav-list-link">Pipe first</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/misc" class="nav-list-link">Miscellaneous</a>
+     </li>
+    </ul>
+   </li>
+   <li class="nav-list-item">
+    <a href="#" class="nav-list-expander">
+    <svg viewbox="0 0 24 24">
+     <use href="#svg-arrow-right"></use>
+    </svg>
+   </a>
+   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
+   <ul class="nav-list ">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+<footer class="site-footer">
+ This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
+      adapted for <a href="https://soupault.app">Soupault</a>.
+</footer>
+</div>
+<div class="main" id="top">
+<div id="main-header" class="main-header">
+ <div class="search"></div>
+ <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+   <li class="aux-nav-list-item">
+    <a href="https://github.com/melange-re/melange" class="site-button" target="_blank" rel="noopener noreferrer"> Melange on GitHub </a>
+   </li>
+  </ul>
+ </nav>
+</div>
+<div id="main-content-wrap" class="main-content-wrap">
+ <div id="content" class="main-content" role="main">
+  <h1 id="object" data-nav-order="380">
+   Object
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#bind-to-record-like-javascript-objects">Bind to Record-like JavaScript Objects</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#bind-using-melange-record">Bind Using Melange Record</a>
+    </li>
+    <li>
+     <a href="#bind-using-a-js-t-object">Bind Using a <code>Js.t</code> Object</a>
+    </li>
+    <li>
+     <a href="#bind-using-special-getter-and-setter-attributes">Bind Using Special Getter and Setter Attributes</a>
+    </li>
+   </ol>
+   <li>
+    <a href="#bind-to-hash-map-like-js-object">Bind to Hash Map-like JS Object</a>
+   </li>
+   <li>
+    <a href="#bind-to-a-js-object-that-s-a-class">Bind to a JS Object That's a Class</a>
+   </li>
+  </ol>
+  <h1 id="bind-to-js-object">
+   Bind to JS Object
+  </h1>
+  <p>
+   JavaScript objects are a combination of several use-cases:
+  </p>
+  <ul>
+   <li>
+    As a "record" or "struct" in other languages (like OCaml and C).
+   </li>
+   <li>
+    As a hash map.
+   </li>
+   <li>
+    As a class.
+   </li>
+   <li>
+    As a module to import/export.
+   </li>
+  </ul>
+  <p>
+   Melange cleanly separates the binding methods for JS object based on these 4 use-cases. This page documents the first three. Binding to JS module objects is described in the <a href="import-from-export-to-js.md">Import from/Export to JS</a> section.
+  </p>
+  <h2 id="bind-to-record-like-javascript-objects">
+   <a class="here" href="#bind-to-record-like-javascript-objects">→ </a>Bind to Record-like JavaScript Objects
+  </h2>
+  <h3 id="bind-using-melange-record">
+   <a class="here" href="#bind-using-melange-record">→ </a>Bind Using Melange Record
+  </h3>
+  <p>
+   If your JavaScript object has fixed fields, then it's conceptually like an OCaml record. Since an OCaml record compiles to a JavaScript object, you can type a JavaScript object as an OCaml record.
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+  friends<span class="token punctuation">:</span> string array<span class="token punctuation">;</span>
+  age<span class="token punctuation">:</span> int<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">external</span> john<span class="token punctuation">:</span> person <span class="token operator">=</span> <span class="token string">"john"</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"MySchool"</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> johnName <span class="token operator">=</span> john<span class="token punctuation">.</span>name
+</code></pre>
+  <p>
+   External is documented <a href="external.md">here</a>. <code>@module</code> is documented <a href="import-from-export-to-js.md">here</a>.
+  </p>
+  <h3 id="bind-using-a-js-t-object">
+   <a class="here" href="#bind-using-a-js-t-object">→ </a>Bind Using a <code>Js.t</code> Object
+  </h3>
+  <p>
+   Alternatively, you can use <a href="https://ocaml.org/manual/objectexamples.html">OCaml object</a> to model a JavaScript object too. In particular, Melange exposes a type <code>'a Js.t</code> that will be transformed into plain JavaScript objects:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> person <span class="token operator">=</span> <span class="token operator">&lt;</span>
+  name<span class="token punctuation">:</span> string <span class="token punctuation">;</span>
+  friends<span class="token punctuation">:</span> string array<span class="token punctuation">;</span>
+  age<span class="token punctuation">:</span> int
+<span class="token operator">&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>t
+
+<span class="token keyword">external</span> john <span class="token punctuation">:</span> person <span class="token operator">=</span> <span class="token string">"john"</span> <span class="token punctuation">[</span><span class="token operator">@@</span><span class="token keyword">module</span> <span class="token string">"MySchool"</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> johnName <span class="token operator">=</span> john#<span class="token directive important">#name</span>
+</code><code class="language-reason"><span class="token keyword">type</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span>
+  <span class="token string">"name"</span><span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  <span class="token string">"friends"</span><span class="token punctuation">:</span> array<span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">"age"</span><span class="token punctuation">:</span> int<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token operator">@</span><span class="token keyword">module</span> <span class="token string">"MySchool"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> john<span class="token punctuation">:</span> person <span class="token operator">=</span> <span class="token string">"john"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> johnName <span class="token operator">=</span> john#<span class="token directive important">#name</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+var MySchool = require("MySchool");
+
+var johnName = MySchool.john.name;
+
+exports.johnName = johnName;
+/* johnName Not a pure module */
+</code></pre>
+  <p>
+   One of the main differences with records is that objects don't require a previous type declaration, so one can just inline values as needed, which is useful for prototyping.
+  </p>
+  <h3 id="bind-using-special-getter-and-setter-attributes">
+   <a class="here" href="#bind-using-special-getter-and-setter-attributes">→ </a>Bind Using Special Getter and Setter Attributes
+  </h3>
+  <p>
+   Alternatively, you can use <code>get</code> and <code>set</code> to bind to individual fields of a JS object:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> textarea
+<span class="token keyword">external</span> setName <span class="token punctuation">:</span> textarea <span class="token operator">-&gt;</span> string <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"name"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>set<span class="token punctuation">]</span>
+<span class="token keyword">external</span> getName <span class="token punctuation">:</span> textarea <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"name"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>get<span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token keyword">type</span> textarea<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>set<span class="token punctuation">]</span> <span class="token keyword">external</span> setName<span class="token punctuation">:</span> <span class="token punctuation">(</span>textarea<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>get<span class="token punctuation">]</span> <span class="token keyword">external</span> getName<span class="token punctuation">:</span> textarea <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   You can also use <code>get_index</code> and <code>set_index</code> to access a dynamic property or an index:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> t
+<span class="token keyword">external</span> create <span class="token punctuation">:</span> int <span class="token operator">-&gt;</span> t <span class="token operator">=</span> <span class="token string">"Int32Array"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> get <span class="token punctuation">:</span> t <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> int <span class="token operator">=</span> <span class="token string">""</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>get_index<span class="token punctuation">]</span>
+<span class="token keyword">external</span> set <span class="token punctuation">:</span> t <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">""</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>set_index<span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span>
+  <span class="token keyword">let</span> i32arr <span class="token operator">=</span> <span class="token punctuation">(</span>create <span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">in</span>
+  set i32arr <span class="token number">0</span> <span class="token number">42</span><span class="token punctuation">;</span>
+  <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">(</span>get i32arr <span class="token number">0</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">type</span> t<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token keyword">external</span> create<span class="token punctuation">:</span> int <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Int32Array"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>get_index<span class="token punctuation">]</span> <span class="token keyword">external</span> get<span class="token punctuation">:</span> <span class="token punctuation">(</span>t<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> int<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>set_index<span class="token punctuation">]</span> <span class="token keyword">external</span> set<span class="token punctuation">:</span> <span class="token punctuation">(</span>t<span class="token punctuation">,</span> int<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit<span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> i32arr <span class="token operator">=</span> create<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  set<span class="token punctuation">(</span>i32arr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>get<span class="token punctuation">(</span>i32arr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var i32arr = new Int32Array(3);
+
+i32arr[0] = 42;
+
+console.log(i32arr[0]);
+
+/* i32arr Not a pure module */
+</code></pre>
+  <h2 id="bind-to-hash-map-like-js-object">
+   <a class="here" href="#bind-to-hash-map-like-js-object">→ </a>Bind to Hash Map-like JS Object
+  </h2>
+  <p>
+   If your JavaScript object:
+  </p>
+  <ul>
+   <li>
+    might or might not add/remove keys
+   </li>
+   <li>
+    contains only values that are of the same type
+   </li>
+  </ul>
+  <p>
+   Then it's not really an object, it's a hash map. Use <code>Js.Dict</code>, which contains operations like <code>get</code>, <code>set</code>, etc. and cleanly compiles to a JavaScript object still.
+  </p>
+  <h2 id="bind-to-a-js-object-that-s-a-class">
+   <a class="here" href="#bind-to-a-js-object-that-s-a-class">→ </a>Bind to a JS Object That's a Class
+  </h2>
+  <p>
+   Use <code>new</code> to emulate e.g. <code>new Date()</code>:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> t
+
+<span class="token keyword">external</span> createDate <span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> t <span class="token operator">=</span> <span class="token string">"Date"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span> <span class="token punctuation">]</span>
+<span class="token keyword">let</span> date <span class="token operator">=</span> createDate <span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">type</span> t<span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token keyword">external</span> createDate<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Date"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> date <span class="token operator">=</span> createDate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var date = new Date();
+
+exports.date = date;
+/* date Not a pure module */
+</code></pre>
+  <p>
+   You can chain <code>new</code> and <code>module</code> if the JS module you're importing is itself a class:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> t<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span> <span class="token keyword">external</span> book<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Book"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myBook <span class="token operator">=</span> book<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+ </div>
+</div>
+<div class="search-overlay"></div>
+</div>
+<script>
+function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function (tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
+</script>
+<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+</body>
+</html>

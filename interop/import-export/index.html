@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Import and export — Melange.re
+  </title>
+  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <symbol id="svg-link" viewbox="0 0 24 24">
+    <title>
+     Link
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+   </symbol>
+   <symbol id="svg-search" viewbox="0 0 24 24">
+    <title>
+     Search
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+     <circle cx="11" cy="11" r="8"></circle>
+     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-menu" viewbox="0 0 24 24">
+    <title>
+     Menu
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+     <line x1="3" y1="12" x2="21" y2="12"></line>
+     <line x1="3" y1="6" x2="21" y2="6"></line>
+     <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+    <title>
+     Expand
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+     <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+   </symbol>
+   <symbol id="svg-doc" viewbox="0 0 24 24">
+    <title>
+     Document
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+     <polyline points="13 2 13 9 20 9"></polyline>
+    </svg>
+   </symbol>
+  </svg>
+  <div class="side-bar">
+   <div class="site-header">
+    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+        Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
+    <svg viewbox="0 0 24 24" class="icon">
+     
+          
+     <use href="#svg-menu"></use>
+     
+        
+    </svg>
+     
+   </a>
+  </div>
+  <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+   <ul class="nav-list">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
+    </li>
+    <li class="nav-list-item active">
+     <a href="#" class="nav-list-expander">
+     <svg viewbox="0 0 24 24">
+      <use href="#svg-arrow-right"></use>
+     </svg>
+    </a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <ul class="nav-list ">
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/embed-raw-javascript" class="nav-list-link">Embed Raw JavaScript</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/data-types" class="nav-list-link">Representation of Types</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/intro-to-external" class="nav-list-link">Intro to External</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/bind-to-global-values" class="nav-list-link">Bind to global values</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/null-undefined-option" class="nav-list-link">Null, Undefined &amp; Option</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/object" class="nav-list-link">Object</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/class" class="nav-list-link">Class</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/function" class="nav-list-link">Function</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     </li>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link active">Import and export</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/regular-expression" class="nav-list-link">Regular expressions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/exceptions" class="nav-list-link">Exceptions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/json" class="nav-list-link">JSON</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/pipe-first" class="nav-list-link">Pipe first</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/misc" class="nav-list-link">Miscellaneous</a>
+     </li>
+    </ul>
+   </li>
+   <li class="nav-list-item">
+    <a href="#" class="nav-list-expander">
+    <svg viewbox="0 0 24 24">
+     <use href="#svg-arrow-right"></use>
+    </svg>
+   </a>
+   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
+   <ul class="nav-list ">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+<footer class="site-footer">
+ This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
+      adapted for <a href="https://soupault.app">Soupault</a>.
+</footer>
+</div>
+<div class="main" id="top">
+<div id="main-header" class="main-header">
+ <div class="search"></div>
+ <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+   <li class="aux-nav-list-item">
+    <a href="https://github.com/melange-re/melange" class="site-button" target="_blank" rel="noopener noreferrer"> Melange on GitHub </a>
+   </li>
+  </ul>
+ </nav>
+</div>
+<div id="main-content-wrap" class="main-content-wrap">
+ <div id="content" class="main-content" role="main">
+  <h1 id="import-and-export" data-nav-order="530">
+   Import and export
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#export">Export</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#export-an-es6-default-value">Export an ES6 default value</a>
+    </li>
+   </ol>
+   <li>
+    <a href="#import">Import</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#import-a-default-value">Import a Default Value</a>
+    </li>
+    <ol class="toc">
+     <li>
+      <a href="#import-an-es6-default-value">Import an ES6 Default Value</a>
+     </li>
+    </ol>
+   </ol>
+  </ol>
+  <h2 id="export">
+   <a class="here" href="#export">→ </a>Export
+  </h2>
+  <p>
+   Melange allows compiling to:
+  </p>
+  <ul>
+   <li>
+    CommonJS (<code>require('myFile')</code>)
+   </li>
+   <li>
+    ES6 modules (<code>import * from 'myFile'</code>)
+   </li>
+  </ul>
+  <p>
+   The output format is configurable in bsb, described in a later section.
+  </p>
+  <p>
+   By default, every <code>let</code> binding is exported. If their values are safe to use on the JS side, you can directly require the generated JS file and use them (see the JS file itself!).
+  </p>
+  <p>
+   To only export a few selected <code>let</code>s, simply add an <a href="https://reasonml.github.io/docs/en/module.html#signatures">interface file</a> that hides some of the let bindings.
+  </p>
+  <h3 id="export-an-es6-default-value">
+   <a class="here" href="#export-an-es6-default-value">→ </a>Export an ES6 default value
+  </h3>
+  <p>
+   If your JS project is using ES6 modules, you're likely exporting &amp; importing some default values:
+  </p>
+  <pre><code class="language-js">// student.js
+export default name = "Al";
+</code></pre>
+<pre><code class="language-js">// teacher.js
+import studentName from 'student.js';
+</code></pre>
+  <p>
+   Technically, since a Melange file maps to a module, there's no such thing as "default" export, only named ones. However, we've made an exception to support default module when you do the following:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token comment">(* FavoriteStudent.ml *)</span>
+<span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Bob"</span>
+</code><code class="language-reason"><span class="token operator">/*</span> <span class="token module variable">FavoriteStudent</span><span class="token punctuation">.</span>ml <span class="token operator">*/</span>
+<span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Bob"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var $$default = "Bob";
+
+exports.$$default = $$default;
+exports.default = $$default;
+exports.__esModule = true;
+/* No side effect */
+</code></pre>
+  <p>
+   You can then require the default as normal JS side:
+  </p>
+  <pre><code class="language-js">// teacher2.js
+import studentName from 'FavoriteStudent.js';
+</code></pre>
+  <p>
+   <strong>Note</strong>: the above JS snippet <em>only</em> works if you're using that ES6 import/export syntax in JS. If you're still using <code>require</code>, you'd need to do:
+  </p>
+  <pre><code class="language-js">let studentName = require('FavoriteStudent').default;
+</code></pre>
+  <h2 id="import">
+   <a class="here" href="#import">→ </a>Import
+  </h2>
+  <p>
+   Use <code>bs.module</code>. It's like a <code>bs.val</code> that accepts a string that's the module name or path.
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> root <span class="token operator">=</span> dirname <span class="token string">"/User/chenglou"</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> root <span class="token operator">=</span> dirname<span class="token punctuation">(</span><span class="token string">"/User/chenglou"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+var Path = require("path");
+
+var root = Path.dirname("/User/chenglou");
+
+exports.root = root;
+/* root Not a pure module */
+</code></pre>
+  <p>
+   <strong>Note</strong>: the string inside <code>bs.module</code> can be anything: <code>"./src/myJsFile"</code>, <code>"@myNpmNamespace/myLib"</code>, etc.
+  </p>
+  <h3 id="import-a-default-value">
+   <a class="here" href="#import-a-default-value">→ </a>Import a Default Value
+  </h3>
+  <p>
+   By omitting the payload to <code>bs.module</code>, you bind to the whole JS module:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> leftPad<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"./leftPad"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> paddedResult <span class="token operator">=</span> leftPad <span class="token string">"hi"</span> <span class="token number">5</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span> <span class="token keyword">external</span> leftPad<span class="token punctuation">:</span> <span class="token punctuation">(</span>string<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"./leftPad"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> paddedResult <span class="token operator">=</span> leftPad<span class="token punctuation">(</span><span class="token string">"hi"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+var LeftPad = require("./leftPad");
+
+function leftPad(prim, prim$1) {
+  return LeftPad(prim, prim$1);
+}
+
+var paddedResult = LeftPad("hi", 5);
+
+exports.leftPad = leftPad;
+exports.paddedResult = paddedResult;
+/* paddedResult Not a pure module */
+</code></pre>
+  <h4 id="import-an-es6-default-value">
+   <a class="here" href="#import-an-es6-default-value">→ </a>Import an ES6 Default Value
+  </h4>
+  <p>
+   This is a recurring question, so we'll answer it here. <strong>If your JS project is using ES6</strong>, you're likely using Babel to compile it to regular JavaScript. Babel's ES6 default export actually exports the default value under the name <code>default</code>. You'd bind to it like this:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> studentName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">"default"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"./student"</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log studentName
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"./student"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> studentName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">"default"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>studentName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+var Student = require("./student").default;
+
+var studentName = Student;
+
+console.log(studentName);
+
+exports.studentName = studentName;
+/* studentName Not a pure module */
+</code></pre>
+ </div>
+</div>
+<div class="search-overlay"></div>
+</div>
+<script>
+function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function (tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
+</script>
+<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+</body>
+</html>

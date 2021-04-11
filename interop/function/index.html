@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Function — Melange.re
+  </title>
+  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <symbol id="svg-link" viewbox="0 0 24 24">
+    <title>
+     Link
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+   </symbol>
+   <symbol id="svg-search" viewbox="0 0 24 24">
+    <title>
+     Search
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+     <circle cx="11" cy="11" r="8"></circle>
+     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-menu" viewbox="0 0 24 24">
+    <title>
+     Menu
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+     <line x1="3" y1="12" x2="21" y2="12"></line>
+     <line x1="3" y1="6" x2="21" y2="6"></line>
+     <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+    <title>
+     Expand
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+     <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+   </symbol>
+   <symbol id="svg-doc" viewbox="0 0 24 24">
+    <title>
+     Document
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+     <polyline points="13 2 13 9 20 9"></polyline>
+    </svg>
+   </symbol>
+  </svg>
+  <div class="side-bar">
+   <div class="site-header">
+    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+        Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
+    <svg viewbox="0 0 24 24" class="icon">
+     
+          
+     <use href="#svg-menu"></use>
+     
+        
+    </svg>
+     
+   </a>
+  </div>
+  <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+   <ul class="nav-list">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
+    </li>
+    <li class="nav-list-item active">
+     <a href="#" class="nav-list-expander">
+     <svg viewbox="0 0 24 24">
+      <use href="#svg-arrow-right"></use>
+     </svg>
+    </a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <ul class="nav-list ">
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/embed-raw-javascript" class="nav-list-link">Embed Raw JavaScript</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/data-types" class="nav-list-link">Representation of Types</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/intro-to-external" class="nav-list-link">Intro to External</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/bind-to-global-values" class="nav-list-link">Bind to global values</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/null-undefined-option" class="nav-list-link">Null, Undefined &amp; Option</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/object" class="nav-list-link">Object</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/class" class="nav-list-link">Class</a>
+     </li>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/function" class="nav-list-link active">Function</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/regular-expression" class="nav-list-link">Regular expressions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/exceptions" class="nav-list-link">Exceptions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/json" class="nav-list-link">JSON</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/pipe-first" class="nav-list-link">Pipe first</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/misc" class="nav-list-link">Miscellaneous</a>
+     </li>
+    </ul>
+   </li>
+   <li class="nav-list-item">
+    <a href="#" class="nav-list-expander">
+    <svg viewbox="0 0 24 24">
+     <use href="#svg-arrow-right"></use>
+    </svg>
+   </a>
+   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
+   <ul class="nav-list ">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+<footer class="site-footer">
+ This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
+      adapted for <a href="https://soupault.app">Soupault</a>.
+</footer>
+</div>
+<div class="main" id="top">
+<div id="main-header" class="main-header">
+ <div class="search"></div>
+ <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+   <li class="aux-nav-list-item">
+    <a href="https://github.com/melange-re/melange" class="site-button" target="_blank" rel="noopener noreferrer"> Melange on GitHub </a>
+   </li>
+  </ul>
+ </nav>
+</div>
+<div id="main-content-wrap" class="main-content-wrap">
+ <div id="content" class="main-content" role="main">
+  <h1 id="function" data-nav-order="400">
+   Function
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#labeled-arguments">Labeled Arguments</a>
+   </li>
+   <li>
+    <a href="#object-method">Object Method</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#chaining">Chaining</a>
+    </li>
+   </ol>
+   <li>
+    <a href="#variadic-function-arguments">Variadic Function Arguments</a>
+   </li>
+   <li>
+    <a href="#modeling-polymorphic-function">Modeling Polymorphic Function</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#trick-1--multiple-externals">Trick 1: Multiple <code>external</code>s</a>
+    </li>
+    <li>
+     <a href="#trick-2--polymorphic-variant---bs-unwrap">Trick 2: Polymorphic Variant + <code>bs.unwrap</code></a>
+    </li>
+   </ol>
+   <li>
+    <a href="#constrain-arguments-better">Constrain Arguments Better</a>
+   </li>
+   <li>
+    <a href="#special-case--event-listeners">Special-case: Event Listeners</a>
+   </li>
+   <li>
+    <a href="#fixed-arguments">Fixed Arguments</a>
+   </li>
+   <li>
+    <a href="#curry---uncurry">Curry &amp; Uncurry</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#drawback">Drawback</a>
+    </li>
+    <li>
+     <a href="#solution--guaranteed-uncurrying">Solution: Guaranteed Uncurrying</a>
+    </li>
+    <ol class="toc">
+     <li>
+      <a href="#extra-solution">Extra Solution</a>
+     </li>
+     <li>
+      <a href="#pitfall">Pitfall</a>
+     </li>
+     <ol class="toc">
+      <li>
+       <a href="#design-decisions">Design Decisions</a>
+      </li>
+     </ol>
+    </ol>
+   </ol>
+   <li>
+    <a href="#modeling-this-based-callbacks">Modeling <code>this</code>-based Callbacks</a>
+   </li>
+  </ol>
+  <p>
+   Modeling a JavaScript function is like modeling a normal value:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> encodeURI<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"encodeURI"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> result <span class="token operator">=</span> encodeURI <span class="token string">"hello"</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> encodeURI<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"encodeURI"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> result <span class="token operator">=</span> encodeURI<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var result = encodeURI("hello");
+
+exports.result = result;
+/* result Not a pure module */
+</code></pre>
+  <p>
+   Melange also exposes a few special features, described below.
+  </p>
+  <h2 id="labeled-arguments">
+   <a class="here" href="#labeled-arguments">→ </a>Labeled Arguments
+  </h2>
+  <p>
+   OCaml has labeled arguments, that can be made optional. These work on an <code>external</code> too. You can use them to fix a JavaScript function's unclear usage. Assuming we're modeling this:
+  </p>
+  <pre><code class="language-js">function draw(x, y, border) {
+   /* border is optional, defaults to false */
+}
+draw(10, 20)
+draw(20, 20, true)
+</code></pre>
+  <p>
+   It'd be nice if on the Melange side, we can bind &amp; call <code>draw</code> while labeling things a bit:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> draw<span class="token punctuation">:</span> x<span class="token punctuation">:</span>int <span class="token operator">-&gt;</span> y<span class="token punctuation">:</span>int <span class="token operator">-&gt;</span> <span class="token operator">?</span>border<span class="token punctuation">:</span>bool <span class="token operator">-&gt;</span> unit <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw <span class="token label function">~x</span><span class="token punctuation">:</span><span class="token number">10</span> <span class="token label function">~y</span><span class="token punctuation">:</span><span class="token number">20</span> <span class="token label function">~border</span><span class="token punctuation">:</span><span class="token boolean">true</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw <span class="token label function">~x</span><span class="token punctuation">:</span><span class="token number">10</span> <span class="token label function">~y</span><span class="token punctuation">:</span><span class="token number">20</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> draw<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token label function">~x</span><span class="token punctuation">:</span> int<span class="token punctuation">,</span> <span class="token label function">~y</span><span class="token punctuation">:</span> int<span class="token punctuation">,</span> <span class="token label function">~border</span><span class="token punctuation">:</span> bool<span class="token operator">=?</span><span class="token punctuation">,</span> unit<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw<span class="token punctuation">(</span><span class="token label function">~x</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token label function">~y</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token label function">~border</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw<span class="token punctuation">(</span><span class="token label function">~x</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token label function">~y</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+draw(10, 20, true);
+
+draw(10, 20, undefined);
+
+/*  Not a pure module */
+</code></pre>
+  <p>
+   We've compiled to the same function, but now the usage is much clearer on the Melange side thanks to labels!
+  </p>
+  <p>
+   <strong>Note</strong>: in this particular case, you need a unit, <code>()</code> after <code>border</code>, since <code>border</code> is an <a href="https://reasonml.github.io/docs/en/function.html#optional-labeled-arguments">optional argument at the last position</a>. Not having a unit to indicate you've finished applying the function would generate a warning.
+  </p>
+  <p>
+   Note that you can change the order of labeled arguments on the Melange side and it will ensure that they appear the right way in the JavaScript output:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> draw<span class="token punctuation">:</span> x<span class="token punctuation">:</span>int <span class="token operator">-&gt;</span> y<span class="token punctuation">:</span>int <span class="token operator">-&gt;</span> <span class="token operator">?</span>border<span class="token punctuation">:</span>bool <span class="token operator">-&gt;</span> unit <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw <span class="token label function">~x</span><span class="token punctuation">:</span><span class="token number">10</span> <span class="token label function">~y</span><span class="token punctuation">:</span><span class="token number">20</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw <span class="token label function">~y</span><span class="token punctuation">:</span><span class="token number">20</span> <span class="token label function">~x</span><span class="token punctuation">:</span><span class="token number">10</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> draw<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token label function">~x</span><span class="token punctuation">:</span> int<span class="token punctuation">,</span> <span class="token label function">~y</span><span class="token punctuation">:</span> int<span class="token punctuation">,</span> <span class="token label function">~border</span><span class="token punctuation">:</span> bool<span class="token operator">=?</span><span class="token punctuation">,</span> unit<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw<span class="token punctuation">(</span><span class="token label function">~x</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token label function">~y</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> draw<span class="token punctuation">(</span><span class="token label function">~y</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token label function">~x</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+draw(10, 20, undefined);
+
+draw(10, 20, undefined);
+
+/*  Not a pure module */
+</code></pre>
+  <h2 id="object-method">
+   <a class="here" href="#object-method">→ </a>Object Method
+  </h2>
+  <p>
+   Functions attached to a JavaScript object require a special way of binding to it, using <code>bs.send</code>:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> document <span class="token comment">(* abstract type for a document object *)</span>
+<span class="token keyword">external</span> getElementById<span class="token punctuation">:</span> document <span class="token operator">-&gt;</span> string <span class="token operator">-&gt;</span> <span class="token module variable">Dom</span><span class="token punctuation">.</span>element <span class="token operator">=</span> <span class="token string">"getElementById"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> doc<span class="token punctuation">:</span> document <span class="token operator">=</span> <span class="token string">"document"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> el <span class="token operator">=</span> getElementById doc <span class="token string">"myId"</span>
+</code><code class="language-reason"><span class="token keyword">type</span> document<span class="token punctuation">;</span> <span class="token operator">/*</span> abstract <span class="token keyword">type</span> <span class="token keyword">for</span> a document <span class="token keyword">object</span> <span class="token operator">*/</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> getElementById<span class="token punctuation">:</span> <span class="token punctuation">(</span>document<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token module variable">Dom</span><span class="token punctuation">.</span>element <span class="token operator">=</span> <span class="token string">"getElementById"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> doc<span class="token punctuation">:</span> document <span class="token operator">=</span> <span class="token string">"document"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> el <span class="token operator">=</span> getElementById<span class="token punctuation">(</span>doc<span class="token punctuation">,</span> <span class="token string">"myId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var el = document.getElementById("myId");
+
+exports.el = el;
+/* el Not a pure module */
+</code></pre>
+  <p>
+   In a <code>bs.send</code>, the object is always the first argument. Actual arguments of the method follow (this is a bit what modern OOP objects are really).
+  </p>
+  <h3 id="chaining">
+   <a class="here" href="#chaining">→ </a>Chaining
+  </h3>
+  <p>
+   Ever used <code>foo().bar().baz()</code> chaining ("fluent api") in JavaScript OOP? We can model that in Melange too, through the Pipe First operator described in the next section.
+  </p>
+  <h2 id="variadic-function-arguments">
+   <a class="here" href="#variadic-function-arguments">→ </a>Variadic Function Arguments
+  </h2>
+  <p>
+   You might have JavaScript functions that take an arbitrary amount of arguments. Melange supports modeling those, under the condition that the arbitrary arguments part is homogenous (aka of the same type). If so, add <code>bs.variadic</code> (was <code>bs.splice</code> prior to version 4.08) to your <code>external</code>.
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> join<span class="token punctuation">:</span> string array <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"join"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>variadic<span class="token punctuation">]</span>
+<span class="token keyword">let</span> v <span class="token operator">=</span> join <span class="token punctuation">[</span><span class="token operator">|</span> <span class="token string">"a"</span><span class="token punctuation">;</span> <span class="token string">"b"</span><span class="token operator">|</span><span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>variadic<span class="token punctuation">]</span>
+<span class="token keyword">external</span> join<span class="token punctuation">:</span> array<span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"join"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> v <span class="token operator">=</span> join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">|</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+var Path = require("path");
+
+var v = Path.join("a", "b");
+
+exports.v = v;
+/* v Not a pure module */
+</code></pre>
+  <p>
+   <em><code>bs.module</code> will be explained in the Import &amp; Export section next</em>.
+  </p>
+  <h2 id="modeling-polymorphic-function">
+   <a class="here" href="#modeling-polymorphic-function">→ </a>Modeling Polymorphic Function
+  </h2>
+  <p>
+   Apart from the above special-case, JavaScript function in general are often arbitrary overloaded in terms of argument types and number. How would you bind to those?
+  </p>
+  <h3 id="trick-1--multiple-externals">
+   <a class="here" href="#trick-1--multiple-externals">→ </a>Trick 1: Multiple <code>external</code>s
+  </h3>
+  <p>
+   If you can exhaustively enumerate the many forms an overloaded JavaScript function can take, simply bind to each differently:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> drawCat<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> drawDog<span class="token punctuation">:</span> giveName<span class="token punctuation">:</span>string <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> draw <span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> useRandomAnimal<span class="token punctuation">:</span>bool <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> drawCat<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> drawDog<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token label function">~giveName</span><span class="token punctuation">:</span> string<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> draw<span class="token punctuation">:</span> <span class="token punctuation">(</span>string<span class="token punctuation">,</span> <span class="token label function">~useRandomAnimal</span><span class="token punctuation">:</span> bool<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   Note how all three externals bind to the same JavaScript function, <code>draw</code>.
+  </p>
+  <h3 id="trick-2--polymorphic-variant---bs-unwrap">
+   <a class="here" href="#trick-2--polymorphic-variant---bs-unwrap">→ </a>Trick 2: Polymorphic Variant + <code>bs.unwrap</code>
+  </h3>
+  <p>
+   If you have the irresistible urge of saying "if only this JavaScript function argument was a variant instead of informally being either <code>string</code> or <code>int</code>", then good news: we do provide such <code>external</code> features through annotating a parameter as a polymorphic variant! Assuming you have the following JavaScript function you'd like to bind to:
+  </p>
+  <pre><code class="language-js">function padLeft(value, padding) {
+  if (typeof padding === "number") {
+    return Array(padding + 1).join(" ") + value;
+  }
+  if (typeof padding === "string") {
+    return padding + value;
+  }
+  throw new Error(`Expected string or number, got '${padding}'.`);
+}
+</code></pre>
+  <p>
+   Here, <code>padding</code> is really conceptually a variant. Let's model it as such.
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> padLeft<span class="token punctuation">:</span>
+  string
+  <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token variant variable">`Str</span> <span class="token keyword">of</span> string
+      <span class="token operator">|</span> <span class="token variant variable">`Int</span> <span class="token keyword">of</span> int
+      <span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>unwrap<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token operator">-&gt;</span> string
+  <span class="token operator">=</span> <span class="token string">"padLeft"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> padLeft <span class="token string">"Hello World"</span> <span class="token punctuation">(</span><span class="token variant variable">`Int</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> padLeft <span class="token string">"Hello World"</span> <span class="token punctuation">(</span><span class="token variant variable">`Str</span> <span class="token string">"Message from Melange: "</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> padLeft<span class="token punctuation">:</span>
+  <span class="token punctuation">(</span>string<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>unwrap<span class="token punctuation">]</span> <span class="token punctuation">[</span> <span class="token operator">|</span> <span class="token variant variable">`Str</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token variant variable">`Int</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> string <span class="token operator">=</span>
+  <span class="token string">"padLeft"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> padLeft<span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">,</span> <span class="token variant variable">`Int</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> padLeft<span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">,</span> <span class="token variant variable">`Str</span><span class="token punctuation">(</span><span class="token string">"Message from Melange: "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+padLeft("Hello World", 4);
+
+padLeft("Hello World", "Message from Melange: ");
+
+/*  Not a pure module */
+</code></pre>
+  <p>
+   The JavaScript side can not have an argument that is a polymorphic variant. But here, we are leveraging poly variants' type checking and syntax. The secret is the <code>[@bs.unwrap]</code> annotation on the type. It strips the variant constructors and compile to just the payload's value.
+  </p>
+  <h2 id="constrain-arguments-better">
+   <a class="here" href="#constrain-arguments-better">→ </a>Constrain Arguments Better
+  </h2>
+  <p>
+   Consider the Node <code>fs.readFileSync</code>'s second argument. It can take a string, but really only a defined set: <code>"ascii"</code>, <code>"utf8"</code>, etc. You can still bind it as a string, but we can use poly variants + <code>bs.string</code> to ensure that our usage's more correct:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> readFileSync<span class="token punctuation">:</span>
+  name<span class="token punctuation">:</span>string <span class="token operator">-&gt;</span>
+  <span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token variant variable">`utf8</span>
+   <span class="token operator">|</span> <span class="token variant variable">`useAscii</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"ascii"</span><span class="token punctuation">]</span>
+   <span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>string<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+  string <span class="token operator">=</span> <span class="token string">"readFileSync"</span>
+  <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"fs"</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> readFileSync <span class="token label function">~name</span><span class="token punctuation">:</span><span class="token string">"xx.txt"</span> <span class="token variant variable">`useAscii</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"fs"</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> readFileSync<span class="token punctuation">:</span>
+  <span class="token punctuation">(</span><span class="token label function">~name</span><span class="token punctuation">:</span> string<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>string<span class="token punctuation">]</span> <span class="token punctuation">[</span> <span class="token operator">|</span> <span class="token variant variable">`utf8</span> <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"ascii"</span><span class="token punctuation">]</span> <span class="token variant variable">`useAscii</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  string <span class="token operator">=</span>
+  <span class="token string">"readFileSync"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> readFileSync<span class="token punctuation">(</span><span class="token label function">~name</span><span class="token operator">=</span><span class="token string">"xx.txt"</span><span class="token punctuation">,</span> <span class="token variant variable">`useAscii</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+var Fs = require("fs");
+
+Fs.readFileSync("xx.txt", "ascii");
+
+/*  Not a pure module */
+</code></pre>
+  <ul>
+   <li>
+    Attaching <code>[@bs.string]</code> to the whole poly variant type makes its constructor compile to a string of the same name.
+   </li>
+   <li>
+    Attaching a <code>[@bs.as "foo"]</code> to a constructor lets you customize the final string.
+   </li>
+  </ul>
+  <p>
+   And now, passing something like <code>"myOwnUnicode"</code> or other variant constructor names to <code>readFileSync</code> would correctly error.
+  </p>
+  <p>
+   Aside from string, you can also compile an argument to an int, using <code>bs.int</code> instead of <code>bs.string</code> in a similar way:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> test_int_type<span class="token punctuation">:</span>
+  <span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token variant variable">`on_closed</span>
+   <span class="token operator">|</span> <span class="token variant variable">`on_open</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token number">20</span><span class="token punctuation">]</span>
+   <span class="token operator">|</span> <span class="token variant variable">`in_bin</span>
+   <span class="token punctuation">]</span>
+   <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">=</span>
+  <span class="token string">"test_int_type"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> test_int_type <span class="token variant variable">`in_bin</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> test_int_type<span class="token punctuation">:</span>
+  <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>int<span class="token punctuation">]</span> <span class="token punctuation">[</span> <span class="token operator">|</span> <span class="token variant variable">`on_closed</span> <span class="token operator">|</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token number">20</span><span class="token punctuation">]</span> <span class="token variant variable">`on_open</span> <span class="token operator">|</span> <span class="token variant variable">`in_bin</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> int <span class="token operator">=</span>
+  <span class="token string">"test_int_type"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> test_int_type<span class="token punctuation">(</span><span class="token variant variable">`in_bin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+test_int_type(21);
+
+/*  Not a pure module */
+</code></pre>
+  <p>
+   <code>on_closed</code> will compile to <code>0</code>, <code>on_open</code> to <code>20</code> and <code>in_bin</code> to <strong><code>21</code></strong>.
+  </p>
+  <h2 id="special-case--event-listeners">
+   <a class="here" href="#special-case--event-listeners">→ </a>Special-case: Event Listeners
+  </h2>
+  <p>
+   One last trick with polymorphic variants:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> readline
+
+<span class="token keyword">external</span> on<span class="token punctuation">:</span>
+  readline
+  <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token operator">|</span><span class="token variant variable">`close</span> <span class="token keyword">of</span> unit <span class="token operator">-&gt;</span> unit
+      <span class="token operator">|</span> <span class="token variant variable">`line</span> <span class="token keyword">of</span> string <span class="token operator">-&gt;</span> unit
+      <span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>string<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token operator">-&gt;</span> readline <span class="token operator">=</span> <span class="token string">"on"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> register rl <span class="token operator">=</span>
+  rl
+  <span class="token operator">|.</span> on <span class="token punctuation">(</span><span class="token variant variable">`close</span> <span class="token punctuation">(</span><span class="token keyword">fun</span> event <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token operator">|.</span> on <span class="token punctuation">(</span><span class="token variant variable">`line</span> <span class="token punctuation">(</span><span class="token keyword">fun</span> line <span class="token operator">-&gt;</span> print_endline line<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">type</span> readline<span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> on<span class="token punctuation">:</span>
+  <span class="token punctuation">(</span>
+    readline<span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>string<span class="token punctuation">]</span> <span class="token punctuation">[</span> <span class="token operator">|</span> <span class="token variant variable">`close</span><span class="token punctuation">(</span>unit <span class="token operator">=&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token variant variable">`line</span><span class="token punctuation">(</span>string <span class="token operator">=&gt;</span> unit<span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  readline <span class="token operator">=</span>
+  <span class="token string">"on"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> register <span class="token operator">=</span> rl <span class="token operator">=&gt;</span>
+  rl<span class="token operator">-&gt;</span><span class="token punctuation">(</span>on<span class="token punctuation">(</span><span class="token variant variable">`close</span><span class="token punctuation">(</span>event <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>on<span class="token punctuation">(</span><span class="token variant variable">`line</span><span class="token punctuation">(</span>line <span class="token operator">=&gt;</span> print_endline<span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+function register(rl) {
+  return rl.on("close", (function ($$event) {
+                  
+                })).on("line", (function (line) {
+                console.log(line);
+                
+              }));
+}
+
+exports.register = register;
+/* No side effect */
+</code></pre>
+  <h2 id="fixed-arguments">
+   <a class="here" href="#fixed-arguments">→ </a>Fixed Arguments
+  </h2>
+  <p>
+   Sometimes it's convenient to bind to a function using an <code>external</code>, while passing predetermined argument values to the JavaScript function:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> process_on_exit<span class="token punctuation">:</span>
+  <span class="token punctuation">(</span><span class="token punctuation">_</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"exit"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+  <span class="token punctuation">(</span>int <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span>
+  unit <span class="token operator">=</span>
+  <span class="token string">"process.on"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> process_on_exit <span class="token punctuation">(</span><span class="token keyword">fun</span> exit_code <span class="token operator">-&gt;</span>
+  <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">(</span><span class="token string">"error code: "</span> <span class="token operator">^</span> string_of_int exit_code<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> process_on_exit<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"exit"</span><span class="token punctuation">]</span> <span class="token punctuation">_</span><span class="token punctuation">,</span> int <span class="token operator">=&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span>
+  <span class="token string">"process.on"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>
+  process_on_exit<span class="token punctuation">(</span>exit_code <span class="token operator">=&gt;</span>
+    <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"error code: "</span> <span class="token operator">++</span> string_of_int<span class="token punctuation">(</span>exit_code<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+process.on("exit", (function (exit_code) {
+        console.log("error code: " + String(exit_code));
+        
+      }));
+
+/*  Not a pure module */
+</code></pre>
+  <p>
+   The <code>[@bs.as "exit"]</code> and the placeholder <code>_</code> argument together indicates that you want the first argument to compile to the string <code>"exit"</code>. You can also use any JSON literal with <code>bs.as</code>: <code>[@bs.as {json|true|json}]</code>, <code>[@bs.as {json|{"name": "John"}|json}]</code>, etc.
+  </p>
+  <h2 id="curry---uncurry">
+   <a class="here" href="#curry---uncurry">→ </a>Curry &amp; Uncurry
+  </h2>
+  <p>
+   Curry is a delicious Indian dish. More importantly, in the context of Melange (and functional programming in general), currying means that function taking multiple arguments can be applied a few arguments at time, until all the arguments are applied.
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> add x y z <span class="token operator">=</span> x <span class="token operator">+</span> y <span class="token operator">+</span> z
+<span class="token keyword">let</span> addFive <span class="token operator">=</span> add <span class="token number">5</span>
+<span class="token keyword">let</span> twelve <span class="token operator">=</span> addFive <span class="token number">3</span> <span class="token number">4</span>
+</code><code class="language-reason"><span class="token keyword">let</span> add <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> x <span class="token operator">+</span> y <span class="token operator">+</span> z<span class="token punctuation">;</span>
+<span class="token keyword">let</span> addFive <span class="token operator">=</span> add<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> twelve <span class="token operator">=</span> addFive<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+function add(x, y, z) {
+  return (x + y | 0) + z | 0;
+}
+
+function addFive(param, param$1) {
+  return add(5, param, param$1);
+}
+
+var twelve = 12;
+
+exports.add = add;
+exports.addFive = addFive;
+exports.twelve = twelve;
+/* No side effect */
+</code></pre>
+  <p>
+   See the <code>addFive</code> intermediate function? <code>add</code> takes in 3 arguments but received only 1. It's interpreted as "currying" the argument <code>5</code> and waiting for the next 2 arguments to be applied later on. Type signatures:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">val</span> add<span class="token punctuation">:</span> int <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> int
+<span class="token keyword">val</span> addFive<span class="token punctuation">:</span> int <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> int
+<span class="token keyword">val</span> twelve<span class="token punctuation">:</span> int
+</code><code class="language-reason"><span class="token keyword">external</span> add<span class="token punctuation">:</span> <span class="token punctuation">(</span>int<span class="token punctuation">,</span> int<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> int <span class="token operator">=</span> <span class="token punctuation">;</span>
+<span class="token keyword">external</span> addFive<span class="token punctuation">:</span> <span class="token punctuation">(</span>int<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> int <span class="token operator">=</span> <span class="token punctuation">;</span>
+<span class="token keyword">external</span> twelve<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token punctuation">;</span>
+</code></pre>
+  <p>
+   (In a dynamic language such as JavaScript, currying would be dangerous, since accidentally forgetting to pass an argument doesn't error at compile time).
+  </p>
+  <h3 id="drawback">
+   <a class="here" href="#drawback">→ </a>Drawback
+  </h3>
+  <p>
+   Unfortunately, due to JavaScript not having currying because of the aforementioned reason, it's hard for Melange multi-argument functions to map cleanly to JavaScript functions 100% of the time:
+  </p>
+  <ol>
+   <li>
+    <p>
+     When all the arguments of a function are supplied (aka no currying), Melange does its best to to compile e.g. a 3-arguments call into a plain JavaScript call with 3 arguments.
+    </p>
+   </li>
+   <li>
+    <p>
+     If it's too hard to detect whether a function application is complete*, Melange will use a runtime mechanism (the <code>Curry</code> module) to curry as many args as we can and check whether the result is fully applied.
+    </p>
+   </li>
+   <li>
+    <p>
+     Some JavaScript APIs like <code>throttle</code>, <code>debounce</code> and <code>promise</code> might mess with context, aka use the function <code>bind</code> mechanism, carry around <code>this</code>, etc. Such implementation clashes with the previous currying logic.
+    </p>
+   </li>
+  </ol>
+  <p>
+   * If the call site is typed as having 3 arguments, we sometimes don't know whether it's a function that's being curried, or if the original one indeed has only 3 arguments.
+  </p>
+  <p>
+   Melange tries to do #1 as much as it can. Even when it bails and uses #2's currying mechanism, it's usually harmless.
+  </p>
+  <p>
+   <strong>However</strong>, if you encounter #3, heuristics are not good enough: you need a guaranteed way of fully applying a function, without intermediate currying steps. We provide such guarantee through the use of the <code>[@bs]</code> "uncurrying" annotation on a function declaration &amp; call site.
+  </p>
+  <h3 id="solution--guaranteed-uncurrying">
+   <a class="here" href="#solution--guaranteed-uncurrying">→ </a>Solution: Guaranteed Uncurrying
+  </h3>
+  <p>
+   If you annotate a function declaration signature on an <code>external</code> or <code>let</code> with a <code>[@bs]</code> (or, in Reason syntax, annotate the start of the parameters with a dot), you'll turn that function into an similar-looking one that's guaranteed to be uncurried:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> timerId
+<span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> id <span class="token operator">=</span> setTimeout <span class="token punctuation">(</span><span class="token keyword">fun</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token string">"hello"</span><span class="token punctuation">)</span> <span class="token number">1000</span>
+</code><code class="language-reason"><span class="token keyword">type</span> timerId<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">.</span> unit<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> id <span class="token operator">=</span> setTimeout<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var id = setTimeout((function () {
+        console.log("hello");
+        
+      }), 1000);
+
+exports.id = id;
+/* id Not a pure module */
+</code></pre>
+  <p>
+   <strong>Note</strong>: both the declaration site and the call site need to have the uncurry annotation. That's part of the guarantee/requirement.
+  </p>
+  <p>
+   When you try to curry such a function, you'll get a type error:
+  </p>
+  <pre><code class="language-ocaml-invalid">let add = fun [@bs] x y z -&gt; x + y + z
+let addFiveOops = add 5
+</code></pre>
+  <p>
+   Error:
+  </p>
+  <pre><code>This is an uncurried Melange function. It must be applied with a `[@bs]`.
+</code></pre>
+  <h4 id="extra-solution">
+   <a class="here" href="#extra-solution">→ </a>Extra Solution
+  </h4>
+  <p>
+   The above solution is safe, guaranteed, and performant, but sometimes visually a little burdensome. We provide an alternative solution if:
+  </p>
+  <ul>
+   <li>
+    you're using <code>external</code>
+   </li>
+   <li>
+    the <code>external</code> function takes in an argument that's another function
+   </li>
+   <li>
+    you want the user <strong>not</strong> to need to annotate the call sites with <code>[@bs]</code> or the dot in Reason
+   </li>
+  </ul>
+  <p>
+   Then try <code>[@bs.uncurry]</code>:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> map<span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>uncurry<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"map"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> map <span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">fun</span> x <span class="token operator">-&gt;</span> x<span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> map<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>uncurry<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"map"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> map<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x <span class="token operator">=&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+[
+    1,
+    2,
+    3
+  ].map(function (x) {
+      return x + 1 | 0;
+    });
+
+/*  Not a pure module */
+</code></pre>
+  <h4 id="pitfall">
+   <a class="here" href="#pitfall">→ </a>Pitfall
+  </h4>
+  <p>
+   If you try to do this:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> id<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">fun</span> v <span class="token operator">-&gt;</span> v<span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">let</span> id<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">.</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'a</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">.</span> v<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> v<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">.</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+function id(v) {
+  return v;
+}
+
+exports.id = id;
+/* No side effect */
+</code></pre>
+  <p>
+   You’ll get this cryptic error message:
+  </p>
+  <pre><code>Error: The type of this expression, ('_a -&gt; '_a [@bs]),
+       contains type variables that cannot be generalized
+</code></pre>
+  <p>
+   The issue here isn’t that the function is polymorphic. You can use polymorphic uncurried functions as inline callbacks, but you can’t export them (and <code>let</code>s are exposed by default unless you hide it with an interface file). The issue here is a combination of the uncurried call, polymorphism and exporting the function. It’s an unfortunate limitation of how OCaml’s type system incorporates side-effects, and how Melange handles uncurrying.
+  </p>
+  <p>
+   The simplest solution is in most cases to just not export it, by adding an interface to the module. Alternatively, if you really need to export it, you can do so in its curried form, and then wrap it in an uncurried lambda at the call site. E.g.:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> map <span class="token punctuation">(</span><span class="token keyword">fun</span> v <span class="token operator">-&gt;</span> id v <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> map<span class="token punctuation">(</span>v <span class="token operator">=&gt;</span> id<span class="token punctuation">(</span><span class="token punctuation">.</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+  <h5 id="design-decisions">
+   <a class="here" href="#design-decisions">→ </a>Design Decisions
+  </h5>
+  <p>
+   In general, <code>bs.uncurry</code> is recommended; the compiler will do lots of optimizations to resolve the currying to uncurrying at compile time. However, there are some cases the compiler can't optimize it. In these cases, it will be converted to a runtime check.
+  </p>
+  <p>
+   This means <code>[@bs]</code> are completely static behavior (no runtime cost), while <code>[@bs.uncurry]</code> is more convenient for end users but, in some rare cases, might be slower than <code>[@bs]</code>.
+  </p>
+  <h2 id="modeling-this-based-callbacks">
+   <a class="here" href="#modeling-this-based-callbacks">→ </a>Modeling <code>this</code>-based Callbacks
+  </h2>
+  <p>
+   Many JavaScript libraries have callbacks which rely on this (the source), for example:
+  </p>
+  <pre><code class="language-js">x.onload = function(v) {
+  console.log(this.response + v)
+}
+</code></pre>
+  <p>
+   Here, <code>this</code> would point to <code>x</code> (actually, it depends on how <code>onload</code> is called, but we digress). It's not correct to declare <code>x.onload</code> of type <code>unit → unit [@bs]</code>. Instead, we introduced a special attribute, <code>bs.this</code>, which allows us to type <code>x</code> as so:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> x
+<span class="token keyword">external</span> x<span class="token punctuation">:</span> x <span class="token operator">=</span> <span class="token string">"x"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> set_onload<span class="token punctuation">:</span> x <span class="token operator">-&gt;</span> <span class="token punctuation">(</span>x <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> unit <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>this<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"onload"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>set<span class="token punctuation">]</span>
+<span class="token keyword">external</span> resp<span class="token punctuation">:</span> x <span class="token operator">-&gt;</span> int <span class="token operator">=</span> <span class="token string">"response"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>get<span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span>
+  set_onload x <span class="token keyword">begin</span> <span class="token keyword">fun</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>this<span class="token punctuation">]</span> o v <span class="token operator">-&gt;</span>
+    <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>resp o <span class="token operator">+</span> v <span class="token punctuation">)</span>
+  <span class="token keyword">end</span>
+</code><code class="language-reason"><span class="token keyword">type</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> x<span class="token punctuation">:</span> x <span class="token operator">=</span> <span class="token string">"x"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>set<span class="token punctuation">]</span>
+<span class="token keyword">external</span> set_onload<span class="token punctuation">:</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>this<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"onload"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>get<span class="token punctuation">]</span> <span class="token keyword">external</span> resp<span class="token punctuation">:</span> x <span class="token operator">=&gt;</span> int <span class="token operator">=</span> <span class="token string">"response"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> set_onload<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>this<span class="token punctuation">]</span> <span class="token punctuation">(</span>o<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>resp<span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">+</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+x.onload = (function (v) {
+    var o = this ;
+    console.log(o.response + v | 0);
+    
+  });
+
+/*  Not a pure module */
+</code></pre>
+  <p>
+   <code>bs.this</code> is the same as <code>bs</code>, except that its first parameter is reserved for <code>this</code> and for arity of 0, there is no need for a redundant <code>unit</code> type.
+  </p>
+ </div>
+</div>
+<div class="search-overlay"></div>
+</div>
+<script>
+function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function (tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
+</script>
+<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+</body>
+</html>

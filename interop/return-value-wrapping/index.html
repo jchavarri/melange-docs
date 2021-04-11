@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   <meta http-equiv="cleartype" content="on">
   <title>
-   Intro — Melange.re
+   Return value wrapping — Melange.re
   </title>
   <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
   <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
@@ -78,13 +78,13 @@
   </div>
   <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
    <ul class="nav-list">
-    <li class="nav-list-item active">
-     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link active">Intro</a>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
     </li>
     <li class="nav-list-item">
      <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
     </li>
-    <li class="nav-list-item">
+    <li class="nav-list-item active">
      <a href="#" class="nav-list-expander">
      <svg viewbox="0 0 24 24">
       <use href="#svg-arrow-right"></use>
@@ -122,8 +122,8 @@
      <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
      </li>
-     <li class="nav-list-item">
-      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link active">Return value wrapping</a>
      </li>
      <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
@@ -184,125 +184,104 @@
 </div>
 <div id="main-content-wrap" class="main-content-wrap">
  <div id="content" class="main-content" role="main">
-  <h1 id="intro" data-nav-order="100">
-   Intro
+  <h1 id="return-value-wrapping" data-nav-order="520">
+   Return value wrapping
   </h1>
-  <ol class="toc">
-   <li>
-    <a href="#melange-features-and-goals">Melange features and goals</a>
-   </li>
-   <li>
-    <a href="#a-bit-of-history">A bit of history</a>
-   </li>
-   <ol class="toc">
-    <li>
-     <a href="#js-of-ocaml">Js_of_ocaml</a>
-    </li>
-    <li>
-     <a href="#bucklescript">BuckleScript</a>
-    </li>
-    <li>
-     <a href="#reason">Reason</a>
-    </li>
-    <li>
-     <a href="#the-rebranding">The Rebranding</a>
-    </li>
-    <li>
-     <a href="#melange--back-to-ocaml">Melange: back to OCaml</a>
-    </li>
-   </ol>
-  </ol>
+  <ol class="toc"></ol>
   <p>
-   Melange is a fork of the ReScript compiler with emphasis on staying as much compatible as possible with the OCaml ecosystem.
-  </p>
-  <h2 id="melange-features-and-goals">
-   <a class="here" href="#melange-features-and-goals">→ </a>Melange features and goals
-  </h2>
-  <p>
-   The primary goal of Melange is to improve compatibility with the OCaml ecosystem.
+   In general, the FFI code is error prone, and potentially will leak in
+<code>undefined</code> or <code>null</code> values.
   </p>
   <p>
-   The secondary goal is to remain compatible with existing ReScript open source libraries. But as any other fork, it is hard to know for how long, or how much this compatibility will be maintained over time.
-  </p>
-  <p>
-   These goals lead to a series of features, that make Melange easy to use if you are already familiar with OCaml:
+   So we introduced auto coercion for return values to gain two benefits:
   </p>
   <ul>
    <li>
-    Updated with new OCaml compiler versions
+    <p>
+     More safety for FFI code without performance cost (explained later).
+    </p>
    </li>
    <li>
-    Build Melange projects with Dune
-   </li>
-   <li>
-    Use the latest improvements in tooling, for example <a href="https://github.com/ocaml-ppx/ppxlib">ppxlib</a>
-   </li>
-   <li>
-    Leverage OCaml editor integration plugins and tooling
-   </li>
-   <li>
-    Remove build complexity from projects include native and JavaScript code written in OCaml (virtual libraries, shared <code>dune</code> configurations, ...)
+    <p>
+     More idiomatic OCaml code for users to consume the FFI.
+    </p>
    </li>
   </ul>
-  <h2 id="a-bit-of-history">
-   <a class="here" href="#a-bit-of-history">→ </a>A bit of history
-  </h2>
   <p>
-   To understand better where Melange is coming from, it might help to go through some of the related projects that have appeared over the last decade or so.
+   Below is a contrived core example:
   </p>
-  <h3 id="js-of-ocaml">
-   <a class="here" href="#js-of-ocaml">→ </a>Js_of_ocaml
-  </h3>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> element
+<span class="token keyword">type</span> dom
+<span class="token keyword">external</span> getElementById <span class="token punctuation">:</span> dom <span class="token operator">-&gt;</span> string <span class="token operator">-&gt;</span> element option <span class="token operator">=</span> <span class="token string">"getElementById"</span>
+<span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>return nullable<span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> test dom <span class="token operator">=</span>
+    <span class="token keyword">let</span> elem <span class="token operator">=</span> dom <span class="token operator">|.</span> getElementById <span class="token string">"haha"</span> <span class="token keyword">in</span>
+    <span class="token keyword">match</span> elem <span class="token keyword">with</span>
+    <span class="token operator">|</span> <span class="token module variable">None</span> <span class="token operator">-&gt;</span> <span class="token number">1</span>
+    <span class="token operator">|</span> <span class="token module variable">Some</span> ui <span class="token operator">-&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log ui <span class="token punctuation">;</span> <span class="token number">2</span>
+</code><code class="language-reason"><span class="token keyword">type</span> element<span class="token punctuation">;</span>
+<span class="token keyword">type</span> dom<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>return nullable<span class="token punctuation">]</span>
+<span class="token keyword">external</span> getElementById<span class="token punctuation">:</span> <span class="token punctuation">(</span>dom<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> option<span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"getElementById"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> test <span class="token operator">=</span> dom <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> elem <span class="token operator">=</span> dom<span class="token operator">-&gt;</span><span class="token punctuation">(</span>getElementById<span class="token punctuation">(</span><span class="token string">"haha"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  switch <span class="token punctuation">(</span>elem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">|</span> <span class="token module variable">None</span> <span class="token operator">=&gt;</span> <span class="token number">1</span>
+  <span class="token operator">|</span> <span class="token module variable">Some</span><span class="token punctuation">(</span>ui<span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>ui<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+function test(dom) {
+  var elem = dom.getElementById("haha");
+  if (elem == null) {
+    return 1;
+  } else {
+    console.log(elem);
+    return 2;
+  }
+}
+
+exports.test = test;
+/* No side effect */
+</code></pre>
   <p>
-   <a href="https://github.com/ocsigen/js_of_ocaml/">Js_of_ocaml</a> is a project that was made public in 2011. In <a href="https://www.irif.fr/~balat/publications/vouillon_balat-js_of_ocaml.pdf">the presentation paper</a> published in 2013, it's explicitly mentioned that one of its design goals was to remain as compatible as possible with
-the OCaml compiler, without requiring a lot of maintenance work, as at the time the OCaml community was not excesively large.
-  </p>
-  <p>
-   To achieve this goal, Js_of_ocaml picks the bytecode generated by OCaml <a href="https://ocaml.org/manual/comp.html">batch compilation</a> and generates JavaScript from it.
-OCaml bytecode has a very stable interface, so Js_of_ocaml can easily upgrade to new versions of the compiler. Due to this design decision, it can also remain compatible with most of the
-OCaml ecosystem, as long as the tools or libraries don't rely on C code.
-  </p>
-  <p>
-   The downside of using bytecode is that it gets harder to communicate with existing JavaScript code. For example, a Js_of_ocaml string is not compiled as a JavaScript string, so some conversion is needed for this and other types.
-  </p>
-  <p>
-   Another downside is that the resulting JavaScript is hard to read, as it is converted from a low-level representation like bytecode.
-  </p>
-  <h3 id="bucklescript">
-   <a class="here" href="#bucklescript">→ </a>BuckleScript
-  </h3>
-  <p>
-   Then, in 2016, Bob Zhang suggests <a href="https://github.com/ocsigen/js_of_ocaml/issues/338">on a Js_of_ocaml repository issue</a> the possibility to start converting to JavaScript from an earlier stage of the compilation process, instead of using bytecode. This proposal fundamentally diverges from Js_of_ocaml original design and goals, so he starts working on what will become BuckleScript.
-  </p>
-  <p>
-   BuckleScript gets some inspiration from Js_of_ocaml, for example in the way that JavaScript objects are represented with <code>Js.t</code>. But it differs from Js_of_ocaml in many ways: it can generate more readable and lighter code. It also generates one <code>.js</code> file per module, which makes it easier to integrate with existing JavaScript codebases. BuckleScript puts a big emphasis on interop with JavaScript code through a rich collection of attributes applied to <code>external</code> primitives.
-  </p>
-  <h3 id="reason">
-   <a class="here" href="#reason">→ </a>Reason
-  </h3>
-  <p>
-   Around the same year, a project called <a href="https://reasonml.github.io/">Reason</a> appears at Facebook. Led by Jordan Walke, the idea is to create an alternate syntax for OCaml that is closer to C and JavaScript. Even if Reason has no take on which platform the code is deployed —native applications binaries, or web applications using JavaScript as a target language—, BuckleScript adds first class support for Reason from early on. At that point, it becomes evident that the combination of Reason with BuckleScript is a great match: BuckleScript provides tools and infrastructure to work with JavaScript ecosystem, while Reason allows developers to write their programs in a syntax they are familiar with.
-  </p>
-  <p>
-   Over time, and with help of other Facebook employees and the community providing bindings to pervasive JavaScript libraries like React.js with <a href="https://github.com/reasonml/reason-react/"><code>reason-react</code></a>, the combination of Reason and BuckleScript gains adoption.
-  </p>
-  <h3 id="the-rebranding">
-   <a class="here" href="#the-rebranding">→ </a>The Rebranding
-  </h3>
-  <p>
-   However, at some point the goals of both BuckleScript and Reason projects become harder to reconcile. In August 2020, BuckleScript team decides to rename to ReScript, stops adding support for the latest versions of the Reason parser, and replaces it with a new parser with some changes in syntax. The reasons for the rebranding are explained in <a href="https://rescript-lang.org/blog/bucklescript-is-rebranding">the official ReScript blog post</a>.
-  </p>
-  <p>
-   The rebranding is trying to ease onboarding and adoption of the ReScript language, which will give the project more chances to compete with mainstream compiled-to-JavaScript languages like TypeScript. However, for many existing users of BuckleScript and Reason, it is the explicit confirmation of something that had been hinted implicitly before: ReScript goals are not compatible with providing a good integration with the OCaml ecosystem.
-  </p>
-  <h3 id="melange--back-to-ocaml">
-   <a class="here" href="#melange--back-to-ocaml">→ </a>Melange: back to OCaml
-  </h3>
-  <p>
-   This is the point where Melange makes its appearance. A few weeks after The Rebranding, António Monteiro starts working on a fork of BuckleScript with a simple (not easy) goal: replace the <a href="https://ninja-build.org/">Ninja build system</a>, which BuckleScript had been using from its creation, with <a href="https://dune.build/">Dune</a>, which is the most used build system for OCaml projects.
+   <code>return nullable</code> attribute will automatically convert null and undefined to <code>option</code>
   </p>
   <p>
-   This fork of BuckleScript is later named Melange. After finishing the switch from Ninja to Dune, another number of additional features get added, to bring it closer to OCaml. Some examples are the upgrade of the compiler version used by Melange to 4.12, or modelling the changes to the OCaml compiler that Melange uses as just a plain library, instead of a full fork of the whole compiler.
+   Currently 4 directives are supported: <code>null_to_opt</code>, <code>undefined_to_opt</code>,
+<code>nullable</code>(introduced in @1.9.0) and <code>identity</code>.
+<code>null_undefined_to_opt</code> works the same as <code>nullable</code>,
+but it is deprecated, <code>nullable</code> is encouraged
+  </p>
+  <p>
+   <code>null_to_opt</code>, <code>undefined_to_opt</code> and <code>nullable</code> will <em>semantically</em>
+convert a nullable value to <code>option</code> which is a boxed value, but the compiler will
+do smart optimizations to <em>remove such boxing overhead</em> when the returned value is destructed
+in the same routine.
+  </p>
+  <p>
+   The three directives above require users to write literally <code>_ option</code>. It is
+in theory not necessary, but it is required to reduce user errors.
+  </p>
+  <p>
+   When the return type is <code>unit</code>: the compiler will append its return value
+with an OCaml <code>unit</code> literal to make sure it does return <code>unit</code>. Its main purpose
+is to make the user consume FFI in idiomatic OCaml code, the cost is <em>very very small</em> and
+the compiler will do smart optimizations to remove it when the returned value is not used (mostly likely).
+  </p>
+  <p>
+   <code>identity</code> will make sure that compiler will do nothing about the returned value. It
+is rarely used, but introduced here for debugging purpose.
   </p>
  </div>
 </div>

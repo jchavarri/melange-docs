@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Bind to global values — Melange.re
+  </title>
+  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <symbol id="svg-link" viewbox="0 0 24 24">
+    <title>
+     Link
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+   </symbol>
+   <symbol id="svg-search" viewbox="0 0 24 24">
+    <title>
+     Search
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+     <circle cx="11" cy="11" r="8"></circle>
+     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-menu" viewbox="0 0 24 24">
+    <title>
+     Menu
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+     <line x1="3" y1="12" x2="21" y2="12"></line>
+     <line x1="3" y1="6" x2="21" y2="6"></line>
+     <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+    <title>
+     Expand
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+     <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+   </symbol>
+   <symbol id="svg-doc" viewbox="0 0 24 24">
+    <title>
+     Document
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+     <polyline points="13 2 13 9 20 9"></polyline>
+    </svg>
+   </symbol>
+  </svg>
+  <div class="side-bar">
+   <div class="site-header">
+    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+        Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
+    <svg viewbox="0 0 24 24" class="icon">
+     
+          
+     <use href="#svg-menu"></use>
+     
+        
+    </svg>
+     
+   </a>
+  </div>
+  <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+   <ul class="nav-list">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
+    </li>
+    <li class="nav-list-item active">
+     <a href="#" class="nav-list-expander">
+     <svg viewbox="0 0 24 24">
+      <use href="#svg-arrow-right"></use>
+     </svg>
+    </a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <ul class="nav-list ">
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/embed-raw-javascript" class="nav-list-link">Embed Raw JavaScript</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/data-types" class="nav-list-link">Representation of Types</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/intro-to-external" class="nav-list-link">Intro to External</a>
+     </li>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/bind-to-global-values" class="nav-list-link active">Bind to global values</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/null-undefined-option" class="nav-list-link">Null, Undefined &amp; Option</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/object" class="nav-list-link">Object</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/class" class="nav-list-link">Class</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/function" class="nav-list-link">Function</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/regular-expression" class="nav-list-link">Regular expressions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/exceptions" class="nav-list-link">Exceptions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/json" class="nav-list-link">JSON</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/pipe-first" class="nav-list-link">Pipe first</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/misc" class="nav-list-link">Miscellaneous</a>
+     </li>
+    </ul>
+   </li>
+   <li class="nav-list-item">
+    <a href="#" class="nav-list-expander">
+    <svg viewbox="0 0 24 24">
+     <use href="#svg-arrow-right"></use>
+    </svg>
+   </a>
+   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
+   <ul class="nav-list ">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+<footer class="site-footer">
+ This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
+      adapted for <a href="https://soupault.app">Soupault</a>.
+</footer>
+</div>
+<div class="main" id="top">
+<div id="main-header" class="main-header">
+ <div class="search"></div>
+ <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+   <li class="aux-nav-list-item">
+    <a href="https://github.com/melange-re/melange" class="site-button" target="_blank" rel="noopener noreferrer"> Melange on GitHub </a>
+   </li>
+  </ul>
+ </nav>
+</div>
+<div id="main-content-wrap" class="main-content-wrap">
+ <div id="content" class="main-content" role="main">
+  <h1 id="bind-to-global-values" data-nav-order="360">
+   Bind to global values
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#abstract-type">Abstract Type</a>
+   </li>
+   <li>
+    <a href="#global-modules">Global Modules</a>
+   </li>
+  </ol>
+  <p>
+   Do you want to use <code>window</code>? Or <code>Math</code>? Or anything that you don't have to first <code>import</code> or <code>require</code> in JavaScript? This section describes how to access those from Melange.
+  </p>
+  <p>
+   Now, here's how you bind to a JS value:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> clearTimeout <span class="token punctuation">:</span> float <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">=&gt;</span> unit<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> clearTimeout<span class="token punctuation">:</span> float <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   This binds to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrworkerGlobalScope/setTimeout"><code>setTimeout</code></a> methods and the corresponding <code>clearTimeout</code>. The <code>external</code>'s type annotation specifies that <code>setTimeout</code>:
+  </p>
+  <ul>
+   <li>
+    takes a function that accepts <code>unit</code> and returns <code>unit</code> (which on the JS side turns into a function that accepts nothing and returns nothing. More on modeling functions later)
+   </li>
+   <li>
+    and an integer that specifies the duration before calling said function
+   </li>
+   <li>
+    returns a number that is the timeout's ID. This number might be big, so we're modeling it as a float rather than the 32-bit int
+   </li>
+  </ul>
+  <h3 id="abstract-type">
+   <a class="here" href="#abstract-type">→ </a>Abstract Type
+  </h3>
+  <p>
+   <strong>The above still isn't ideal</strong>. See how <code>setTimeout</code> returns a <code>float</code> and <code>clearTimeout</code> accepts one. There's no guarantee that you're passing the float created by <code>setTimeout</code> into <code>clearTimeout</code>! For all we know, someone might pass it <code>Math.random()</code> into the latter.
+  </p>
+  <p>
+   We're in a language with a great type system now! Let's leverage a popular feature to solve this problem: abstract types.
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> timerId
+<span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> clearTimeout <span class="token punctuation">:</span> timerId <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token keyword">type</span> timerId<span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">=&gt;</span> unit<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> clearTimeout<span class="token punctuation">:</span> timerId <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   Clearly, <code>timerId</code> is a type that can only be created by <code>setTimeout</code>! Now we've guaranteed that <code>clearTimeout</code> <em>will</em> be passed a valid ID. Whether it's a number under the hood is now a mere implementation detail.
+  </p>
+  <p>
+   Inspect the output <a href="https://reasonml.github.io/en/try.html?reason=C4TwDgpgBMCWC2EBOBJAJgbgFAG0ACARgM4B0AbgIYA2AulBAB7DIB21UREwAKghAPYBXYFABcUABSCWsEQF4AfFGmyANFFgtgASiiKYfVGj1QARJx58hwU9nzFy1Oo2ZI2VKAGMqECkl6I1mIGiEZ6SiryZt6+-lbCtlhYPiKwxnIcXAECwhISuvoAUqRU-ADmEqYAFhBUpaba6gCMAAwt2thYMX7Z1hJpHUA">here</a>. It's as clean as hand-written JS code, except you know it comes from correctly typed Melange. If these kind of features are all you use from Melange, you'd already have derived values from them!
+  </p>
+  <p>
+   This trick is often used to allow folks to agree on <em>what</em> JS functionalities to bind to, without prescribing <em>how</em> to bind to them. For example, the Melange library exposes a few abstract types like <a href="https://bucklescript.github.io/bucklescript/api/Dom.html#TYPEwindow"><code>window</code></a>. The DOM API is <em>huge</em> and extremely hard to bind to correctly; we don't provide an opinionated way of doing it, so exposing the types and allowing you to use them as input/output types of your <code>external</code>s and have everyone's opinionated wrapper still agreeing on the types is a great middle-ground. You, for example, might only need 3 methods from DOM, and so wrote your own, thin wrappers for them.
+  </p>
+  <h2 id="global-modules">
+   <a class="here" href="#global-modules">→ </a>Global Modules
+  </h2>
+  <p>
+   If you want to bind to a value inside a global module, e.g. <code>Math.random</code>, attach a <code>bs.scope</code> to your <code>bs.val</code> external:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> random<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"random"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"Math"</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> someNumber <span class="token operator">=</span> random <span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"Math"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> random<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> float <span class="token operator">=</span> <span class="token string">"random"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> someNumber <span class="token operator">=</span> random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var someNumber = Math.random();
+
+exports.someNumber = someNumber;
+/* someNumber Not a pure module */
+</code></pre>
+  <p>
+   you can bind to an arbitrarily deep object by passing a tuple to <code>bs.scope</code>:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> length<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token string">"length"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>scope <span class="token punctuation">(</span><span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> length<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token string">"length"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   This binds to <code>window.location.ancestorOrigins.length</code>.
+  </p>
+ </div>
+</div>
+<div class="search-overlay"></div>
+</div>
+<script>
+function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function (tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
+</script>
+<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+</body>
+</html>

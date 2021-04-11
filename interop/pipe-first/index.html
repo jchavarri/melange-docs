@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Pipe first — Melange.re
+  </title>
+  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <symbol id="svg-link" viewbox="0 0 24 24">
+    <title>
+     Link
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+   </symbol>
+   <symbol id="svg-search" viewbox="0 0 24 24">
+    <title>
+     Search
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+     <circle cx="11" cy="11" r="8"></circle>
+     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-menu" viewbox="0 0 24 24">
+    <title>
+     Menu
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+     <line x1="3" y1="12" x2="21" y2="12"></line>
+     <line x1="3" y1="6" x2="21" y2="6"></line>
+     <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+    <title>
+     Expand
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+     <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+   </symbol>
+   <symbol id="svg-doc" viewbox="0 0 24 24">
+    <title>
+     Document
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+     <polyline points="13 2 13 9 20 9"></polyline>
+    </svg>
+   </symbol>
+  </svg>
+  <div class="side-bar">
+   <div class="site-header">
+    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+        Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
+    <svg viewbox="0 0 24 24" class="icon">
+     
+          
+     <use href="#svg-menu"></use>
+     
+        
+    </svg>
+     
+   </a>
+  </div>
+  <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+   <ul class="nav-list">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
+    </li>
+    <li class="nav-list-item active">
+     <a href="#" class="nav-list-expander">
+     <svg viewbox="0 0 24 24">
+      <use href="#svg-arrow-right"></use>
+     </svg>
+    </a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <ul class="nav-list ">
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/embed-raw-javascript" class="nav-list-link">Embed Raw JavaScript</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/data-types" class="nav-list-link">Representation of Types</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/intro-to-external" class="nav-list-link">Intro to External</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/bind-to-global-values" class="nav-list-link">Bind to global values</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/null-undefined-option" class="nav-list-link">Null, Undefined &amp; Option</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/object" class="nav-list-link">Object</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/class" class="nav-list-link">Class</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/function" class="nav-list-link">Function</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/regular-expression" class="nav-list-link">Regular expressions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/exceptions" class="nav-list-link">Exceptions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/json" class="nav-list-link">JSON</a>
+     </li>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/pipe-first" class="nav-list-link active">Pipe first</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/misc" class="nav-list-link">Miscellaneous</a>
+     </li>
+    </ul>
+   </li>
+   <li class="nav-list-item">
+    <a href="#" class="nav-list-expander">
+    <svg viewbox="0 0 24 24">
+     <use href="#svg-arrow-right"></use>
+    </svg>
+   </a>
+   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
+   <ul class="nav-list ">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+<footer class="site-footer">
+ This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
+      adapted for <a href="https://soupault.app">Soupault</a>.
+</footer>
+</div>
+<div class="main" id="top">
+<div id="main-header" class="main-header">
+ <div class="search"></div>
+ <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+   <li class="aux-nav-list-item">
+    <a href="https://github.com/melange-re/melange" class="site-button" target="_blank" rel="noopener noreferrer"> Melange on GitHub </a>
+   </li>
+  </ul>
+ </nav>
+</div>
+<div id="main-content-wrap" class="main-content-wrap">
+ <div id="content" class="main-content" role="main">
+  <h1 id="pipe-first" data-nav-order="570">
+   Pipe first
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#pipelining">Pipelining</a>
+   </li>
+   <li>
+    <a href="#js-method-chaining">JS Method Chaining</a>
+   </li>
+   <li>
+    <a href="#pipe-into-variants">Pipe Into Variants</a>
+   </li>
+  </ol>
+  <p>
+   Melange has a special <code>|.</code> (or <code>-&gt;</code> for Reason) pipe syntax for dealing with various situations. This operator has many uses.
+  </p>
+  <h2 id="pipelining">
+   <a class="here" href="#pipelining">→ </a>Pipelining
+  </h2>
+  <p>
+   The pipe takes the item on the left and put it as the first argument of the item on the right. Great for building pipelines of data processing:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml">a
+<span class="token operator">|.</span> foo b
+<span class="token operator">|.</span> bar
+</code><code class="language-reason">a<span class="token operator">-&gt;</span><span class="token punctuation">(</span>foo<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span>bar<span class="token punctuation">;</span>
+</code></pre>
+  <p>
+   is equal to
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml">bar<span class="token punctuation">(</span>foo a b<span class="token punctuation">)</span>
+</code><code class="language-reason">bar<span class="token punctuation">(</span>foo<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+  <h2 id="js-method-chaining">
+   <a class="here" href="#js-method-chaining">→ </a>JS Method Chaining
+  </h2>
+  <p>
+   JavaScript's APIs are often attached to objects, and often chainable, like so:
+  </p>
+  <pre><code class="language-js">const result = [1, 2, 3].map(a =&gt; a + 1).filter(a =&gt; a % 2 === 0);
+
+asyncRequest().setWaitDuration(4000).send();
+</code></pre>
+  <p>
+   Assuming we don't need the chaining behavior above, we'd bind to each case this using <code>bs.send</code> from the previous section:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">external</span> map <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"map"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> filter <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"filter"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+
+<span class="token keyword">type</span> request
+<span class="token keyword">external</span> asyncRequest<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> request <span class="token operator">=</span> <span class="token string">"asyncRequest"</span>
+<span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> request <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> map<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"map"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> filter<span class="token punctuation">:</span> <span class="token punctuation">(</span>array<span class="token punctuation">(</span><span class="token type-variable function">'a</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token type-variable function">'a</span> <span class="token operator">=&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> array<span class="token punctuation">(</span><span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"filter"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> request<span class="token punctuation">;</span>
+<span class="token keyword">external</span> asyncRequest<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"asyncRequest"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
+<span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   You'd use them like this:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> result <span class="token operator">=</span> filter <span class="token punctuation">(</span>map <span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">fun</span> a <span class="token operator">-&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">fun</span> a <span class="token operator">-&gt;</span> a <span class="token operator">mod</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> send<span class="token punctuation">(</span>setWaitDuration <span class="token punctuation">(</span>asyncRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token number">4000</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">let</span> result <span class="token operator">=</span> filter<span class="token punctuation">(</span>map<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">,</span> a <span class="token operator">=&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> a <span class="token operator">=&gt;</span> a <span class="token operator">mod</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> send<span class="token punctuation">(</span>setWaitDuration<span class="token punctuation">(</span>asyncRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+  <p>
+   This looks much worse than the JS counterpart! Now we need to read the actual logic "inside-out". We also cannot use the <code>|&gt;</code> operator here, since the object comes <em>first</em> in the binding. But <code>|.</code> and <code>-&gt;</code> work!
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span>
+  <span class="token operator">|.</span> map<span class="token punctuation">(</span><span class="token keyword">fun</span> a <span class="token operator">-&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token operator">|.</span> filter<span class="token punctuation">(</span><span class="token keyword">fun</span> a <span class="token operator">-&gt;</span> a <span class="token operator">mod</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> asyncRequest <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">|.</span> setWaitDuration <span class="token number">400</span> <span class="token operator">|.</span> send
+</code><code class="language-reason"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>map<span class="token punctuation">(</span>a <span class="token operator">=&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>filter<span class="token punctuation">(</span>a <span class="token operator">=&gt;</span> a <span class="token operator">mod</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> asyncRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>setWaitDuration<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span>send<span class="token punctuation">;</span>
+</code></pre>
+  <h2 id="pipe-into-variants">
+   <a class="here" href="#pipe-into-variants">→ </a>Pipe Into Variants
+  </h2>
+  <p>
+   This works:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> result <span class="token operator">=</span> name <span class="token operator">|.</span> preprocess <span class="token operator">|.</span> <span class="token module variable">Some</span>
+</code><code class="language-reason"><span class="token keyword">let</span> result <span class="token operator">=</span> name<span class="token operator">-&gt;</span>preprocess<span class="token operator">-&gt;</span><span class="token module variable">Some</span><span class="token punctuation">;</span>
+</code></pre>
+  <p>
+   We turn this into:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token module variable">Some</span><span class="token punctuation">(</span>preprocess<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token module variable">Some</span><span class="token punctuation">(</span>preprocess<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+ </div>
+</div>
+<div class="search-overlay"></div>
+</div>
+<script>
+function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function (tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
+</script>
+<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+</body>
+</html>

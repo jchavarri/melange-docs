@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+  <meta http-equiv="cleartype" content="on">
+  <title>
+   Representation of Types — Melange.re
+  </title>
+  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <meta name="description" content="Typesettings.css is inspired by traditional graphic design fundamentals and the perfect lite design systems for any minimal website or article design.">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <symbol id="svg-link" viewbox="0 0 24 24">
+    <title>
+     Link
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+   </symbol>
+   <symbol id="svg-search" viewbox="0 0 24 24">
+    <title>
+     Search
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+     <circle cx="11" cy="11" r="8"></circle>
+     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-menu" viewbox="0 0 24 24">
+    <title>
+     Menu
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+     <line x1="3" y1="12" x2="21" y2="12"></line>
+     <line x1="3" y1="6" x2="21" y2="6"></line>
+     <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+   </symbol>
+   <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+    <title>
+     Expand
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+     <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+   </symbol>
+   <symbol id="svg-doc" viewbox="0 0 24 24">
+    <title>
+     Document
+    </title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+     <polyline points="13 2 13 9 20 9"></polyline>
+    </svg>
+   </symbol>
+  </svg>
+  <div class="side-bar">
+   <div class="site-header">
+    <a href="https://jchavarri.github.io/melange-docs/" class="site-title lh-tight">
+        Melange.re </a> <a href="#" id="menu-button" class="site-button"> 
+    <svg viewbox="0 0 24 24" class="icon">
+     
+          
+     <use href="#svg-menu"></use>
+     
+        
+    </svg>
+     
+   </a>
+  </div>
+  <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+   <ul class="nav-list">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/intro" class="nav-list-link">Intro</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/installation" class="nav-list-link">Installation</a>
+    </li>
+    <li class="nav-list-item active">
+     <a href="#" class="nav-list-expander">
+     <svg viewbox="0 0 24 24">
+      <use href="#svg-arrow-right"></use>
+     </svg>
+    </a>
+    <a href="https://jchavarri.github.io/melange-docs/interop" class="nav-list-link">Interop</a>
+    <ul class="nav-list ">
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/cheatsheet" class="nav-list-link">Cheatsheet</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/embed-raw-javascript" class="nav-list-link">Embed Raw JavaScript</a>
+     </li>
+     <li class="nav-list-item active">
+      <a href="https://jchavarri.github.io/melange-docs/interop/data-types" class="nav-list-link active">Representation of Types</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/intro-to-external" class="nav-list-link">Intro to External</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/bind-to-global-values" class="nav-list-link">Bind to global values</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/null-undefined-option" class="nav-list-link">Null, Undefined &amp; Option</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/object" class="nav-list-link">Object</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/class" class="nav-list-link">Class</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/function" class="nav-list-link">Function</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/regular-expression" class="nav-list-link">Regular expressions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/exceptions" class="nav-list-link">Exceptions</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/json" class="nav-list-link">JSON</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/pipe-first" class="nav-list-link">Pipe first</a>
+     </li>
+     <li class="nav-list-item">
+      <a href="https://jchavarri.github.io/melange-docs/interop/misc" class="nav-list-link">Miscellaneous</a>
+     </li>
+    </ul>
+   </li>
+   <li class="nav-list-item">
+    <a href="#" class="nav-list-expander">
+    <svg viewbox="0 0 24 24">
+     <use href="#svg-arrow-right"></use>
+    </svg>
+   </a>
+   <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
+   <ul class="nav-list ">
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/generators" class="nav-list-link">Generators</a>
+    </li>
+    <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/virtual-libraries" class="nav-list-link">Virtual libraries</a>
+    </li>
+   </ul>
+  </li>
+ </ul>
+</nav>
+<footer class="site-footer">
+ This site uses a modified version of <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>,
+      adapted for <a href="https://soupault.app">Soupault</a>.
+</footer>
+</div>
+<div class="main" id="top">
+<div id="main-header" class="main-header">
+ <div class="search"></div>
+ <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+   <li class="aux-nav-list-item">
+    <a href="https://github.com/melange-re/melange" class="site-button" target="_blank" rel="noopener noreferrer"> Melange on GitHub </a>
+   </li>
+  </ul>
+ </nav>
+</div>
+<div id="main-content-wrap" class="main-content-wrap">
+ <div id="content" class="main-content" role="main">
+  <h1 id="representation-of-types" data-nav-order="340">
+   Representation of Types
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#types-representation">Types Representation</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#string">String</a>
+    </li>
+    <ol class="toc">
+     <li>
+      <a href="#unicode-support">Unicode Support</a>
+     </li>
+     <li>
+      <a href="#interpolation">Interpolation</a>
+     </li>
+    </ol>
+    <li>
+     <a href="#float">Float</a>
+    </li>
+    <li>
+     <a href="#int">Int</a>
+    </li>
+    <li>
+     <a href="#array">Array</a>
+    </li>
+    <li>
+     <a href="#tuple">Tuple</a>
+    </li>
+    <li>
+     <a href="#bool">Bool</a>
+    </li>
+   </ol>
+   <li>
+    <a href="#records">Records</a>
+   </li>
+   <li>
+    <a href="#non-shared-data-types">Non-shared Data Types</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#design-decisions">Design Decisions</a>
+    </li>
+   </ol>
+   <li>
+    <a href="#cheat-sheet">Cheat Sheet</a>
+   </li>
+   <ol class="toc">
+    <li>
+     <a href="#shared">Shared</a>
+    </li>
+    <li>
+     <a href="#non-shared">Non-shared</a>
+    </li>
+   </ol>
+  </ol>
+  <h2 id="types-representation">
+   <a class="here" href="#types-representation">→ </a>Types Representation
+  </h2>
+  <p>
+   Melange's primitives such as <code>string</code>, <code>float</code>, <code>array</code> compile to the exact same types in JavaScript.
+  </p>
+  <p>
+   This means that if you receive e.g. a string from the JavaScript side, you can use it without conversion on the Melange side, and vice-versa.
+  </p>
+  <h3 id="string">
+   <a class="here" href="#string">→ </a>String
+  </h3>
+  <p>
+   Immutable on both sides, as expected. <a href="https://reasonml.github.io/api/String.html">Melange String API</a>. <a href="https://bucklescript.github.io/bucklescript/api/Js.String.html">JavaScript String API</a>.
+  </p>
+  <h4 id="unicode-support">
+   <a class="here" href="#unicode-support">→ </a>Unicode Support
+  </h4>
+  <p>
+   OCaml string is an immutable byte sequence. If the user types some unicode:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token string">"你好"</span>
+</code><code class="language-reason"><span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+console.log("\xe4\xbd\xa0\xe5\xa5\xbd");
+
+/*  Not a pure module */
+</code></pre>
+  <p>
+   Which gives you cryptic console output. To rectify this, Melange exposes a special <code>js</code> annotation to the default <a href="https://reasonml.github.io/docs/en/string-and-char.html#quoted-string">quoted string syntax</a> built into the language. Use it like this:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
+世界<span class="token operator">|</span>js<span class="token punctuation">}</span>
+</code><code class="language-reason"><span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
+世界<span class="token operator">|</span>js<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+console.log("你好，\n世界");
+
+/*  Not a pure module */
+</code></pre>
+  <h4 id="interpolation">
+   <a class="here" href="#interpolation">→ </a>Interpolation
+  </h4>
+  <p>
+   For convenience, we also expose another special tag quoted string annotation, <code>j</code>, which supports the equivalent of JavaScript' string interpolation, but for variables only (not arbitrary expressions):
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> world <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>世界<span class="token operator">|</span>j<span class="token punctuation">}</span>
+<span class="token keyword">let</span> helloWorld <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>你好，<span class="token operator">$</span>world<span class="token operator">|</span>j<span class="token punctuation">}</span>
+</code><code class="language-reason"><span class="token keyword">let</span> world <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>世界<span class="token operator">|</span>j<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> helloWorld <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>你好，<span class="token operator">$</span>world<span class="token operator">|</span>j<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">// Generated by Melange
+'use strict';
+
+
+var world = "世界";
+
+var helloWorld = "你好，" + world;
+
+exports.world = world;
+exports.helloWorld = helloWorld;
+/* No side effect */
+</code></pre>
+  <p>
+   You can surround the variable in parentheses too: <code>{j|你好，$(world)|j}</code>.
+  </p>
+  <h3 id="float">
+   <a class="here" href="#float">→ </a>Float
+  </h3>
+  <p>
+   Melange floats are JavaScript numbers, vice-versa. The OCaml standard library doesn't come with a Float module. JavaScript Float API is <a href="https://bucklescript.github.io/bucklescript/api/Js.Float.html">here</a>.
+  </p>
+  <h3 id="int">
+   <a class="here" href="#int">→ </a>Int
+  </h3>
+  <p>
+   <strong>Ints are 32-bits</strong>! Be careful, you can potentially treat them as JavaScript numbers and vice-versa, but if the number's large, then you better treat JavaScript numbers as floats. For example, we bind to Js.Date using <code>float</code>s. Js Int API <a href="https://bucklescript.github.io/bucklescript/api/Js.Int.html">here</a>.
+  </p>
+  <h3 id="array">
+   <a class="here" href="#array">→ </a>Array
+  </h3>
+  <p>
+   Idiomatic OCaml arrays are supposed to be fix-sized. This constraint is relaxed on the Melange size. You can change its length using the usual <a href="https://bucklescript.github.io/bucklescript/api/Js.Array.html#VALdefault">JavaScript Array API</a>. Melange's own Array API is <a href="https://reasonml.github.io/api/Array.html">here</a>.
+  </p>
+  <h3 id="tuple">
+   <a class="here" href="#tuple">→ </a>Tuple
+  </h3>
+  <p>
+   OCaml tuples are compiled to JavaScript arrays. Convenient when you're interop-ing with a JavaScript array that contains heterogeneous values, but happens to have a fixed length. Model it as a tuple on the Melange side!
+  </p>
+  <h3 id="bool">
+   <a class="here" href="#bool">→ </a>Bool
+  </h3>
+  <p>
+   Since Melange 3, OCaml/Reason bool now compile to JavaScript boolean.
+  </p>
+  <h2 id="records">
+   <a class="here" href="#records">→ </a>Records
+  </h2>
+  <p>
+   Since Melange v7, OCaml/Reason records map directly to JavaScript objects. If records contain any Non-Shared data types (like variants), then these values must be transformed separately and cannot be directly used in JavaScript.
+  </p>
+  <h2 id="non-shared-data-types">
+   <a class="here" href="#non-shared-data-types">→ </a>Non-shared Data Types
+  </h2>
+  <p>
+   Variants (including <code>option</code> and <code>list</code>), Melange objects and others can be exported as well, but you should <strong>not</strong> rely on their internal representation on the JavaScript side. Aka, don't grab a Melange list and start manipulating its structure on the JavaScript side.
+  </p>
+  <p>
+   However, for Melange related data types, we provide <a href="generate-converters-accessors.md">generation of converters and accessors</a>. Once you convert e.g. variants to a string, you can naturally use them on the JavaScript side.
+  </p>
+  <p>
+   For list, use <code>Array.of_list</code> and <code>Array.to_list</code> in the <a href="https://reasonml.github.io/api/Array.html">Array</a> module. <code>option</code> will be highlighted shortly later on and also has <a href="https://jchavarri.github.io/melange-docs/docs/en/null-undefined-option">its dedicated section</a> as well.
+  </p>
+  <p>
+   For a seamless JavaScript / TypeScript / Flow integration experience, you might
+want to use <a href="https://github.com/cristianoc/gentype">genType</a> instead of doing
+conversion by hand.
+  </p>
+  <h3 id="design-decisions">
+   <a class="here" href="#design-decisions">→ </a>Design Decisions
+  </h3>
+  <p>
+   As to why we don't compile list to JavaScript array or vice-versa, it's because OCaml array and JavaScript array share similar characteristics: mutable, similar read/write performance, etc. List, on the other hand, is immutable and has different access perf characteristics.
+  </p>
+  <p>
+   The same justification applies for records. OCaml records are fixed, nominally typed, and in general doesn't work well with JavaScript objects. We do provide excellent facilities to bind to JavaScript objects in the <a href="object.md">object section</a>.
+  </p>
+  <h2 id="cheat-sheet">
+   <a class="here" href="#cheat-sheet">→ </a>Cheat Sheet
+  </h2>
+  <h3 id="shared">
+   <a class="here" href="#shared">→ </a>Shared
+  </h3>
+  <table style="width:100%">
+   <tbody>
+    <tr>
+     <th style="text-align: left">
+      OCaml/Melange Type
+     </th>
+     <th style="text-align: left">
+      JavaScript Type
+     </th>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      int
+     </td>
+     <td style="text-align: left">
+      number
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      nativeint
+     </td>
+     <td style="text-align: left">
+      number
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      int32
+     </td>
+     <td style="text-align: left">
+      number
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      float
+     </td>
+     <td style="text-align: left">
+      number
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      string
+     </td>
+     <td style="text-align: left">
+      string
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      array
+     </td>
+     <td style="text-align: left">
+      array
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      tuple
+     </td>
+     <td style="text-align: left">
+      array
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      bool
+     </td>
+     <td style="text-align: left">
+      boolean
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      Js.Nullable.t
+     </td>
+     <td style="text-align: left">
+      <code>null</code>/<code>undefined</code>
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      option
+     </td>
+     <td style="text-align: left">
+      <code>None</code>-&gt;<code>undefined</code>
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      option
+     </td>
+     <td style="text-align: left">
+      <code>null</code>/<code>undefined</code>
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      option
+     </td>
+     <td style="text-align: left">
+      <code>null</code>/<code>undefined</code>
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: left">
+      record
+     </td>
+     <td style="text-align: left">
+      <code>null</code>/<code>undefined</code>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <p>
+   OCaml/Melange/Reason Type | JavaScript Type
+---------------------|---------------
+int | number
+nativeint | number
+int32 | number
+float | number
+string | string
+array | array
+tuple | array. <code>(3, 4)</code> -&gt; <code>[3, 4]</code>
+bool | boolean
+Js.Nullable.t | <code>null</code>/<code>undefined</code>
+option | <code>None</code> -&gt; <code>undefined</code>
+option | <code>Some( Some .. Some (None))</code> -&gt; internal representation
+option | <code>Some other</code> -&gt; other
+record | object. <code>{x: 1; y: 2}</code> -&gt; <code>{x: 1, y: 2}</code>
+special <code>bs.deriving abstract</code> record | object
+  </p>
+  <h3 id="non-shared">
+   <a class="here" href="#non-shared">→ </a>Non-shared
+  </h3>
+  <p>
+   Again, the representations are subject to change.
+  </p>
+  <p>
+   OCaml/Melange/Reason Type | JavaScript Value
+---------------------|---------------
+int64 | array. [high, low]. high is signed, low unsigned
+char | <code>'a'</code> -&gt; <code>97</code>
+bytes | number array (we might encode it as buffer in NodeJS)
+list | <code>[]</code> -&gt; <code>0</code>, <code>[x, y]</code> -&gt; <code>[x, [y, 0]]</code>, <code>[1, 2, 3]</code> -&gt; <code>[ 1, [ 2, [ 3, 0 ] ] ]</code>
+Variant | *
+Polymorphic variant | **
+exception | -
+extension | -
+object | -
+  </p>
+  <p>
+   * Variants with a single non-nullary constructor:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> tree <span class="token operator">=</span> <span class="token module variable">Leaf</span> <span class="token operator">|</span> <span class="token module variable">Node</span> <span class="token keyword">of</span> int <span class="token operator">*</span> tree <span class="token operator">*</span> tree
+<span class="token comment">(* Leaf -&gt; 0 *)</span>
+<span class="token comment">(* Node a b c -&gt; [a, b, c] *)</span>
+</code><code class="language-reason"><span class="token keyword">type</span> tree <span class="token operator">=</span>
+  <span class="token operator">|</span> <span class="token module variable">Leaf</span>
+  <span class="token operator">|</span> <span class="token module variable">Node</span><span class="token punctuation">(</span>int<span class="token punctuation">,</span> tree<span class="token punctuation">,</span> tree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">/*</span> <span class="token module variable">Leaf</span> <span class="token operator">-&gt;</span> <span class="token number">0</span> <span class="token operator">*/</span>
+<span class="token operator">/*</span> <span class="token module variable">Node</span> a b c <span class="token operator">-&gt;</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span> <span class="token operator">*/</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   Variants with more than one non-nullary constructor:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> u <span class="token operator">=</span> A <span class="token keyword">of</span> string <span class="token operator">|</span> B <span class="token keyword">of</span> int
+<span class="token comment">(* A a -&gt; [a].tag = 0 -- tag 0 assignment is optional *)</span>
+<span class="token comment">(* B b -&gt; [b].tag = 1 *)</span>
+</code><code class="language-reason"><span class="token keyword">type</span> u <span class="token operator">=</span>
+  <span class="token operator">|</span> A<span class="token punctuation">(</span>string<span class="token punctuation">)</span>
+  <span class="token operator">|</span> B<span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">/*</span> A a <span class="token operator">-&gt;</span> <span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">.</span>tag <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">--</span> tag <span class="token number">0</span> assignment is optional <span class="token operator">*/</span>
+<span class="token operator">/*</span> B b <span class="token operator">-&gt;</span> <span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">.</span>tag <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">*/</span>
+</code><code class="output-language-javascript">// Generated by Melange
+/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+</code></pre>
+  <p>
+   ** Polymorphic Variant:
+  </p>
+  <div class="tab">
+   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+  </div>
+  <pre><code class="language-ocaml"><span class="token variant variable">`a</span> <span class="token comment">(* 97 *)</span>
+<span class="token variant variable">`a</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">(* [ 97, [1, 2] ] *)</span>
+</code></pre>
+  <p>
+   Melange compiles <code>unit</code> to <code>0</code> in some cases but don't worry about it because it's considered internal and subject to change.
+  </p>
+ </div>
+</div>
+<div class="search-overlay"></div>
+</div>
+<script>
+function openLangTab(evt, langClassName) {
+      var i, tabcontent, tablinks;
+      var target = evt.currentTarget;
+      tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
+      tabcontents.forEach(function (tabcontent) {
+        tabcontent.style.display = "none";
+      });
+      tablinks = target.parentNode.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
+</script>
+<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+</body>
+</html>
