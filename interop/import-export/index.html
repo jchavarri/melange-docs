@@ -246,7 +246,7 @@
    Technically, since a Melange file maps to a module, there's no such thing as "default" export, only named ones. However, we've made an exception to support default module when you do the following:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token comment">(* FavoriteStudent.ml *)</span>
 <span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Bob"</span>
@@ -281,7 +281,7 @@ exports<span class="token punctuation">.</span>__esModule <span class="token ope
    Use <code>bs.module</code>. It's like a <code>bs.val</code> that accepts a string that's the module name or path.
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span>
 <span class="token keyword">let</span> root <span class="token operator">=</span> dirname <span class="token string">"/User/chenglou"</span>
@@ -307,7 +307,7 @@ exports<span class="token punctuation">.</span>root <span class="token operator"
    By omitting the payload to <code>bs.module</code>, you bind to the whole JS module:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> leftPad<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"./leftPad"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span>
 <span class="token keyword">let</span> paddedResult <span class="token operator">=</span> leftPad <span class="token string">"hi"</span> <span class="token number">5</span>
@@ -335,7 +335,7 @@ exports<span class="token punctuation">.</span>paddedResult <span class="token o
    This is a recurring question, so we'll answer it here. <strong>If your JS project is using ES6</strong>, you're likely using Babel to compile it to regular JavaScript. Babel's ES6 default export actually exports the default value under the name <code>default</code>. You'd bind to it like this:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> studentName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">"default"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"./student"</span><span class="token punctuation">]</span>
 <span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log studentName
@@ -359,6 +359,8 @@ exports<span class="token punctuation">.</span>studentName <span class="token op
 </div>
 <script>
 function openLangTab(evt, langClassName) {
+      evt.stopPropagation();
+      evt.preventDefault();
       var i, tabcontent, tablinks;
       var target = evt.currentTarget;
       tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
@@ -371,6 +373,7 @@ function openLangTab(evt, langClassName) {
       }
       target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
       evt.currentTarget.className += " active";
+      return false;
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>

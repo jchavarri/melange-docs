@@ -199,7 +199,7 @@
    Now, here's how you bind to a JS value:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> clearTimeout <span class="token punctuation">:</span> float <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
@@ -232,7 +232,7 @@
    We're in a language with a great type system now! Let's leverage a popular feature to solve this problem: abstract types.
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> timerId
 <span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
@@ -259,7 +259,7 @@
    If you want to bind to a value inside a global module, e.g. <code>Math.random</code>, attach a <code>bs.scope</code> to your <code>bs.val</code> external:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> random<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"random"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"Math"</span><span class="token punctuation">]</span>
 <span class="token keyword">let</span> someNumber <span class="token operator">=</span> random <span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -278,7 +278,7 @@ exports<span class="token punctuation">.</span>someNumber <span class="token ope
    you can bind to an arbitrarily deep object by passing a tuple to <code>bs.scope</code>:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> length<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token string">"length"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>scope <span class="token punctuation">(</span><span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
@@ -295,6 +295,8 @@ exports<span class="token punctuation">.</span>someNumber <span class="token ope
 </div>
 <script>
 function openLangTab(evt, langClassName) {
+      evt.stopPropagation();
+      evt.preventDefault();
       var i, tabcontent, tablinks;
       var target = evt.currentTarget;
       tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
@@ -307,6 +309,7 @@ function openLangTab(evt, langClassName) {
       }
       target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
       evt.currentTarget.className += " active";
+      return false;
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>

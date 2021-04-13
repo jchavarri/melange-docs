@@ -268,6 +268,8 @@
 </div>
 <script>
 function openLangTab(evt, langClassName) {
+      evt.stopPropagation();
+      evt.preventDefault();
       var i, tabcontent, tablinks;
       var target = evt.currentTarget;
       tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
@@ -280,6 +282,7 @@ function openLangTab(evt, langClassName) {
       }
       target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
       evt.currentTarget.className += " active";
+      return false;
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>

@@ -239,7 +239,7 @@
    If your JavaScript object has fixed fields, then it's conceptually like an OCaml record. Since an OCaml record compiles to a JavaScript object, you can type a JavaScript object as an OCaml record.
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
@@ -279,7 +279,7 @@ exports<span class="token punctuation">.</span>johnName <span class="token opera
    Alternatively, you can use <a href="https://ocaml.org/manual/objectexamples.html">OCaml object</a> to model a JavaScript object too. In particular, Melange exposes a type <code>'a Js.t</code> that will be transformed into plain JavaScript objects:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> person <span class="token operator">=</span> <span class="token operator">&lt;</span>
   name<span class="token punctuation">:</span> string <span class="token punctuation">;</span>
@@ -318,7 +318,7 @@ exports<span class="token punctuation">.</span>johnName <span class="token opera
    Alternatively, you can use <code>get</code> and <code>set</code> to bind to individual fields of a JS object:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> textarea
 <span class="token keyword">external</span> setName <span class="token punctuation">:</span> textarea <span class="token operator">-&gt;</span> string <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"name"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>set<span class="token punctuation">]</span>
@@ -333,7 +333,7 @@ exports<span class="token punctuation">.</span>johnName <span class="token opera
    You can also use <code>get_index</code> and <code>set_index</code> to access a dynamic property or an index:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> t
 <span class="token keyword">external</span> create <span class="token punctuation">:</span> int <span class="token operator">-&gt;</span> t <span class="token operator">=</span> <span class="token string">"Int32Array"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span>
@@ -390,7 +390,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    Use <code>new</code> to emulate e.g. <code>new Date()</code>:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> t
 
@@ -413,7 +413,7 @@ exports<span class="token punctuation">.</span>date <span class="token operator"
    You can chain <code>new</code> and <code>module</code> if the JS module you're importing is itself a class:
   </p>
   <div class="tab">
-   <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> t
 
@@ -439,6 +439,8 @@ exports<span class="token punctuation">.</span>myBook <span class="token operato
 </div>
 <script>
 function openLangTab(evt, langClassName) {
+      evt.stopPropagation();
+      evt.preventDefault();
       var i, tabcontent, tablinks;
       var target = evt.currentTarget;
       tabcontents = target.parentNode.nextElementSibling.querySelectorAll("code");
@@ -451,6 +453,7 @@ function openLangTab(evt, langClassName) {
       }
       target.parentNode.nextElementSibling.getElementsByClassName(langClassName)[0].style.display = "block";
       evt.currentTarget.className += " active";
+      return false;
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>
