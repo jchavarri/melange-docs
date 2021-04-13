@@ -122,9 +122,6 @@
      <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
      </li>
-     <li class="nav-list-item">
-      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
-     </li>
      <li class="nav-list-item active">
       <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link active">Import and export</a>
      </li>
@@ -239,11 +236,11 @@
   <p>
    If your JS project is using ES6 modules, you're likely exporting &amp; importing some default values:
   </p>
-  <pre><code class="language-js">// student.js
-export default name = "Al";
+  <pre><code class="language-javascript"><span class="token comment">// student.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> name <span class="token operator">=</span> <span class="token string">"Al"</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code class="language-js">// teacher.js
-import studentName from 'student.js';
+<pre><code class="language-javascript"><span class="token comment">// teacher.js</span>
+<span class="token keyword">import</span> studentName <span class="token keyword">from</span> <span class="token string">'student.js'</span><span class="token punctuation">;</span>
 </code></pre>
   <p>
    Technically, since a Melange file maps to a module, there's no such thing as "default" export, only named ones. However, we've made an exception to support default module when you do the following:
@@ -269,13 +266,13 @@ exports<span class="token punctuation">.</span>__esModule <span class="token ope
   <p>
    You can then require the default as normal JS side:
   </p>
-  <pre><code class="language-js">// teacher2.js
-import studentName from 'FavoriteStudent.js';
+  <pre><code class="language-javascript"><span class="token comment">// teacher2.js</span>
+<span class="token keyword">import</span> studentName <span class="token keyword">from</span> <span class="token string">'FavoriteStudent.js'</span><span class="token punctuation">;</span>
 </code></pre>
   <p>
    <strong>Note</strong>: the above JS snippet <em>only</em> works if you're using that ES6 import/export syntax in JS. If you're still using <code>require</code>, you'd need to do:
   </p>
-  <pre><code class="language-js">let studentName = require('FavoriteStudent').default;
+  <pre><code class="language-javascript"><span class="token keyword">let</span> studentName <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'FavoriteStudent'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
 </code></pre>
   <h2 id="import">
    <a class="here" href="#import">→ </a>Import

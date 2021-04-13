@@ -123,9 +123,6 @@
       <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
      </li>
      <li class="nav-list-item">
-      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
-     </li>
-     <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
      </li>
      <li class="nav-list-item">
@@ -278,9 +275,9 @@ exports<span class="token punctuation">.</span>t <span class="token operator">=<
   <p>
    JavaScript's APIs are often attached to objects, and often chainable, like so:
   </p>
-  <pre><code class="language-js">const result = [1, 2, 3].map(a =&gt; a + 1).filter(a =&gt; a % 2 === 0);
+  <pre><code class="language-javascript"><span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">a</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">a</span> <span class="token operator">=&gt;</span> a <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-asyncRequest().setWaitDuration(4000).send();
+<span class="token function">asyncRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setWaitDuration</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
   <p>
    Assuming we don't need the chaining behavior above, we'd bind to each case this using <code>bs.send</code> from the previous section:

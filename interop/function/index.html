@@ -123,9 +123,6 @@
       <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
      </li>
      <li class="nav-list-item">
-      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
-     </li>
-     <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
      </li>
      <li class="nav-list-item">
@@ -273,11 +270,11 @@ exports<span class="token punctuation">.</span>result <span class="token operato
   <p>
    OCaml has labeled arguments, that can be made optional. These work on an <code>external</code> too. You can use them to fix a JavaScript function's unclear usage. Assuming we're modeling this:
   </p>
-  <pre><code class="language-js">function draw(x, y, border) {
-   /* border is optional, defaults to false */
-}
-draw(10, 20)
-draw(20, 20, true)
+  <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> border</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">/* border is optional, defaults to false */</span>
+<span class="token punctuation">}</span>
+<span class="token function">draw</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token function">draw</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
 </code></pre>
   <p>
    On the Melange side, one can leverage the bindings to <code>draw</code> to label the parameters:
@@ -432,15 +429,15 @@ exports<span class="token punctuation">.</span>v <span class="token operator">=<
   <p>
    If you have the irresistible urge of saying "if only this JavaScript function argument was a variant instead of informally being either <code>string</code> or <code>int</code>", then good news: we do provide such <code>external</code> features through annotating a parameter as a polymorphic variant! Assuming you have the following JavaScript function you'd like to bind to:
   </p>
-  <pre><code class="language-js">function padLeft(value, padding) {
-  if (typeof padding === "number") {
-    return Array(padding + 1).join(" ") + value;
-  }
-  if (typeof padding === "string") {
-    return padding + value;
-  }
-  throw new Error(`Expected string or number, got '${padding}'.`);
-}
+  <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">padLeft</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> padding</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> padding <span class="token operator">===</span> <span class="token string">"number"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Array</span><span class="token punctuation">(</span>padding <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span> <span class="token operator">+</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> padding <span class="token operator">===</span> <span class="token string">"string"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> padding <span class="token operator">+</span> value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Expected string or number, got '</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>padding<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
   <p>
    Here, <code>padding</code> is really conceptually a variant. Let's model it as such.
@@ -815,9 +812,9 @@ let addFiveOops = add 5
   <p>
    Many JavaScript libraries have callbacks which rely on this (the source), for example:
   </p>
-  <pre><code class="language-js">x.onload = function(v) {
-  console.log(this.response + v)
-}
+  <pre><code class="language-javascript">x<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>response <span class="token operator">+</span> v<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
   <p>
    Here, <code>this</code> would point to <code>x</code> (actually, it depends on how <code>onload</code> is called, but we digress). It's not correct to declare <code>x.onload</code> of type <code>unit → unit [@bs]</code>. Instead, we introduced a special attribute, <code>bs.this</code>, which allows us to type <code>x</code> as so:
@@ -860,7 +857,7 @@ x<span class="token punctuation">.</span>onload <span class="token operator">=</
    <a class="here" href="#function-nullable-return-value-wrapping">→ </a>Function Nullable Return Value Wrapping
   </h2>
   <p>
-   For JavaScript functions that return a value that can also be <code>undefined</code> or <code>null</code>, we provide <code>@bs.return(...)</code>. To automatically convert that value to an <code>option</code> type (recall that Melange <code>option</code> type's <code>None</code> value only compiles to <code>undefined</code> and not <code>null</code>).
+   For JavaScript functions that return a value that can also be <code>undefined</code> or <code>null</code>, we provide <code>bs.return</code>. To automatically convert that value to an <code>option</code> type (recall that Melange <code>option</code> type's <code>None</code> value only compiles to <code>undefined</code> and not <code>null</code>).
   </p>
   <div class="tab">
    <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
@@ -905,10 +902,10 @@ exports<span class="token punctuation">.</span>test <span class="token operator"
 <span class="token comment">/* No side effect */</span>
 </code></pre>
   <p>
-   <code>return(nullable)</code> attribute will automatically convert <code>null</code> and <code>undefined</code> to <code>option</code> type.
+   <code>bs.return nullable</code> attribute will automatically convert <code>null</code> and <code>undefined</code> to <code>option</code> type.
   </p>
   <p>
-   Currently 4 directives are supported: <code>null_to_opt</code>, <code>undefined_to_opt</code>, <code>nullable</code> and <code>identity</code>.
+   There are other options besides <code>nullable</code> to be passed to <code>bs.return &lt;directive&gt;</code>. Currently 4 directives are supported: <code>null_to_opt</code>, <code>undefined_to_opt</code>, <code>nullable</code> and <code>identity</code>.
   </p>
   <p>
    <code>identity</code> will make sure that compiler will do nothing about the returned value. It is rarely used, but introduced here for debugging purpose.

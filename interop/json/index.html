@@ -123,9 +123,6 @@
       <a href="https://jchavarri.github.io/melange-docs/interop/property-access" class="nav-list-link">Property access</a>
      </li>
      <li class="nav-list-item">
-      <a href="https://jchavarri.github.io/melange-docs/interop/return-value-wrapping" class="nav-list-link">Return value wrapping</a>
-     </li>
-     <li class="nav-list-item">
       <a href="https://jchavarri.github.io/melange-docs/interop/import-export" class="nav-list-link">Import and export</a>
      </li>
      <li class="nav-list-item">
@@ -251,8 +248,8 @@ exports<span class="token punctuation">.</span>n <span class="token operator">=<
   <p>
    Output:
   </p>
-  <pre><code class="language-js">var result = JSON.parse("{\"name\": \"Luke\"}");
-var n = result.name;
+  <pre><code class="language-javascript"><span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"{\"name\": \"Luke\"}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> n <span class="token operator">=</span> result<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
 </code></pre>
   <p>
    Where <code>data</code> can be any type you assume the JSON is. As you can see, this compiles to a straightforward <code>JSON.parse</code> call. As with regular JS, this is convenient, but has no guarantee that e.g. the data is correctly shaped, or even syntactically valid.
