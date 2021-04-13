@@ -13,7 +13,7 @@ Melange also exposes a few special features, described below.
 
 OCaml has labeled arguments, that can be made optional. These work on an `external` too. You can use them to fix a JavaScript function's unclear usage. Assuming we're modeling this:
 
-```js
+```javascript
 function draw(x, y, border) {
    /* border is optional, defaults to false */
 }
@@ -91,7 +91,7 @@ Note how all three externals bind to the same JavaScript function, `draw`.
 
 If you have the irresistible urge of saying "if only this JavaScript function argument was a variant instead of informally being either `string` or `int`", then good news: we do provide such `external` features through annotating a parameter as a polymorphic variant! Assuming you have the following JavaScript function you'd like to bind to:
 
-```js
+```javascript
 function padLeft(value, padding) {
   if (typeof padding === "number") {
     return Array(padding + 1).join(" ") + value;
@@ -280,7 +280,7 @@ This means `[@bs]` are completely static behavior (no runtime cost), while `[@bs
 
 Many JavaScript libraries have callbacks which rely on this (the source), for example:
 
-```js
+```javascript
 x.onload = function(v) {
   console.log(this.response + v)
 }
@@ -304,7 +304,7 @@ let _ =
 
 ## Function Nullable Return Value Wrapping
 
-For JavaScript functions that return a value that can also be `undefined` or `null`, we provide `@bs.return(...)`. To automatically convert that value to an `option` type (recall that Melange `option` type's `None` value only compiles to `undefined` and not `null`).
+For JavaScript functions that return a value that can also be `undefined` or `null`, we provide `bs.return`. To automatically convert that value to an `option` type (recall that Melange `option` type's `None` value only compiles to `undefined` and not `null`).
 
 ```ocaml
 type element
@@ -319,9 +319,9 @@ let test dom =
   | (Some _ui) -> 2
 ```
 
-`return(nullable)` attribute will automatically convert `null` and `undefined` to `option` type.
+`bs.return nullable` attribute will automatically convert `null` and `undefined` to `option` type.
 
-Currently 4 directives are supported: `null_to_opt`, `undefined_to_opt`, `nullable` and `identity`.
+There are other options besides `nullable` to be passed to `bs.return <directive>`. Currently 4 directives are supported: `null_to_opt`, `undefined_to_opt`, `nullable` and `identity`.
 
 <!-- When the return type is unit: the compiler will append its return value with an OCaml unit literal to make sure it does return unit. Its main purpose is to make the user consume FFI in idiomatic OCaml code, the cost is very very small and the compiler will do smart optimizations to remove it when the returned value is not used (mostly likely). -->
 

@@ -20,7 +20,7 @@ let n = result |. nameGet
 
 Output:
 
-```js
+```javascript
 var result = JSON.parse("{\"name\": \"Luke\"}");
 var n = result.name;
 ```

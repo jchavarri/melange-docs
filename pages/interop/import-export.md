@@ -18,12 +18,12 @@ To only export a few selected `let`s, simply add an [interface file](https://rea
 
 If your JS project is using ES6 modules, you're likely exporting & importing some default values:
 
-```js
+```javascript
 // student.js
 export default name = "Al";
 ```
 
-```js
+```javascript
 // teacher.js
 import studentName from 'student.js';
 ```
@@ -39,14 +39,14 @@ let default = "Bob"
 
 You can then require the default as normal JS side:
 
-```js
+```javascript
 // teacher2.js
 import studentName from 'FavoriteStudent.js';
 ```
 
 **Note**: the above JS snippet _only_ works if you're using that ES6 import/export syntax in JS. If you're still using `require`, you'd need to do:
 
-```js
+```javascript
 let studentName = require('FavoriteStudent').default;
 ```
 

@@ -86,7 +86,7 @@ let _ = Some None
 
 This is compiled into the following JS:
 
-```js
+```javascript
 let _ = Js_primitive.some(undefined);
 ```
 

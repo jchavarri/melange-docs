@@ -26,7 +26,7 @@ let t = bar(foo 2 3)
 
 JavaScript's APIs are often attached to objects, and often chainable, like so:
 
-```js
+```javascript
 const result = [1, 2, 3].map(a => a + 1).filter(a => a % 2 === 0);
 
 asyncRequest().setWaitDuration(4000).send();
