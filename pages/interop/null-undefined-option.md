@@ -75,13 +75,15 @@ compiles to `undefined`! If you've got e.g. a string in JavaScript that you know
 The option-to-undefined translation isn't perfect, because on our side, `option` values can be composed:
 
 ```ocaml
-let _ = Some (Some (Some 5))
+let u = Some (Some (Some 5))
+let () = Js.log(u)
 ```
 
 This still compiles to `5`, but this gets troublesome:
 
 ```ocaml
-let _ = Some None
+let u = Some None
+let () = Js.log(u)
 ```
 
 This is compiled into the following JS:
