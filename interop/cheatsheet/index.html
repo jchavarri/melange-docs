@@ -284,12 +284,12 @@ exports<span class="token punctuation">.</span>add <span class="token operator">
   <div class="tab">
    <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
   </div>
-  <pre><code class="language-ocaml"><span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
 世界<span class="token operator">|</span>js<span class="token punctuation">}</span>
 
 <span class="token keyword">let</span> world <span class="token operator">=</span> <span class="token string">"world"</span>
 <span class="token keyword">let</span> helloWorld <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>hello<span class="token punctuation">,</span> <span class="token operator">$</span>world<span class="token operator">|</span>j<span class="token punctuation">}</span>
-</code><code class="language-reason"><span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
+</code><code class="language-reason"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
 世界<span class="token operator">|</span>js<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> world <span class="token operator">=</span> <span class="token string">"world"</span><span class="token punctuation">;</span>
@@ -426,7 +426,24 @@ exports<span class="token punctuation">.</span>result3 <span class="token operat
   username<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">external</span> createAddUser <span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> action <span class="token operator">=</span> <span class="token string">"addUser"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"actions/addUser.js"</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser <span class="token string">"arwen"</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser <span class="token string">"arwen"</span>
+</code><code class="language-reason"><span class="token keyword">type</span> action <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"type"</span><span class="token punctuation">]</span>
+  type_<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+  username<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"actions/addUser.js"</span><span class="token punctuation">]</span>
+<span class="token keyword">external</span> createAddUser<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> action <span class="token operator">=</span> <span class="token string">"addUser"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser<span class="token punctuation">(</span><span class="token string">"arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token comment">// Generated by Melange</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> AddUserJs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"actions/addUser.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> myAction <span class="token operator">=</span> AddUserJs<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span><span class="token string">"arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+exports<span class="token punctuation">.</span>myAction <span class="token operator">=</span> myAction<span class="token punctuation">;</span>
+<span class="token comment">/* myAction Not a pure module */</span>
 </code></pre>
   <h3 id="hash-map-mode">
    <a class="here" href="#hash-map-mode">→ </a>Hash Map Mode
@@ -715,8 +732,14 @@ exports<span class="token punctuation">.</span>__esModule <span class="token ope
   <div class="tab">
    <button class="fs-3 btn button-language-ocaml tablinks" onclick="openLangTab(event, 'language-ocaml')">ml</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'language-reason')">re</button><button class="fs-3 btn tablinks" onclick="openLangTab(event, 'output-language-javascript')">output (js)</button>
   </div>
-  <pre><code class="language-ocaml"><span class="token keyword">external</span> myShadyConversion <span class="token punctuation">:</span> foo <span class="token operator">-&gt;</span> bar <span class="token operator">=</span> <span class="token string">"%identity"</span>
-</code><code class="language-reason"><span class="token keyword">external</span> myShadyConversion<span class="token punctuation">:</span> foo <span class="token operator">=&gt;</span> bar <span class="token operator">=</span> <span class="token string">"%identity"</span><span class="token punctuation">;</span>
+  <pre><code class="language-ocaml"><span class="token keyword">type</span> foo <span class="token operator">=</span> string
+<span class="token keyword">type</span> bar <span class="token operator">=</span> int
+<span class="token keyword">external</span> dangerZone <span class="token punctuation">:</span> foo <span class="token operator">-&gt;</span> bar <span class="token operator">=</span> <span class="token string">"%identity"</span>
+</code><code class="language-reason"><span class="token keyword">type</span> foo <span class="token operator">=</span> string<span class="token punctuation">;</span>
+<span class="token keyword">type</span> bar <span class="token operator">=</span> int<span class="token punctuation">;</span>
+<span class="token keyword">external</span> dangerZone<span class="token punctuation">:</span> foo <span class="token operator">=&gt;</span> bar <span class="token operator">=</span> <span class="token string">"%identity"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token comment">// Generated by Melange</span>
+<span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span>
 </code></pre>
   <hr>
   <p>
