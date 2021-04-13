@@ -229,9 +229,9 @@
 
 <span class="token keyword">let</span> result <span class="token operator">=</span> parseIntoMyData <span class="token string">"{\"name\": \"Luke\"}"</span>
 <span class="token keyword">let</span> n <span class="token operator">=</span> result <span class="token operator">|.</span> name
-</code><code class="language-reason"><span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>deriving abstract<span class="token punctuation">]</span>
+</code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>deriving abstract<span class="token punctuation">]</span>
 <span class="token keyword">type</span> data <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> string<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"JSON"</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>scope <span class="token string">"JSON"</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> parseIntoMyData<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> data <span class="token operator">=</span> <span class="token string">"parse"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> result <span class="token operator">=</span> parseIntoMyData<span class="token punctuation">(</span><span class="token string">"{\"name\": \"Luke\"}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

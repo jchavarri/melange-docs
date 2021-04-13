@@ -208,37 +208,37 @@
   <span class="token keyword">match</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Exn</span><span class="token punctuation">.</span>message e <span class="token keyword">with</span>
   <span class="token operator">|</span> <span class="token module variable">Some</span> message <span class="token operator">-&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">{</span>j<span class="token operator">|</span><span class="token module variable">Error</span><span class="token punctuation">:</span> <span class="token operator">$</span>message<span class="token operator">|</span>j<span class="token punctuation">}</span>
   <span class="token operator">|</span> <span class="token module variable">None</span> <span class="token operator">-&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token string">"An unknown error occurred"</span>
-</code><code class="language-reason"><span class="token keyword">try</span><span class="token punctuation">(</span><span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Exn</span><span class="token punctuation">.</span>raiseError<span class="token punctuation">(</span><span class="token string">"oops!"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token operator">|</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Exn</span><span class="token punctuation">.</span><span class="token module variable">Error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
-  switch <span class="token punctuation">(</span><span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Exn</span><span class="token punctuation">.</span>message<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token operator">|</span> <span class="token module variable">Some</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token punctuation">{</span>j<span class="token operator">|</span><span class="token module variable">Error</span><span class="token punctuation">:</span> <span class="token operator">$</span>message<span class="token operator">|</span>j<span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token operator">|</span> <span class="token module variable">None</span> <span class="token operator">=&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"An unknown error occurred"</span><span class="token punctuation">)</span>
+</code><code class="language-reason"><span class="token keyword">try</span><span class="token punctuation">(</span><span class="token class-name">Js</span><span class="token punctuation">.</span><span class="token class-name">Exn</span><span class="token punctuation">.</span>raiseError<span class="token punctuation">(</span><span class="token string">"oops!"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">|</span> <span class="token class-name">Js</span><span class="token punctuation">.</span><span class="token class-name">Exn</span><span class="token punctuation">.</span><span class="token constructor variable">Error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token class-name">Js</span><span class="token punctuation">.</span><span class="token class-name">Exn</span><span class="token punctuation">.</span>message<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">|</span> <span class="token constructor variable">Some</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token punctuation">{</span>j<span class="token operator">|</span><span class="token constructor variable">Error</span><span class="token punctuation">:</span> $message<span class="token operator">|</span>j<span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token operator">|</span> <span class="token constructor variable">None</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"An unknown error occurred"</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">// Generated by Melange
-'use strict';
+</code><code class="output-language-javascript"><span class="token comment">// Generated by Melange</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
 
-var Js_exn = require("bs-platform/lib/js/js_exn.js");
-var Caml_js_exceptions = require("bs-platform/lib/js/caml_js_exceptions.js");
+<span class="token keyword">var</span> Js_exn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/js_exn.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Caml_js_exceptions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_js_exceptions.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-try {
-  Js_exn.raiseError("oops!");
-}
-catch (raw_e){
-  var e = Caml_js_exceptions.internalToOCamlException(raw_e);
-  if (e.RE_EXN_ID === Js_exn.$$Error) {
-    var message = e._1.message;
-    if (message !== undefined) {
-      console.log("Error: " + message);
-    } else {
-      console.log("An unknown error occurred");
-    }
-  } else {
-    throw e;
-  }
-}
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+  Js_exn<span class="token punctuation">.</span><span class="token function">raiseError</span><span class="token punctuation">(</span><span class="token string">"oops!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">catch</span> <span class="token punctuation">(</span>raw_e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> e <span class="token operator">=</span> Caml_js_exceptions<span class="token punctuation">.</span><span class="token function">internalToOCamlException</span><span class="token punctuation">(</span>raw_e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token constant">RE_EXN_ID</span> <span class="token operator">===</span> Js_exn<span class="token punctuation">.</span>$$Error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> message <span class="token operator">=</span> e<span class="token punctuation">.</span>_1<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>message <span class="token operator">!==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Error: "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"An unknown error occurred"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-/*  Not a pure module */
+<span class="token comment">/*  Not a pure module */</span>
 </code></pre>
   <h2 id="usage">
    <a class="here" href="#usage">→ </a>Usage
@@ -263,58 +263,58 @@ catch (raw_e){
       <span class="token operator">|</span> <span class="token module variable">Some</span> x <span class="token operator">-&gt;</span> x
       <span class="token operator">|</span> <span class="token module variable">None</span> <span class="token operator">-&gt;</span> raise <span class="token module variable">UnhandledPromise</span>
   <span class="token punctuation">)</span>
-</code><code class="language-reason"><span class="token keyword">exception</span> <span class="token module variable">UnhandledPromise</span><span class="token punctuation">;</span>
+</code><code class="language-reason"><span class="token keyword">exception</span> <span class="token constructor variable">UnhandledPromise</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> handlePromiseFailure <span class="token operator">=</span>
-  <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">open</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">open</span><span class="token punctuation">]</span>
   <span class="token punctuation">(</span>
     <span class="token keyword">fun</span>
-    <span class="token operator">|</span> <span class="token module variable">Not_found</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token module variable">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"Not found"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Promise</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">|</span> <span class="token constructor variable">Not_found</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"Not found"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Js</span><span class="token punctuation">.</span><span class="token class-name">Promise</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span>
-  <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Promise</span><span class="token punctuation">.</span>reject<span class="token punctuation">(</span><span class="token module variable">Not_found</span><span class="token punctuation">)</span>
-  <span class="token operator">|&gt;</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Promise</span><span class="token punctuation">.</span>catch<span class="token punctuation">(</span>error <span class="token operator">=&gt;</span>
-       switch <span class="token punctuation">(</span>handlePromiseFailure<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token operator">|</span> <span class="token module variable">Some</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> x
-       <span class="token operator">|</span> <span class="token module variable">None</span> <span class="token operator">=&gt;</span> raise<span class="token punctuation">(</span><span class="token module variable">UnhandledPromise</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> _ <span class="token operator">=</span>
+  <span class="token class-name">Js</span><span class="token punctuation">.</span><span class="token class-name">Promise</span><span class="token punctuation">.</span>reject<span class="token punctuation">(</span><span class="token constructor variable">Not_found</span><span class="token punctuation">)</span>
+  <span class="token operator">|&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span><span class="token class-name">Promise</span><span class="token punctuation">.</span>catch<span class="token punctuation">(</span>error <span class="token operator">=&gt;</span>
+       <span class="token keyword">switch</span> <span class="token punctuation">(</span>handlePromiseFailure<span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token operator">|</span> <span class="token constructor variable">Some</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> x
+       <span class="token operator">|</span> <span class="token constructor variable">None</span> <span class="token operator">=&gt;</span> raise<span class="token punctuation">(</span><span class="token constructor variable">UnhandledPromise</span><span class="token punctuation">)</span>
        <span class="token punctuation">}</span>
      <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">// Generated by Melange
-'use strict';
+</code><code class="output-language-javascript"><span class="token comment">// Generated by Melange</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
 
-var Stdlib = require("bs-platform/lib/js/stdlib.js");
-var Caml_option = require("bs-platform/lib/js/caml_option.js");
-var Caml_exceptions = require("bs-platform/lib/js/caml_exceptions.js");
+<span class="token keyword">var</span> Stdlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/stdlib.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Caml_option <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_option.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Caml_exceptions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_exceptions.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-var UnhandledPromise = /* @__PURE__ */Caml_exceptions.create("Code_sample_1851.UnhandledPromise");
+<span class="token keyword">var</span> UnhandledPromise <span class="token operator">=</span> <span class="token comment">/* @__PURE__ */</span>Caml_exceptions<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"Code_sample_1861.UnhandledPromise"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-function handlePromiseFailure(match) {
-  if (Caml_exceptions.caml_is_extension(match) &amp;&amp; match.RE_EXN_ID === Stdlib.Not_found) {
-    return Caml_option.some((console.log("Not found"), Promise.resolve(undefined)));
-  }
+<span class="token keyword">function</span> <span class="token function">handlePromiseFailure</span><span class="token punctuation">(</span><span class="token parameter">match</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>Caml_exceptions<span class="token punctuation">.</span><span class="token function">caml_is_extension</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> match<span class="token punctuation">.</span><span class="token constant">RE_EXN_ID</span> <span class="token operator">===</span> Stdlib<span class="token punctuation">.</span>Not_found<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Caml_option<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Not found"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
   
-}
+<span class="token punctuation">}</span>
 
-Promise.reject({
-        RE_EXN_ID: Stdlib.Not_found
-      }).catch(function (error) {
-      var x = handlePromiseFailure(error);
-      if (x !== undefined) {
-        return Caml_option.valFromOption(x);
-      }
-      throw {
-            RE_EXN_ID: UnhandledPromise,
-            Error: new Error()
-          };
-    });
+Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token constant">RE_EXN_ID</span><span class="token operator">:</span> Stdlib<span class="token punctuation">.</span>Not_found
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token function">handlePromiseFailure</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">!==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Caml_option<span class="token punctuation">.</span><span class="token function">valFromOption</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">throw</span> <span class="token punctuation">{</span>
+            <span class="token constant">RE_EXN_ID</span><span class="token operator">:</span> UnhandledPromise<span class="token punctuation">,</span>
+            Error<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-exports.UnhandledPromise = UnhandledPromise;
-exports.handlePromiseFailure = handlePromiseFailure;
-/*  Not a pure module */
+exports<span class="token punctuation">.</span>UnhandledPromise <span class="token operator">=</span> UnhandledPromise<span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span>handlePromiseFailure <span class="token operator">=</span> handlePromiseFailure<span class="token punctuation">;</span>
+<span class="token comment">/*  Not a pure module */</span>
 </code></pre>
  </div>
 </div>
