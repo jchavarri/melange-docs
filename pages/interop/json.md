@@ -15,7 +15,7 @@ type data = {name: string} [@@bs.deriving abstract]
 external parseIntoMyData : string -> data = "parse" [@@bs.scope "JSON"][@@bs.val]
 
 let result = parseIntoMyData "{\"name\": \"Luke\"}"
-let n = result |. name
+let n = result |. nameGet
 ```
 
 Output:

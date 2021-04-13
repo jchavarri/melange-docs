@@ -1,6 +1,6 @@
 <h1 data-nav-order="400">Function</h1>
 
-Modeling a JavaScript function is like modeling a normal value:
+Binding a JavaScript function is like binding to another value:
 
 ```ocaml
 external encodeURI: string -> string = "encodeURI" [@@bs.val]
@@ -21,7 +21,7 @@ draw(10, 20)
 draw(20, 20, true)
 ```
 
-It'd be nice if on the Melange side, we can bind & call `draw` while labeling things a bit:
+On the Melange side, one can leverage the bindings to `draw` to label the parameters:
 
 ```ocaml
 external draw: x:int -> y:int -> ?border:bool -> unit -> unit = "draw" [@@bs.val]
@@ -30,7 +30,7 @@ let _ = draw ~x:10 ~y:20 ~border:true ()
 let _ = draw ~x:10 ~y:20 ()
 ```
 
-We've compiled to the same function, but now the usage is much clearer on the Melange side thanks to labels!
+We've compiled to the same function, but now the labels add some useful information to what each param is doing.
 
 **Note**: in this particular case, you need a unit, `()` after `border`, since `border` is an [optional argument at the last position](https://reasonml.github.io/docs/en/function.html#optional-labeled-arguments). Not having a unit to indicate you've finished applying the function would generate a warning.
 
@@ -200,23 +200,18 @@ The `[@bs.as "exit"]` and the placeholder `_` argument together indicates that y
 
 ## Curry & Uncurry
 
-Curry is a delicious Indian dish. More importantly, in the context of Melange (and functional programming in general), currying means that function taking multiple arguments can be applied a few arguments at time, until all the arguments are applied.
+[Currying](https://en.wikipedia.org/wiki/Currying) is the technique of converting a function that takes multiple arguments into a sequence of functions that each take a single argument.
 
 ```ocaml
-let add x y z = x + y + z
+let add x y = x + y
 let addFive = add 5
-let twelve = addFive 3 4
 ```
 
-See the `addFive` intermediate function? `add` takes in 3 arguments but received only 1. It's interpreted as "currying" the argument `5` and waiting for the next 2 arguments to be applied later on. Type signatures:
+In the `addFive` intermediate function, `add` takes only 1 of the 2 parameters that appeared in its declaration. The function `add` then is said to be "partially applied" with the argument `5` and returns another function that will take another argument.
 
-```ocaml
-val add: int -> int -> int -> int
-val addFive: int -> int -> int
-val twelve: int
-```
+In a dynamic language such as JavaScript, currying would be dangerous, since accidentally forgetting to pass an argument doesn't error at compile time.
 
-(In a dynamic language such as JavaScript, currying would be dangerous, since accidentally forgetting to pass an argument doesn't error at compile time).
+For more information about currying, check [this tutorial](https://ocaml.org/learn/tutorials/functional_programming.html#Partial-function-applications-and-currying) on the OCaml site.
 
 ### Drawback
 
@@ -277,31 +272,6 @@ external map: 'a array -> ('a -> 'b [@bs.uncurry]) -> 'b array = "map" [@@bs.sen
 let _ = map [|1; 2; 3|] (fun x -> x+ 1)
 ```
 
-#### Pitfall
-
-If you try to do this:
-
-```ocaml
-let id: ('a -> 'a [@bs]) = ((fun v -> v) [@bs])
-```
-
-You’ll get this cryptic error message:
-
-```
-Error: The type of this expression, ('_a -> '_a [@bs]),
-       contains type variables that cannot be generalized
-```
-
-The issue here isn’t that the function is polymorphic. You can use polymorphic uncurried functions as inline callbacks, but you can’t export them (and `let`s are exposed by default unless you hide it with an interface file). The issue here is a combination of the uncurried call, polymorphism and exporting the function. It’s an unfortunate limitation of how OCaml’s type system incorporates side-effects, and how Melange handles uncurrying.
-
-The simplest solution is in most cases to just not export it, by adding an interface to the module. Alternatively, if you really need to export it, you can do so in its curried form, and then wrap it in an uncurried lambda at the call site. E.g.:
-
-```ocaml
-let _ = map (fun v -> id v [@bs])
-```
-
-##### Design Decisions
-
 In general, `bs.uncurry` is recommended; the compiler will do lots of optimizations to resolve the currying to uncurrying at compile time. However, there are some cases the compiler can't optimize it. In these cases, it will be converted to a runtime check.
 
 This means `[@bs]` are completely static behavior (no runtime cost), while `[@bs.uncurry]` is more convenient for end users but, in some rare cases, might be slower than `[@bs]`.
@@ -331,3 +301,28 @@ let _ =
 ```
 
 `bs.this` is the same as `bs`, except that its first parameter is reserved for `this` and for arity of 0, there is no need for a redundant `unit` type.
+
+## Function Nullable Return Value Wrapping
+
+For JavaScript functions that return a value that can also be `undefined` or `null`, we provide `@bs.return(...)`. To automatically convert that value to an `option` type (recall that Melange `option` type's `None` value only compiles to `undefined` and not `null`).
+
+```ocaml
+type element
+type dom
+
+external getElementById : dom -> string -> element option = "getElementById" [@@bs.send] [@@bs.return nullable]
+
+let test dom =
+  let elem = getElementById dom "container" in
+  match elem with
+  | None -> 1
+  | (Some _ui) -> 2
+```
+
+`return(nullable)` attribute will automatically convert `null` and `undefined` to `option` type.
+
+Currently 4 directives are supported: `null_to_opt`, `undefined_to_opt`, `nullable` and `identity`.
+
+<!-- When the return type is unit: the compiler will append its return value with an OCaml unit literal to make sure it does return unit. Its main purpose is to make the user consume FFI in idiomatic OCaml code, the cost is very very small and the compiler will do smart optimizations to remove it when the returned value is not used (mostly likely). -->
+
+`identity` will make sure that compiler will do nothing about the returned value. It is rarely used, but introduced here for debugging purpose.

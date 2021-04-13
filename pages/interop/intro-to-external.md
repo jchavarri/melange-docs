@@ -21,7 +21,9 @@ Melange `external`s are turned into the expected JS values, inlined into their c
 One external worth mentioning is the following one:
 
 ```ocaml
-external myShadyConversion : foo -> bar = "%identity"
+type foo = string
+type bar = int
+external dangerZone : foo -> bar = "%identity"
 ```
 
 This is a final escape hatch which does nothing but convert from the type `foo` to `bar`. In the following sections, if you ever fail to write an `external`, you can fall back to using this one. But try not to.

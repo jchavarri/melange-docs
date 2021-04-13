@@ -7,15 +7,19 @@ Melange has a special `|.` (or `->` for Reason) pipe syntax for dealing with var
 The pipe takes the item on the left and put it as the first argument of the item on the right. Great for building pipelines of data processing:
 
 ```ocaml
-a
-|. foo b
+let foo a b = a + b
+let bar a b = a + b
+let t = 2
+|. foo 3
 |. bar
 ```
 
 is equal to
 
 ```ocaml
-bar(foo a b)
+let foo a b = a + b
+let bar a b = a + b
+let t = bar(foo 2 3)
 ```
 
 ## JS Method Chaining
@@ -63,11 +67,15 @@ let () = asyncRequest () |. setWaitDuration 400 |. send
 This works:
 
 ```ocaml
+let name = "arwen"
+let preprocess name = "name: " ^ name
 let result = name |. preprocess |. Some
 ```
 
 We turn this into:
 
 ```ocaml
+let name = "arwen"
+let preprocess name = "name: " ^ name
 let result = Some(preprocess(name))
 ```

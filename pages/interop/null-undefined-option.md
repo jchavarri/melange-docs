@@ -7,12 +7,14 @@ However, the **concept** of a potentially nonexistent value is still useful, and
 We represent the existence and nonexistence of a value by wrapping it with the `option` type. Here's its definition from the standard library:
 
 ```ocaml
-type 'a option = None | Some 'a
+type 'a option =
+  | None
+  | Some of 'a
 ```
 
-It means "a value of type option is either None (nothing) or that actual value wrapped in a Some". You might wonder why we can't drop that `Some` wrapper and just do the following:
+It means "a value of type option is either `None` (nothing) or that actual value wrapped in a `Some`". You might wonder why we can't drop that `Some` wrapper and just do the following:
 
-```ocaml
+```ocaml-invalid
 type 'a option = None | 'a
 ```
 
@@ -29,6 +31,7 @@ let licenseNumber = 5
 To represent the concept of "maybe null", you'd turn this into an `option` type by wrapping it. For the sake of a more illustrative example, we'll put a condition around it:
 
 ```ocaml
+let personHasACar = true
 let licenseNumber =
   if personHasACar then
     Some(5)
@@ -39,7 +42,8 @@ let licenseNumber =
 Later on, when another piece of code receives such value, it'd be forced to handle both cases:
 
 ```ocaml
-match licenseNumber with
+let licenseNumber = Some 90210
+let () = match licenseNumber with
 | None -> print_endline "The person doesn't have a car"
 | Some(number) -> print_endline ("The person's license number is " ^ (string_of_int number))
 ```
@@ -71,19 +75,19 @@ compiles to `undefined`! If you've got e.g. a string in JavaScript that you know
 The option-to-undefined translation isn't perfect, because on our side, `option` values can be composed:
 
 ```ocaml
-Some (Some (Some 5))
+let _ = Some (Some (Some 5))
 ```
 
 This still compiles to `5`, but this gets troublesome:
 
 ```ocaml
-Some None
+let _ = Some None
 ```
 
 This is compiled into the following JS:
 
 ```js
-Js_primitive.some(undefined);
+let _ = Js_primitive.some(undefined);
 ```
 
 What's this `Js_primitive` thing? Why can't this compile to `undefined`? Long story short, when dealing polymorphic `option` type (aka `option('a)`, for any `'a`), many operations become tricky if we don't mark the value with some special annotation. If this doesn't make sense, don't worry; just remember the following rule:

@@ -41,7 +41,7 @@ let f x y =
 Melange provides a relatively type safe approach for such use case: `external`. `[%external a_single_identifier]` is a value of type `option`. Example:
 
 ```ocaml
-match [%external __DEV__] with
+let () = match [%external __DEV__] with
 | Some _ -> Js.log "dev mode"
 | None -> Js.log "production mode"
 ```
@@ -50,7 +50,7 @@ match [%external __DEV__] with
 Another example:
 
 ```ocaml
-match [%external __filename] with
+let () = match [%external __filename] with
 | Some f -> Js.log f
 | None -> Js.log "non-node environment"
 ```

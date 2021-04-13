@@ -18,13 +18,13 @@ Immutable on both sides, as expected. [Melange String API](https://reasonml.gith
 OCaml string is an immutable byte sequence. If the user types some unicode:
 
 ```ocaml
-Js.log "你好"
+let () = Js.log "你好"
 ```
 
 Which gives you cryptic console output. To rectify this, Melange exposes a special `js` annotation to the default [quoted string syntax](https://reasonml.github.io/docs/en/string-and-char.html#quoted-string) built into the language. Use it like this:
 
 ```ocaml
-Js.log {js|你好，
+let () = Js.log {js|你好，
 世界|js}
 ```
 
@@ -192,7 +192,7 @@ type tree = Leaf | Node of int * tree * tree
 Variants with more than one non-nullary constructor:
 
 ```ocaml
-type u = A of string | B of int
+type t = A of string | B of int
 (* A a -> [a].tag = 0 -- tag 0 assignment is optional *)
 (* B b -> [b].tag = 1 *)
 ```
@@ -200,8 +200,8 @@ type u = A of string | B of int
 \*\* Polymorphic Variant:
 
 ```ocaml
-`a (* 97 *)
-`a (1, 2) (* [ 97, [1, 2] ] *)
+let u = `a (* 97 *)
+let v = `a (1, 2) (* [ 97, [1, 2] ] *)
 ```
 
 Melange compiles `unit` to `0` in some cases but don't worry about it because it's considered internal and subject to change.

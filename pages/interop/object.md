@@ -19,14 +19,14 @@ Melange cleanly separates the binding methods for JS object based on these 4 use
 
 If your JavaScript object has fixed fields, then it's conceptually like an OCaml record. Since an OCaml record compiles to a JavaScript object, you can type a JavaScript object as an OCaml record.
 
-```ocaml example
+```ocaml
 type person = {
   name: string;
   friends: string array;
   age: int;
 }
 
-external john: person = "john" [@bs.module "MySchool"]
+external john: person = "john" [@@bs.module "MySchool"]
 
 let johnName = john.name
 ```
@@ -37,7 +37,7 @@ External is documented [here](external.md). `@module` is documented [here](impor
 
 Alternatively, you can use [OCaml object](https://ocaml.org/manual/objectexamples.html) to model a JavaScript object too. In particular, Melange exposes a type `'a Js.t` that will be transformed into plain JavaScript objects:
 
-```ocaml example
+```ocaml
 type person = <
   name: string ;
   friends: string array;
@@ -98,7 +98,8 @@ let date = createDate ()
 You can chain `new` and `module` if the JS module you're importing is itself a class:
 
 ```ocaml
-type t;
-[@bs.new] [@bs.module] external book: unit => t = "Book";
-let myBook = book();
+type t
+
+external book : unit -> t = "Book" [@@bs.new] [@@bs.module]
+let myBook = book ()
 ```

@@ -5,7 +5,7 @@ In the JS world, exception could be any data, while an OCaml exception is a stru
 JS exceptions can be raised from the Melange side by using the [`JS.Exn.raise*`](https://bucklescript.github.io/bucklescript/api/Js.Exn.html) functions, and can be caught as a Melange exception of the type `Js.Exn.Error` with the JS exception as its payload, typed as `Js.Exn.t`. The JS Exception can then either be manipulated with the accessor functions in `Js.Exn`, or casted to a more appropriate type.
 
 ```ocaml
-try
+let () = try
   Js.Exn.raiseError "oops!"
 with
 | Js.Exn.Error e ->

@@ -10,7 +10,7 @@ let add = [%raw "a + b"]
 ## String Unicode & Interpolation
 
 ```ocaml
-Js.log {js|你好，
+let () = Js.log {js|你好，
 世界|js}
 
 let world = "world"
@@ -60,7 +60,7 @@ type action = {
   username: string;
 }
 external createAddUser : string -> action = "addUser" [@@bs.module "actions/addUser.js"]
-let myAction = createAddUser "arwen")
+let myAction = createAddUser "arwen"
 ```
 
 ### Hash Map Mode
@@ -179,7 +179,9 @@ let default = "Arwen"
 Final escape hatch converter. Use with care as it converts any type to any other type, bypassing any type checking. Effectively the same as OCaml `Obj.magic`.
 
 ```ocaml
-external myShadyConversion : foo -> bar = "%identity"
+type foo = string
+type bar = int
+external dangerZone : foo -> bar = "%identity"
 ```
 
 ---
