@@ -1,14 +1,16 @@
 /* PrismJS 1.23.0
-https://prismjs.com/download.html#themes=prism&languages=ocaml */
+https://prismjs.com/download.html#themes=prism&languages=clike+javascript+ocaml+reason */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
 
+/* Adapted with styles picked from Just-the-docs */
+
 code[class*="language-"],
 pre[class*="language-"] {
-	color: black;
+	color: #555;
 	background: none;
 	text-shadow: 0 1px white;
 	text-align: left;
@@ -46,7 +48,7 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: slategray;
+	color: #586e75;
 }
 
 .token.punctuation {
@@ -73,7 +75,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #690;
+	color: #859900;
 }
 
 .token.operator,
@@ -87,12 +89,12 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: #07a;
+	color: #268bd2;
 }
 
 .token.function,
 .token.class-name {
-	color: #DD4A68;
+	color: #cb4b16;
 }
 
 .token.regex,
