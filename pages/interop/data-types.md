@@ -53,19 +53,19 @@ Idiomatic OCaml arrays are supposed to be fix-sized. This constraint is relaxed 
 
 ### Tuple
 
-OCaml tuples are compiled to JavaScript arrays. Convenient when you're interop-ing with a JavaScript array that contains heterogeneous values, but happens to have a fixed length. Model it as a tuple on the Melange side!
+OCaml tuples are compiled to JavaScript arrays. This is convenient when interop-ing with a JavaScript array that contains heterogeneous values, but happens to have a fixed length.
 
 ### Bool
 
-Since Melange 3, OCaml/Reason bool now compile to JavaScript boolean.
+OCaml/Reason bool compiles to JavaScript boolean.
 
 ## Records
 
-Since Melange v7, OCaml/Reason records map directly to JavaScript objects. If records contain any Non-Shared data types (like variants), then these values must be transformed separately and cannot be directly used in JavaScript.
+OCaml records map directly to JavaScript objects. If records contain any Non-Shared data types (like variants), then these values must be transformed separately and cannot be directly used in JavaScript.
 
 ## Non-shared Data Types
 
-Variants (including `option` and `list`), Melange objects and others can be exported as well, but you should **not** rely on their internal representation on the JavaScript side. Aka, don't grab a Melange list and start manipulating its structure on the JavaScript side.
+Variants (including `option` and `list`), Melange objects and others can be exported as well, but their representation might change in the future, so one should not rely on it on the JavaScript side. The reason is that if this internal representation changes at some point, your JavaScript code will break.
 
 However, for Melange related data types, we provide [generation of converters and accessors](generate-converters-accessors.md). Once you convert e.g. variants to a string, you can naturally use them on the JavaScript side.
 
@@ -146,6 +146,8 @@ The same justification applies for records. OCaml records are fixed, nominally t
   </tr>
 </table> 
 
+<!-- Markdown tables are not supported in omd
+
 OCaml/Melange/Reason Type | JavaScript Type
 ---------------------|---------------
 int | number
@@ -161,7 +163,7 @@ option | `None` -> `undefined`
 option | `Some( Some .. Some (None))` -> internal representation
 option | `Some other` -> other
 record | object. `{x: 1; y: 2}` -> `{x: 1, y: 2}`
-special `bs.deriving abstract` record | object
+special `bs.deriving abstract` record | object -->
 
 ### Non-shared
 
