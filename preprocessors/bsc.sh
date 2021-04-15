@@ -15,4 +15,5 @@ external send: request' -> unit = \"send\" [@@bs.send]
 
 snippet="$pipefirst_prelude $(cat -)"
 
-echo "$snippet" > $1 && bsc $1 | tr "\n" "\f" | sed "s/\(.*\)/<code class=\"output-language-javascript\">\1<\/code>/" | tr "\f" "\n"
+echo "$snippet" > $1 && bsc -bs-no-version-header $1 | tr "\n" "\f" | sed -e "s/^[[:space:]]*'use strict';//" | sed -e "s/exports\..*//" | sed "s/\(.*\)/<code class=\"output-language-javascript\">\1<\/code>/" | tr "\f" "\n"
+
