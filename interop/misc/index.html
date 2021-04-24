@@ -247,18 +247,7 @@
 <span class="token keyword">external</span> draw<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"dog"</span><span class="token punctuation">]</span> _<span class="token punctuation">,</span> array<span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> _ <span class="token operator">=</span> draw<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- external draw: (_ [@bs.as "dog"]) -&gt; int array -&gt; unit = "draw" [@@bs.val] [@@bs.scope "global"] [@@bs.variadic]
-
-let _ = draw [|1;2|]
-<code class="output-language-javascript">global<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token string">"dog"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">global<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span><span class="token string">"dog"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">/*  Not a pure module */</span></code></pre>
   <h2 id="safe-external-data-handling">
@@ -289,21 +278,7 @@ let _ = draw [|1;2|]
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">/* handleData is 'a -&gt; int option */</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let handleData = function [@bs.open]
- | Invalid_argument _ -&gt; 0
- | Not_found -&gt; 1
- | Sys_error _ -&gt; 2
-
-(* handleData is 'a -&gt; int option *)
-<code class="output-language-javascript"><span class="token keyword">var</span> Stdlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/stdlib.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Stdlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/stdlib.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> Caml_exceptions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_exceptions.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">handleData</span><span class="token punctuation">(</span><span class="token parameter">match</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -347,19 +322,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
 <span class="token keyword">let</span> require<span class="token punctuation">:</span> option<span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span>node_require<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
   <span class="token punctuation">[</span>%bs<span class="token punctuation">.</span>node require<span class="token punctuation">]</span><span class="token punctuation">:</span> option<span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span>node_require<span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let dirname : string option = [%bs.node __dirname]
-let filename : string option = [%bs.node __filename]
-let _module : Node.node_module option = [%bs.node _module]
-let require : Node.node_require option = [%bs.node require]
-<code class="output-language-javascript"><span class="token keyword">var</span> Caml_option <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_option.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Caml_option <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_option.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> dirname <span class="token operator">=</span> <span class="token keyword">typeof</span> __dirname <span class="token operator">===</span> <span class="token string">"undefined"</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> __dirname<span class="token punctuation">;</span>
 

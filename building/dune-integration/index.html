@@ -212,22 +212,7 @@
     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
       <span class="token punctuation">[</span>x<span class="token punctuation">,</span> <span class="token operator">...</span>insert<span class="token punctuation">(</span>elem<span class="token punctuation">,</span> l<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let rec sort = function
-  | [] -&gt; []
-  | x :: l -&gt; insert x (sort l)
-and insert elem = function
-  | [] -&gt; [elem]
-  | x :: l -&gt; if elem &lt; x then elem :: x :: l
-else x :: insert elem l
-<code class="output-language-javascript"><span class="token keyword">var</span> Caml_obj <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_obj.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Caml_obj <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_obj.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">sort</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token punctuation">{</span>

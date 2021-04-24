@@ -269,16 +269,7 @@
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token string">"你好"</span>
 </code><code class="language-reason"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let () = Js.log "你好"
-<code class="output-language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"\xe4\xbd\xa0\xe5\xa5\xbd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"\xe4\xbd\xa0\xe5\xa5\xbd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">/*  Not a pure module */</span></code></pre>
   <p>
@@ -291,17 +282,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
 世界<span class="token operator">|</span>js<span class="token punctuation">}</span>
 </code><code class="language-reason"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
 世界<span class="token operator">|</span>js<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let () = Js.log {js|你好，
-世界|js}
-<code class="output-language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"你好，\n世界"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"你好，\n世界"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">/*  Not a pure module */</span></code></pre>
   <h4 id="interpolation">
@@ -317,17 +298,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
 <span class="token keyword">let</span> helloWorld <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>你好，<span class="token operator">$</span>world<span class="token operator">|</span>j<span class="token punctuation">}</span>
 </code><code class="language-reason"><span class="token keyword">let</span> world <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>世界<span class="token operator">|</span>j<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> helloWorld <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>你好，$world<span class="token operator">|</span>j<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let world = {j|世界|j}
-let helloWorld = {j|你好，$world|j}
-<code class="output-language-javascript"><span class="token keyword">var</span> world <span class="token operator">=</span> <span class="token string">"世界"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> world <span class="token operator">=</span> <span class="token string">"世界"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> helloWorld <span class="token operator">=</span> <span class="token string">"你好，"</span> <span class="token operator">+</span> world<span class="token punctuation">;</span></code></pre>
   <p>
@@ -550,18 +521,7 @@ object | -
   <span class="token operator">|</span> <span class="token constructor variable">Node</span><span class="token punctuation">(</span>int<span class="token punctuation">,</span> tree<span class="token punctuation">,</span> tree<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">/* Leaf -&gt; 0 */</span>
 <span class="token comment">/* Node a b c -&gt; [a, b, c] */</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- type tree = Leaf | Node of int * tree * tree
-(* Leaf -&gt; 0 *)
-(* Node a b c -&gt; [a, b, c] *)
-<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
+</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    Variants with more than one non-nullary constructor:
   </p>
@@ -576,18 +536,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
   <span class="token operator">|</span> <span class="token constructor variable">B</span><span class="token punctuation">(</span>int<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">/* A a -&gt; [a].tag = 0 -- tag 0 assignment is optional */</span>
 <span class="token comment">/* B b -&gt; [b].tag = 1 */</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- type t = A of string | B of int
-(* A a -&gt; [a].tag = 0 -- tag 0 assignment is optional *)
-(* B b -&gt; [b].tag = 1 *)
-<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
+</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    ** Polymorphic Variant:
   </p>
@@ -598,17 +547,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
 <span class="token keyword">let</span> v <span class="token operator">=</span> <span class="token variant variable">`a</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">(* [ 97, [1, 2] ] *)</span>
 </code><code class="language-reason"><span class="token keyword">let</span> u <span class="token operator">=</span> <span class="token operator">`</span>a<span class="token punctuation">;</span> <span class="token comment">/* 97 */</span>
 <span class="token keyword">let</span> v <span class="token operator">=</span> <span class="token operator">`</span>a<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* [ 97, [1, 2] ] */</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let u = `a (* 97 *)
-let v = `a (1, 2) (* [ 97, [1, 2] ] *)
-<code class="output-language-javascript"><span class="token keyword">var</span> u <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> u <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> v <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token constant">NAME</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>

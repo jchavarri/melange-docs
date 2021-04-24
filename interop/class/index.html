@@ -213,19 +213,7 @@
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token keyword">external</span> createDate<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Date"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> date <span class="token operator">=</span> createDate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- type t
-external createDate : unit -&gt; t = "Date" [@@bs.new]
-
-let date = createDate ()
-<code class="output-language-javascript"><span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   <p>
    You can chain <code>bs.new</code> and <code>bs.module</code> if the JavaScript module you're importing is itself a class:
   </p>
@@ -238,18 +226,7 @@ let date = createDate ()
 </code><code class="language-reason"><span class="token keyword">type</span> t<span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span> <span class="token keyword">external</span> book<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Book"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> bookInstance <span class="token operator">=</span> book<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- type t
-external book : unit -&gt; t = "Book" [@@bs.new] [@@bs.module]
-let bookInstance = book ()
-<code class="output-language-javascript"><span class="token keyword">var</span> Book <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"Book"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Book <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"Book"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   <h2 id="bind-to-javascript-classes">
@@ -282,22 +259,7 @@ let bookInstance = book ()
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token keyword">type</span> rect <span class="token operator">=</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>t<span class="token punctuation">(</span>_rect<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- class type _rect = object
-  method height : int [@@bs.set]
-  method width : int [@@bs.set]
-  method draw : unit -&gt; unit
-end [@bs]
-
-type rect = _rect Js.t
-<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
+</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    For <code>Js.t</code> classes, methods with arrow types are treated as real methods (automatically annotated with <code>[@bs.meth]</code>) while methods with non-arrow types are treated as properties. Adding <code>bs.set</code> to those methods will make them mutable, which enables you to set them using <code>#=</code> later. Dropping the <code>bs.set</code> attribute makes the method/property immutable. Basically like the object section's features.
   </p>

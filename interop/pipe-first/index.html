@@ -219,20 +219,7 @@
 </code><code class="language-reason"><span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 <span class="token keyword">let</span> bar <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 <span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>foo<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span>bar<span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let foo a b = a + b
-let bar a b = a + b
-let t = 2
-|. foo 3
-|. bar
-<code class="output-language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code><code class="output-language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
@@ -255,18 +242,7 @@ let t = 2
 </code><code class="language-reason"><span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 <span class="token keyword">let</span> bar <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 <span class="token keyword">let</span> t <span class="token operator">=</span> bar<span class="token punctuation">(</span>foo<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let foo a b = a + b
-let bar a b = a + b
-let t = bar(foo 2 3)
-<code class="output-language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code><code class="output-language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> a <span class="token operator">+</span> b <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
@@ -308,22 +284,7 @@ let t = bar(foo 2 3)
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
 <span class="token keyword">external</span> setWaitDuration<span class="token punctuation">:</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> request <span class="token operator">=</span> <span class="token string">"setWaitDuration"</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span> <span class="token keyword">external</span> send<span class="token punctuation">:</span> request <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"send"</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request
-external asyncRequest: unit -&gt; request = "asyncRequest"
-external setWaitDuration: request -&gt; int -&gt; request = "setWaitDuration" [@@bs.send]
-external send: request -&gt; unit = "send" [@@bs.send]
-<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
+</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    You'd use them like this:
   </p>
@@ -336,18 +297,7 @@ external send: request -&gt; unit = "send" [@@bs.send]
 </code><code class="language-reason"><span class="token keyword">let</span> result <span class="token operator">=</span> filter<span class="token punctuation">(</span>map<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">,</span> a <span class="token operator">=&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> a <span class="token operator">=&gt;</span> a <span class="token operator">mod</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> send<span class="token punctuation">(</span>setWaitDuration<span class="token punctuation">(</span>asyncRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let result = filter (map [|1; 2; 3|] (fun a -&gt; a + 1)) (fun a -&gt; a mod 2 = 0)
-
-let () = send(setWaitDuration (asyncRequest()) 4000)
-<code class="output-language-javascript"><span class="token keyword">var</span> Caml_external_polyfill <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_external_polyfill.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Caml_external_polyfill <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_external_polyfill.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token punctuation">[</span>
       <span class="token number">1</span><span class="token punctuation">,</span>
@@ -374,20 +324,7 @@ Caml_external_polyfill<span class="token punctuation">.</span><span class="token
 </code><code class="language-reason"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>map<span class="token punctuation">(</span>a <span class="token operator">=&gt;</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>filter<span class="token punctuation">(</span>a <span class="token operator">=&gt;</span> a <span class="token operator">mod</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> asyncRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token punctuation">(</span>setWaitDuration<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span>send<span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let result = [|1; 2; 3|]
-  |. map(fun a -&gt; a + 1)
-  |. filter(fun a -&gt; a mod 2 == 0)
-
-let () = asyncRequest () |. setWaitDuration 400 |. send
-<code class="output-language-javascript"><span class="token keyword">var</span> Caml_external_polyfill <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_external_polyfill.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Caml_external_polyfill <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_external_polyfill.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token punctuation">[</span>
       <span class="token number">1</span><span class="token punctuation">,</span>
@@ -415,18 +352,7 @@ Caml_external_polyfill<span class="token punctuation">.</span><span class="token
 </code><code class="language-reason"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> preprocess <span class="token operator">=</span> name <span class="token operator">=&gt;</span> <span class="token string">"name: "</span> <span class="token operator">+</span><span class="token operator">+</span> name<span class="token punctuation">;</span>
 <span class="token keyword">let</span> result <span class="token operator">=</span> name<span class="token operator">-&gt;</span>preprocess<span class="token operator">-&gt;</span><span class="token constructor variable">Some</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let name = "Arwen"
-let preprocess name = "name: " ^ name
-let result = name |. preprocess |. Some
-<code class="output-language-javascript"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">preprocess</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token string">"name: "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>
@@ -445,18 +371,7 @@ let result = name |. preprocess |. Some
 </code><code class="language-reason"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> preprocess <span class="token operator">=</span> name <span class="token operator">=&gt;</span> <span class="token string">"name: "</span> <span class="token operator">+</span><span class="token operator">+</span> name<span class="token punctuation">;</span>
 <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token constructor variable">Some</span><span class="token punctuation">(</span>preprocess<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let name = "Arwen"
-let preprocess name = "name: " ^ name
-let result = Some(preprocess(name))
-<code class="output-language-javascript"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">preprocess</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token string">"name: "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>

@@ -217,22 +217,7 @@
     <span class="token operator">|</span> <span class="token constructor variable">None</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"An unknown error occurred"</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let () = try
-  Js.Exn.raiseError "oops!"
-with
-| Js.Exn.Error e -&gt;
-  match Js.Exn.message e with
-  | Some message -&gt; Js.log {j|Error: $message|j}
-  | None -&gt; Js.log "An unknown error occurred"
-<code class="output-language-javascript"><span class="token keyword">var</span> Js_exn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/js_exn.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Js_exn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/js_exn.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> Caml_js_exceptions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_js_exceptions.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">try</span> <span class="token punctuation">{</span>
@@ -296,33 +281,11 @@ with
        <span class="token operator">|</span> <span class="token constructor variable">None</span> <span class="token operator">=&gt;</span> raise<span class="token punctuation">(</span><span class="token constructor variable">UnhandledPromise</span><span class="token punctuation">)</span>
        <span class="token punctuation">}</span>
      <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- exception UnhandledPromise
-
-let handlePromiseFailure = function [@bs.open]
-  | Not_found -&gt;
-    Js.log "Not found";
-    Js.Promise.resolve ()
-
-let _ =
- Js.Promise.reject Not_found
- |&gt; Js.Promise.catch (fun error -&gt;
-      match handlePromiseFailure error with
-      | Some x -&gt; x
-      | None -&gt; raise UnhandledPromise
-  )
-<code class="output-language-javascript"><span class="token keyword">var</span> Stdlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/stdlib.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> Stdlib <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/stdlib.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> Caml_option <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_option.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> Caml_exceptions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"bs-platform/lib/js/caml_exceptions.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> UnhandledPromise <span class="token operator">=</span> <span class="token comment">/* @__PURE__ */</span>Caml_exceptions<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"Code_sample_1890.UnhandledPromise"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> UnhandledPromise <span class="token operator">=</span> <span class="token comment">/* @__PURE__ */</span>Caml_exceptions<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"Code_sample_2485.UnhandledPromise"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">handlePromiseFailure</span><span class="token punctuation">(</span><span class="token parameter">match</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>Caml_exceptions<span class="token punctuation">.</span><span class="token function">caml_is_extension</span><span class="token punctuation">(</span>match<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> match<span class="token punctuation">.</span><span class="token constant">RE_EXN_ID</span> <span class="token operator">===</span> Stdlib<span class="token punctuation">.</span>Not_found<span class="token punctuation">)</span> <span class="token punctuation">{</span>

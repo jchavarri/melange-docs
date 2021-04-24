@@ -220,23 +220,7 @@
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> _ <span class="token operator">=</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let add = [%raw {|
-  function(a, b) {
-    console.log('hello from raw JavaScript!');
-    return a + b;
-  }
-|}]
-
-let _ = Js.log (add 1 2)
-<code class="output-language-javascript"><span class="token keyword">var</span> add <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> add <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello from raw JavaScript!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -258,18 +242,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token string">"var a = 1"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> f <span class="token operator">=</span> <span class="token punctuation">[</span>%raw <span class="token string">"function() {return 1}"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- [%%raw "var a = 1"]
-
-let f = [%raw "function() {return 1}"]
-<code class="output-language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token punctuation">;</span>
 
 <span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -289,18 +262,7 @@ let f = [%raw "function() {return 1}"]
   <span class="token punctuation">[</span>%debugger<span class="token punctuation">]</span><span class="token punctuation">;</span>
   x <span class="token operator">+</span> y<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let f x y =
-  [%debugger];
-  x + y
-<code class="output-language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+</code><code class="output-language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">debugger</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> x <span class="token operator">+</span> y <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
@@ -321,18 +283,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
   <span class="token operator">|</span> <span class="token constructor variable">Some</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"dev mode"</span><span class="token punctuation">)</span>
   <span class="token operator">|</span> <span class="token constructor variable">None</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"production mode"</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let () = match [%external __DEV__] with
-| Some _ -&gt; Js.log "dev mode"
-| None -&gt; Js.log "production mode"
-<code class="output-language-javascript"><span class="token keyword">var</span> match <span class="token operator">=</span> <span class="token keyword">typeof</span> __DEV__ <span class="token operator">===</span> <span class="token string">"undefined"</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> __DEV__<span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> match <span class="token operator">=</span> <span class="token keyword">typeof</span> __DEV__ <span class="token operator">===</span> <span class="token string">"undefined"</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> __DEV__<span class="token punctuation">;</span>
 
 <span class="token keyword">if</span> <span class="token punctuation">(</span>match <span class="token operator">!==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"dev mode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -355,18 +306,7 @@ external send: request' -&gt; unit = "send" [@@bs.send]
   <span class="token operator">|</span> <span class="token constructor variable">Some</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
   <span class="token operator">|</span> <span class="token constructor variable">None</span> <span class="token operator">=&gt;</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"non-node environment"</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code>
-external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
-external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
-
-type request'
-external asyncRequest: unit -&gt; request' = "asyncRequest"
-external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
-external send: request' -&gt; unit = "send" [@@bs.send]
- let () = match [%external __filename] with
-| Some f -&gt; Js.log f
-| None -&gt; Js.log "non-node environment"
-<code class="output-language-javascript"><span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token keyword">typeof</span> __filename <span class="token operator">===</span> <span class="token string">"undefined"</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> __filename<span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> f <span class="token operator">=</span> <span class="token keyword">typeof</span> __filename <span class="token operator">===</span> <span class="token string">"undefined"</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> __filename<span class="token punctuation">;</span>
 
 <span class="token keyword">if</span> <span class="token punctuation">(</span>f <span class="token operator">!==</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
