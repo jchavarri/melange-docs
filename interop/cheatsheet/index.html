@@ -380,7 +380,7 @@
   username<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">external</span> createAddUser <span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> action <span class="token operator">=</span> <span class="token string">"addUser"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"actions/addUser.js"</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser <span class="token string">"Arwen"</span>
+<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser <span class="token string">"Elmer"</span>
 </code><code class="language-reason"><span class="token keyword">type</span> action <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"type"</span><span class="token punctuation">]</span>
   type_<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
@@ -388,10 +388,10 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"actions/addUser.js"</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> createAddUser<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> action <span class="token operator">=</span> <span class="token string">"addUser"</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser<span class="token punctuation">(</span><span class="token string">"Arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser<span class="token punctuation">(</span><span class="token string">"Elmer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code><code class="output-language-javascript"><span class="token keyword">var</span> AddUserJs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"actions/addUser.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> myAction <span class="token operator">=</span> AddUserJs<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span><span class="token string">"Arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">var</span> myAction <span class="token operator">=</span> AddUserJs<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span><span class="token string">"Elmer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   <h3 id="hash-map-mode">
    <a class="here" href="#hash-map-mode">→ </a>Hash Map Mode
   </h3>
@@ -597,9 +597,9 @@ john<span class="token punctuation">.</span>job <span class="token operator">=</
   <div class="tab">
    <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
-  <pre><code class="language-ocaml"><span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Arwen"</span>
-</code><code class="language-reason"><span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript"><span class="token keyword">var</span> $$<span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span></code></pre>
+  <pre><code class="language-ocaml"><span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Daethie"</span>
+</code><code class="language-reason"><span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Daethie"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> $$<span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"Daethie"</span><span class="token punctuation">;</span></code></pre>
   <h2 id="identity-external">
    <a class="here" href="#identity-external">→ </a>Identity External
   </h2>

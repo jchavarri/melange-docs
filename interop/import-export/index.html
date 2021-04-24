@@ -253,10 +253,10 @@
    <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token comment">(* FavoriteStudent.ml *)</span>
-<span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Bob"</span>
+<span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Goras"</span>
 </code><code class="language-reason"><span class="token comment">/* FavoriteStudent.ml */</span>
-<span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Bob"</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript"><span class="token keyword">var</span> $$<span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"Bob"</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Goras"</span><span class="token punctuation">;</span>
+</code><code class="output-language-javascript"><span class="token keyword">var</span> $$<span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"Goras"</span><span class="token punctuation">;</span></code></pre>
   <p>
    You can then require the default as normal JS side:
   </p>
@@ -278,12 +278,12 @@
    <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> root <span class="token operator">=</span> dirname <span class="token string">"/User/chenglou"</span>
+<span class="token keyword">let</span> root <span class="token operator">=</span> dirname <span class="token string">"/User/folduin"</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> root <span class="token operator">=</span> dirname<span class="token punctuation">(</span><span class="token string">"/User/chenglou"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> root <span class="token operator">=</span> dirname<span class="token punctuation">(</span><span class="token string">"/User/folduin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code><code class="output-language-javascript"><span class="token keyword">var</span> Path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> root <span class="token operator">=</span> Path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span><span class="token string">"/User/chenglou"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">var</span> root <span class="token operator">=</span> Path<span class="token punctuation">.</span><span class="token function">dirname</span><span class="token punctuation">(</span><span class="token string">"/User/folduin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   <p>
    <strong>Note</strong>: the string inside <code>bs.module</code> can be anything: <code>"./src/myJsFile"</code>, <code>"@myNpmNamespace/myLib"</code>, etc.
   </p>

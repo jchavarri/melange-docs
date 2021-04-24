@@ -190,24 +190,41 @@
   </h1>
   <ol class="toc">
    <li>
-    <a href="#esy">esy</a>
-   </li>
-   <li>
-    <a href="#opam">opam</a>
-   </li>
-   <li>
-    <a href="#nix">nix</a>
+    <a href="#installation">Installation</a>
    </li>
   </ol>
-  <h2 id="esy">
-   <a class="here" href="#esy">→ </a>esy
+  <h2 id="installation">
+   <a class="here" href="#installation">→ </a>Installation
   </h2>
-  <h2 id="opam">
-   <a class="here" href="#opam">→ </a>opam
-  </h2>
-  <h2 id="nix">
-   <a class="here" href="#nix">→ </a>nix
-  </h2>
+  <p>
+   This project is currently unreleased. The easiest way to get started
+is to clone the
+<a href="https://github.com/melange-re/melange-basic-template">basic template</a>. Before
+you do, make sure you have <a href="https://esy.sh/">Esy</a> installed (<code>npm install -g esy</code> should cover
+most workflows).
+  </p>
+  <p>
+   If you have an existing project, you can get started by adding an <code>esy.json</code> file with the following configuration:
+  </p>
+  <pre><code>{
+  "name": "my-project",
+  "dependencies": {
+    "ocaml": "4.12.x",
+    "melange": "melange-re/melange"
+  },
+  "esy": {
+    "buildsInSource": "unsafe",
+    "build": ["ln -sfn #{melange.install} node_modules/bs-platform"]
+  },
+  "installConfig": {
+    "pnp": false
+  }
+}
+</code></pre>
+  <p>
+   Please reach out on the <a href="https://discord.gg/reasonml">ReasonML Discord</a> if you
+can't figure it out!
+  </p>
  </div>
 </div>
 <div class="search-overlay"></div>
