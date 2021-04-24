@@ -223,14 +223,20 @@
 </code><code class="language-reason"><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> u <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ let t = "2"
 
-<span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
+let u = 3
+<code class="output-language-javascript"><span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> u <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-</code></pre>
+<span class="token keyword">var</span> u <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span></code></pre>
   <h2 id="data-structures">
    <a class="here" href="#data-structures">→ </a>Data Structures
   </h2>
@@ -242,18 +248,22 @@
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> <span class="token string">"world"</span><span class="token punctuation">;</span> <span class="token string">"how"</span><span class="token punctuation">;</span> <span class="token string">"are"</span><span class="token punctuation">;</span> <span class="token string">"you"</span> <span class="token operator">|</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token keyword">let</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">|</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"world"</span><span class="token punctuation">,</span> <span class="token string">"how"</span><span class="token punctuation">,</span> <span class="token string">"are"</span><span class="token punctuation">,</span> <span class="token string">"you"</span><span class="token operator">|</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
-
-<span class="token keyword">var</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span>
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ let messages = [| "hello"; "world"; "how"; "are"; "you" |]
+<code class="output-language-javascript"><span class="token keyword">var</span> messages <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token string">"hello"</span><span class="token punctuation">,</span>
   <span class="token string">"world"</span><span class="token punctuation">,</span>
   <span class="token string">"how"</span><span class="token punctuation">,</span>
   <span class="token string">"are"</span><span class="token punctuation">,</span>
   <span class="token string">"you"</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-</code></pre>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
   <p>
    This behavior doesn't hold for complex data structures; the dedicated sections for each offer more info.
   </p>

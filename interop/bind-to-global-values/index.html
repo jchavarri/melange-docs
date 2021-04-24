@@ -209,8 +209,17 @@
 <span class="token keyword">external</span> clearTimeout <span class="token punctuation">:</span> float <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">=&gt;</span> unit<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> clearTimeout<span class="token punctuation">:</span> float <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span>
-</code></pre>
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
+
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ external setTimeout : (unit -&gt; unit) -&gt; int -&gt; float = "setTimeout" [@@bs.val]
+external clearTimeout : float -&gt; unit = "clearTimeout" [@@bs.val]
+<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    This binds to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrworkerGlobalScope/setTimeout"><code>setTimeout</code></a> methods and the corresponding <code>clearTimeout</code>. The <code>external</code>'s type annotation specifies that <code>setTimeout</code>:
   </p>
@@ -243,8 +252,18 @@
 </code><code class="language-reason"><span class="token keyword">type</span> timerId<span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">=&gt;</span> unit<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> clearTimeout<span class="token punctuation">:</span> timerId <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span>
-</code></pre>
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
+
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type timerId
+external setTimeout : (unit -&gt; unit) -&gt; int -&gt; timerId = "setTimeout" [@@bs.val]
+external clearTimeout : timerId -&gt; unit = "clearTimeout" [@@bs.val]
+<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    Clearly, <code>timerId</code> is a type that can only be created by <code>setTimeout</code>! Now we've guaranteed that <code>clearTimeout</code> <em>will</em> be passed a valid ID. Whether it's a number under the hood is now a mere implementation detail.
   </p>
@@ -267,12 +286,17 @@
 <span class="token keyword">let</span> someNumber <span class="token operator">=</span> random <span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>scope <span class="token string">"Math"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> random<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> float <span class="token operator">=</span> <span class="token string">"random"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> someNumber <span class="token operator">=</span> random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
-
-<span class="token keyword">var</span> someNumber <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-</code></pre>
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ external random: unit -&gt; float = "random" [@@bs.val][@@bs.scope "Math"]
+let someNumber = random ()
+<code class="output-language-javascript"><span class="token keyword">var</span> someNumber <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   <p>
    you can bind to an arbitrarily deep object by passing a tuple to <code>bs.scope</code>:
   </p>
@@ -282,8 +306,16 @@
   <pre><code class="language-ocaml"><span class="token keyword">external</span> length<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token string">"length"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>scope <span class="token punctuation">(</span><span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> length<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token string">"length"</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span>
-</code></pre>
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
+
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ external length: int = "length" [@@bs.val][@@bs.scope "window", "location", "ancestorOrigins"]
+<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    This binds to <code>window.location.ancestorOrigins.length</code>.
   </p>

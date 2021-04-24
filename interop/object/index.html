@@ -263,13 +263,26 @@
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"MySchool"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> john<span class="token punctuation">:</span> person <span class="token operator">=</span> <span class="token string">"john"</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> johnName <span class="token operator">=</span> john<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
-<span class="token keyword">var</span> MySchool <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"MySchool"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type person = {
+  name: string;
+  friends: string array;
+  age: int;
+}
 
-<span class="token keyword">var</span> johnName <span class="token operator">=</span> MySchool<span class="token punctuation">.</span>john<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+external john: person = "john" [@@bs.module "MySchool"]
 
-</code></pre>
+let johnName = john.name
+<code class="output-language-javascript"><span class="token keyword">var</span> MySchool <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"MySchool"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> johnName <span class="token operator">=</span> MySchool<span class="token punctuation">.</span>john<span class="token punctuation">.</span>name<span class="token punctuation">;</span></code></pre>
   <p>
    External is documented <a href="external.md">here</a>. <code>@module</code> is documented <a href="import-from-export-to-js.md">here</a>.
   </p>
@@ -299,13 +312,25 @@
 
 <span class="token punctuation">[</span>@<span class="token keyword">module</span> <span class="token string">"MySchool"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> john<span class="token punctuation">:</span> person <span class="token operator">=</span> <span class="token string">"john"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> johnName <span class="token operator">=</span> john<span class="token operator">#</span><span class="token operator">#</span>name<span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
-<span class="token keyword">var</span> MySchool <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"MySchool"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type person = &lt;
+  name: string ;
+  friends: string array;
+  age: int
+&gt; Js.t
 
-<span class="token keyword">var</span> johnName <span class="token operator">=</span> MySchool<span class="token punctuation">.</span>john<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+external john : person = "john" [@@module "MySchool"]
+let johnName = john##name
+<code class="output-language-javascript"><span class="token keyword">var</span> MySchool <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"MySchool"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-</code></pre>
+<span class="token keyword">var</span> johnName <span class="token operator">=</span> MySchool<span class="token punctuation">.</span>john<span class="token punctuation">.</span>name<span class="token punctuation">;</span></code></pre>
   <p>
    One of the main differences with records is that objects don't require a previous type declaration, so one can just inline values as needed, which is useful for prototyping.
   </p>
@@ -324,8 +349,18 @@
 </code><code class="language-reason"><span class="token keyword">type</span> textarea<span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>set<span class="token punctuation">]</span> <span class="token keyword">external</span> setName<span class="token punctuation">:</span> <span class="token punctuation">(</span>textarea<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> unit <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>get<span class="token punctuation">]</span> <span class="token keyword">external</span> getName<span class="token punctuation">:</span> textarea <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span>
-</code></pre>
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
+
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type textarea
+external setName : textarea -&gt; string -&gt; unit = "name" [@@bs.set]
+external getName : textarea -&gt; string = "name" [@@bs.get]
+<code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span></code></pre>
   <p>
    You can also use <code>get_index</code> and <code>set_index</code> to access a dynamic property or an index:
   </p>
@@ -351,17 +386,30 @@
   set<span class="token punctuation">(</span>i32arr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span>get<span class="token punctuation">(</span>i32arr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type t
+external create : int -&gt; t = "Int32Array" [@@bs.new]
+external get : t -&gt; int -&gt; int = "" [@@bs.get_index]
+external set : t -&gt; int -&gt; int -&gt; unit = "" [@@bs.set_index]
 
-<span class="token keyword">var</span> i32arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int32Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+let _ =
+  let i32arr = (create 3) in
+  set i32arr 0 42;
+  Js.log (get i32arr 0)
+<code class="output-language-javascript"><span class="token keyword">var</span> i32arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Int32Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 i32arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i32arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">/* i32arr Not a pure module */</span>
-</code></pre>
+<span class="token comment">/* i32arr Not a pure module */</span></code></pre>
   <h2 id="bind-to-hash-map-like-js-object">
    <a class="here" href="#bind-to-hash-map-like-js-object">→ </a>Bind to Hash Map-like JS Object
   </h2>
@@ -396,12 +444,19 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token keyword">external</span> createDate<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Date"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> date <span class="token operator">=</span> createDate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type t
 
-<span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-</code></pre>
+external createDate : unit -&gt; t = "Date" [@@bs.new ]
+let date = createDate ()
+<code class="output-language-javascript"><span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
   <p>
    You can chain <code>new</code> and <code>module</code> if the JS module you're importing is itself a class:
   </p>
@@ -416,13 +471,21 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span> <span class="token keyword">external</span> book<span class="token punctuation">:</span> unit <span class="token operator">=&gt;</span> t <span class="token operator">=</span> <span class="token string">"Book"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> myBook <span class="token operator">=</span> book<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code><code class="output-language-javascript">
+</code>
+external map : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "map" [@@bs.send]
+external filter : 'a array -&gt; ('a -&gt; 'b) -&gt; 'b array = "filter" [@@bs.send]
 
-<span class="token keyword">var</span> Book <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"Book"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+type request'
+external asyncRequest: unit -&gt; request' = "asyncRequest"
+external setWaitDuration: request' -&gt; int -&gt; request' = "setWaitDuration" [@@bs.send]
+external send: request' -&gt; unit = "send" [@@bs.send]
+ type t
 
-<span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+external book : unit -&gt; t = "Book" [@@bs.new] [@@bs.module]
+let myBook = book ()
+<code class="output-language-javascript"><span class="token keyword">var</span> Book <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"Book"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-</code></pre>
+<span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
  </div>
 </div>
 <div class="search-overlay"></div>
