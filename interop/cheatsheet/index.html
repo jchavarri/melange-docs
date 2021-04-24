@@ -9,9 +9,9 @@
   <title>
    Cheatsheet — Melange.re
   </title>
-  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/main.css" rel="stylesheet">
   <meta name="description" content="Melange is a mixture of tooling combined to produce JavaScript from OCaml &amp; Reason.">
  </head>
  <body>
@@ -171,6 +171,10 @@
 <div class="main" id="top">
 <div id="main-header" class="main-header">
  <div class="search"></div>
+ <div id="toggleSyntaxContainer" class="BtnGroup">
+  <button class="btn BtnGroup-item btn-sm" type="button">re</button>
+        <button class="btn BtnGroup-item btn-sm" type="button">ml</button>
+ </div>
  <nav aria-label="Auxiliary" class="aux-nav">
   <ul class="aux-nav-list">
    <li class="aux-nav-list-item">
@@ -256,7 +260,7 @@
    <a class="here" href="#raw-js">→ </a>Raw JS
   </h2>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> add <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">%</span>raw <span class="token string">"a + b"</span><span class="token punctuation">]</span>
 <span class="token punctuation">[</span><span class="token operator">%%</span>raw <span class="token string">"var a = 1"</span><span class="token punctuation">]</span>
@@ -276,7 +280,7 @@
    <a class="here" href="#string-unicode---interpolation">→ </a>String Unicode &amp; Interpolation
   </h2>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
 世界<span class="token operator">|</span>js<span class="token punctuation">}</span>
@@ -302,7 +306,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#global-value">→ </a>Global Value
   </h2>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token keyword">external</span> setTimeout<span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">=&gt;</span> unit<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span><span class="token punctuation">;</span>
@@ -312,7 +316,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#global-module">→ </a>Global Module
   </h2>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> random<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"random"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"Math"</span><span class="token punctuation">]</span>
 <span class="token keyword">let</span> someNumber <span class="token operator">=</span> random <span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -333,7 +337,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#nullable">→ </a>Nullable
   </h2>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token module variable">Some</span> <span class="token number">5</span> <span class="token comment">(* compiles to 5 *)</span>
 <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token module variable">None</span> <span class="token comment">(* compiles to undefined *)</span>
@@ -351,7 +355,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    Handling a value that can be <code>undefined</code> and <code>null</code>, by ditching the <code>option</code> type and using <code>Js.Nullable.t</code>:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> jsNull <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Nullable</span><span class="token punctuation">.</span>null
 <span class="token keyword">let</span> jsUndefined <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Nullable</span><span class="token punctuation">.</span>undefined
@@ -394,14 +398,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#records-as-objects">→ </a>Records as Objects
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> action <span class="token operator">=</span> <span class="token punctuation">{</span>
   type_<span class="token punctuation">:</span> string <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"type"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   username<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">external</span> createAddUser <span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> action <span class="token operator">=</span> <span class="token string">"addUser"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"actions/addUser.js"</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser <span class="token string">"arwen"</span>
+<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser <span class="token string">"Arwen"</span>
 </code><code class="language-reason"><span class="token keyword">type</span> action <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">as</span> <span class="token string">"type"</span><span class="token punctuation">]</span>
   type_<span class="token punctuation">:</span> string<span class="token punctuation">,</span>
@@ -409,19 +413,19 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"actions/addUser.js"</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> createAddUser<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> action <span class="token operator">=</span> <span class="token string">"addUser"</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser<span class="token punctuation">(</span><span class="token string">"arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myAction <span class="token operator">=</span> createAddUser<span class="token punctuation">(</span><span class="token string">"Arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code><code class="output-language-javascript">
 
 <span class="token keyword">var</span> AddUserJs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"actions/addUser.js"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> myAction <span class="token operator">=</span> AddUserJs<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span><span class="token string">"arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> myAction <span class="token operator">=</span> AddUserJs<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span><span class="token string">"Arwen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </code></pre>
   <h3 id="hash-map-mode">
    <a class="here" href="#hash-map-mode">→ </a>Hash Map Mode
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> myMap <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Dict</span><span class="token punctuation">.</span>empty <span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">let</span> <span class="token punctuation">_</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span><span class="token module variable">Dict</span><span class="token punctuation">.</span>set myMap <span class="token string">"Allison"</span> <span class="token number">10</span>
@@ -439,7 +443,7 @@ myMap<span class="token punctuation">[</span><span class="token string">"Allison
    <a class="here" href="#abstract-record-mode">→ </a>Abstract Record Mode
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> string <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">.</span>optional<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -483,7 +487,7 @@ john<span class="token punctuation">.</span>job <span class="token operator">=</
    <a class="here" href="#new-instance">→ </a>New Instance
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> t
 <span class="token keyword">external</span> createDate <span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> t <span class="token operator">=</span> <span class="token string">"Date"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">]</span>
@@ -498,7 +502,7 @@ john<span class="token punctuation">.</span>job <span class="token operator">=</
    <a class="here" href="#object-method---chaining">→ </a>Object Method &amp; Chaining
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> map <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'b</span> array <span class="token operator">=</span> <span class="token string">"map"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
 <span class="token keyword">external</span> filter <span class="token punctuation">:</span> <span class="token type-variable function">'a</span> array <span class="token operator">-&gt;</span> <span class="token punctuation">(</span><span class="token type-variable function">'a</span> <span class="token operator">-&gt;</span> bool<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token type-variable function">'a</span> array <span class="token operator">=</span> <span class="token string">"filter"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>send<span class="token punctuation">]</span>
@@ -532,7 +536,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#variadic--was-bs-splice-prior-to-version-4-08-">→ </a>Variadic (was bs.splice prior to version 4.08)
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> join <span class="token punctuation">:</span> string array <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"join"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>variadic<span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>variadic<span class="token punctuation">]</span>
@@ -543,7 +547,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#polymorphic-function">→ </a>Polymorphic Function
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> drawCat<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> drawDog<span class="token punctuation">:</span> giveName<span class="token punctuation">:</span>string <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"draw"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"Drawing"</span><span class="token punctuation">]</span>
@@ -552,7 +556,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </code><code class="output-language-javascript"><span class="token comment">/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */</span>
 </code></pre>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> padLeft <span class="token punctuation">:</span>
   string
@@ -580,7 +584,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#curry-uncurry">→ </a>Curry/Uncurry
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> add <span class="token operator">=</span> <span class="token keyword">fun</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span> x y z <span class="token operator">-&gt;</span> x <span class="token operator">+</span> y <span class="token operator">+</span> z
 <span class="token keyword">let</span> six <span class="token operator">=</span> <span class="token punctuation">(</span>add <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token operator">@</span>bs<span class="token punctuation">]</span>
@@ -600,7 +604,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#module">→ </a>Module
   </h2>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"path"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> dirname<span class="token punctuation">:</span> string <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"dirname"</span><span class="token punctuation">;</span>
@@ -610,7 +614,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#import-module-exports">→ </a>Import module.exports
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> simpleFunction<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"simple-module-that-is-a-function"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span>
@@ -624,7 +628,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    It's important to note that you are not providing the module path to <code>bs.module</code>, but instead as the last argument of <code>external</code>.
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> leftPad<span class="token punctuation">:</span> string <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> string <span class="token operator">=</span> <span class="token string">"./leftPad"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span><span class="token punctuation">]</span> <span class="token keyword">external</span> leftPad<span class="token punctuation">:</span> <span class="token punctuation">(</span>string<span class="token punctuation">,</span> int<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> string <span class="token operator">=</span> <span class="token string">"./leftPad"</span><span class="token punctuation">;</span>
@@ -641,7 +645,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    Import ES6 default compiled from Babel:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> studentName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">"default"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"./student"</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">module</span> <span class="token string">"./student"</span><span class="token punctuation">]</span> <span class="token keyword">external</span> studentName<span class="token punctuation">:</span> string <span class="token operator">=</span> <span class="token string">"default"</span><span class="token punctuation">;</span>
@@ -656,7 +660,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    <a class="here" href="#export-es6-default">→ </a>Export ES6 default
   </h3>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Arwen"</span>
 </code><code class="language-reason"><span class="token keyword">let</span> default <span class="token operator">=</span> <span class="token string">"Arwen"</span><span class="token punctuation">;</span>
@@ -673,7 +677,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    Final escape hatch converter. Use with care as it converts any type to any other type, bypassing any type checking. Effectively the same as OCaml <code>Obj.magic</code>.
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> foo <span class="token operator">=</span> string
 <span class="token keyword">type</span> bar <span class="token operator">=</span> int
@@ -711,6 +715,43 @@ function openLangTab(evt, langClassName) {
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>
-<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+<script>
+// Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      
+      const container = document.querySelector('#toggleSyntaxContainer');
+      const re = container.children[0];
+      const ml = container.children[1];
+      re.addEventListener("click", () => {
+        setCurrentSyntax("reason");
+      });
+      ml.addEventListener("click", () => {
+        setCurrentSyntax("ocaml");
+      });
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+        for (let i = 0; i < container.children.length; i++) {
+          container.children[i].classList.remove(`selected`);
+        }
+        if (syntax === "reason") {
+          re.classList.add(`selected`)
+        } else {
+          ml.classList.add(`selected`)
+        }
+        Array.from(document.getElementsByClassName(`button-language-${syntax}`)).forEach(function (element) { element.click(); });
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+    })
+</script>
+<script src="https://jchavarri.github.io/melange-docs/assets/js/just-the-docs.js" type="text/javascript"></script>
 </body>
 </html>

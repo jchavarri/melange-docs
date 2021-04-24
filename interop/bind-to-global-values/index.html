@@ -9,9 +9,9 @@
   <title>
    Bind to global values — Melange.re
   </title>
-  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/main.css" rel="stylesheet">
   <meta name="description" content="Melange is a mixture of tooling combined to produce JavaScript from OCaml &amp; Reason.">
  </head>
  <body>
@@ -171,6 +171,10 @@
 <div class="main" id="top">
 <div id="main-header" class="main-header">
  <div class="search"></div>
+ <div id="toggleSyntaxContainer" class="BtnGroup">
+  <button class="btn BtnGroup-item btn-sm" type="button">re</button>
+        <button class="btn BtnGroup-item btn-sm" type="button">ml</button>
+ </div>
  <nav aria-label="Auxiliary" class="aux-nav">
   <ul class="aux-nav-list">
    <li class="aux-nav-list-item">
@@ -199,7 +203,7 @@
    Now, here's how you bind to a JS value:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
 <span class="token keyword">external</span> clearTimeout <span class="token punctuation">:</span> float <span class="token operator">-&gt;</span> unit <span class="token operator">=</span> <span class="token string">"clearTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
@@ -231,7 +235,7 @@
    We're in a language with a great type system now! Let's leverage a popular feature to solve this problem: abstract types.
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> timerId
 <span class="token keyword">external</span> setTimeout <span class="token punctuation">:</span> <span class="token punctuation">(</span>unit <span class="token operator">-&gt;</span> unit<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> int <span class="token operator">-&gt;</span> timerId <span class="token operator">=</span> <span class="token string">"setTimeout"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span>
@@ -257,7 +261,7 @@
    If you want to bind to a value inside a global module, e.g. <code>Math.random</code>, attach a <code>bs.scope</code> to your <code>bs.val</code> external:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> random<span class="token punctuation">:</span> unit <span class="token operator">-&gt;</span> float <span class="token operator">=</span> <span class="token string">"random"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"Math"</span><span class="token punctuation">]</span>
 <span class="token keyword">let</span> someNumber <span class="token operator">=</span> random <span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -273,7 +277,7 @@
    you can bind to an arbitrarily deep object by passing a tuple to <code>bs.scope</code>:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">external</span> length<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token string">"length"</span> <span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">@@</span>bs<span class="token punctuation">.</span>scope <span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">]</span>
 </code><code class="language-reason"><span class="token punctuation">[</span>@bs<span class="token punctuation">.</span><span class="token keyword">val</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>@bs<span class="token punctuation">.</span>scope <span class="token punctuation">(</span><span class="token string">"window"</span><span class="token punctuation">,</span> <span class="token string">"location"</span><span class="token punctuation">,</span> <span class="token string">"ancestorOrigins"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
@@ -307,6 +311,43 @@ function openLangTab(evt, langClassName) {
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>
-<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+<script>
+// Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      
+      const container = document.querySelector('#toggleSyntaxContainer');
+      const re = container.children[0];
+      const ml = container.children[1];
+      re.addEventListener("click", () => {
+        setCurrentSyntax("reason");
+      });
+      ml.addEventListener("click", () => {
+        setCurrentSyntax("ocaml");
+      });
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+        for (let i = 0; i < container.children.length; i++) {
+          container.children[i].classList.remove(`selected`);
+        }
+        if (syntax === "reason") {
+          re.classList.add(`selected`)
+        } else {
+          ml.classList.add(`selected`)
+        }
+        Array.from(document.getElementsByClassName(`button-language-${syntax}`)).forEach(function (element) { element.click(); });
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+    })
+</script>
+<script src="https://jchavarri.github.io/melange-docs/assets/js/just-the-docs.js" type="text/javascript"></script>
 </body>
 </html>

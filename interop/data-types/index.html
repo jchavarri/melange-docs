@@ -9,9 +9,9 @@
   <title>
    Representation of Types — Melange.re
   </title>
-  <link href="https://jchavarri.github.io/melange-docs/styles/just-the-docs-default.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/prism.css" rel="stylesheet">
-  <link href="https://jchavarri.github.io/melange-docs/styles/main.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/just-the-docs-default.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/prism.css" rel="stylesheet">
+  <link href="https://jchavarri.github.io/melange-docs/assets/styles/main.css" rel="stylesheet">
   <meta name="description" content="Melange is a mixture of tooling combined to produce JavaScript from OCaml &amp; Reason.">
  </head>
  <body>
@@ -171,6 +171,10 @@
 <div class="main" id="top">
 <div id="main-header" class="main-header">
  <div class="search"></div>
+ <div id="toggleSyntaxContainer" class="BtnGroup">
+  <button class="btn BtnGroup-item btn-sm" type="button">re</button>
+        <button class="btn BtnGroup-item btn-sm" type="button">ml</button>
+ </div>
  <nav aria-label="Auxiliary" class="aux-nav">
   <ul class="aux-nav-list">
    <li class="aux-nav-list-item">
@@ -261,7 +265,7 @@
    OCaml string is an immutable byte sequence. If the user types some unicode:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token string">"你好"</span>
 </code><code class="language-reason"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token class-name">Js</span><span class="token punctuation">.</span>log<span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -276,7 +280,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    Which gives you cryptic console output. To rectify this, Melange exposes a special <code>js</code> annotation to the default <a href="https://reasonml.github.io/docs/en/string-and-char.html#quoted-string">quoted string syntax</a> built into the language. Use it like this:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token module variable">Js</span><span class="token punctuation">.</span>log <span class="token punctuation">{</span>js<span class="token operator">|</span>你好，
 世界<span class="token operator">|</span>js<span class="token punctuation">}</span>
@@ -296,7 +300,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
    For convenience, we also expose another special tag quoted string annotation, <code>j</code>, which supports the equivalent of JavaScript' string interpolation, but for variables only (not arbitrary expressions):
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> world <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>世界<span class="token operator">|</span>j<span class="token punctuation">}</span>
 <span class="token keyword">let</span> helloWorld <span class="token operator">=</span> <span class="token punctuation">{</span>j<span class="token operator">|</span>你好，<span class="token operator">$</span>world<span class="token operator">|</span>j<span class="token punctuation">}</span>
@@ -520,7 +524,7 @@ object | -
    * Variants with a single non-nullary constructor:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> tree <span class="token operator">=</span> <span class="token module variable">Leaf</span> <span class="token operator">|</span> <span class="token module variable">Node</span> <span class="token keyword">of</span> int <span class="token operator">*</span> tree <span class="token operator">*</span> tree
 <span class="token comment">(* Leaf -&gt; 0 *)</span>
@@ -536,7 +540,7 @@ object | -
    Variants with more than one non-nullary constructor:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">type</span> t <span class="token operator">=</span> A <span class="token keyword">of</span> string <span class="token operator">|</span> B <span class="token keyword">of</span> int
 <span class="token comment">(* A a -&gt; [a].tag = 0 -- tag 0 assignment is optional *)</span>
@@ -552,7 +556,7 @@ object | -
    ** Polymorphic Variant:
   </p>
   <div class="tab">
-   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
+   <a class="button-language-ocaml tablinks" href="#" onclick="openLangTab(event, 'language-ocaml')"><code>ml</code></a><a class="button-language-reason tablinks" href="#" onclick="openLangTab(event, 'language-reason')"><code>re</code></a><a class="tablinks" href="#" onclick="openLangTab(event, 'output-language-javascript')"><code>js</code></a>
   </div>
   <pre><code class="language-ocaml"><span class="token keyword">let</span> u <span class="token operator">=</span> <span class="token variant variable">`a</span> <span class="token comment">(* 97 *)</span>
 <span class="token keyword">let</span> v <span class="token operator">=</span> <span class="token variant variable">`a</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">(* [ 97, [1, 2] ] *)</span>
@@ -599,6 +603,43 @@ function openLangTab(evt, langClassName) {
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
 </script>
-<script src="https://jchavarri.github.io/melange-docs/js/just-the-docs.js" type="text/javascript"></script>
+<script>
+// Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      
+      const container = document.querySelector('#toggleSyntaxContainer');
+      const re = container.children[0];
+      const ml = container.children[1];
+      re.addEventListener("click", () => {
+        setCurrentSyntax("reason");
+      });
+      ml.addEventListener("click", () => {
+        setCurrentSyntax("ocaml");
+      });
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+        for (let i = 0; i < container.children.length; i++) {
+          container.children[i].classList.remove(`selected`);
+        }
+        if (syntax === "reason") {
+          re.classList.add(`selected`)
+        } else {
+          ml.classList.add(`selected`)
+        }
+        Array.from(document.getElementsByClassName(`button-language-${syntax}`)).forEach(function (element) { element.click(); });
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+    })
+</script>
+<script src="https://jchavarri.github.io/melange-docs/assets/js/just-the-docs.js" type="text/javascript"></script>
 </body>
 </html>
