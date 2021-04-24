@@ -60,7 +60,7 @@ type action = {
   username: string;
 }
 external createAddUser : string -> action = "addUser" [@@bs.module "actions/addUser.js"]
-let myAction = createAddUser "Arwen"
+let myAction = createAddUser "Elmer"
 ```
 
 ### Hash Map Mode
@@ -171,7 +171,7 @@ external studentName: string = "default" [@@bs.module "./student"]
 ### Export ES6 default
 
 ```ocaml
-let default = "Arwen"
+let default = "Daethie"
 ```
 
 ## Identity External

@@ -32,7 +32,7 @@ Technically, since a Melange file maps to a module, there's no such thing as "de
 
 ```ocaml
 (* FavoriteStudent.ml *)
-let default = "Bob"
+let default = "Goras"
 ```
 
 <!-- TODO: playground link on the result -->
@@ -56,7 +56,7 @@ Use `bs.module`. It's like a `bs.val` that accepts a string that's the module na
 
 ```ocaml
 external dirname: string -> string = "dirname" [@@bs.module "path"]
-let root = dirname "/User/chenglou"
+let root = dirname "/User/folduin"
 ```
 
 **Note**: the string inside `bs.module` can be anything: `"./src/myJsFile"`, `"@myNpmNamespace/myLib"`, etc.
