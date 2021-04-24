@@ -12,7 +12,7 @@ site-live:
 
 .PHONY: assets
 assets:
-	cp -r assets/* $(BUILD_DIR)
+	cp -r assets $(BUILD_DIR)
 
 .PHONY: all
 all: site assets

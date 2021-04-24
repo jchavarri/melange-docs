@@ -4,7 +4,7 @@ data = config
 tab_tmpl =
   "<div class=\"tab\">" ..
   "<a class=\"button-language-ocaml tablinks\" href=\"#\" onclick=\"openLangTab(event, 'language-ocaml')\"><code>ml</code></a>" ..
-  "<a class=\"tablinks\" href=\"#\" onclick=\"openLangTab(event, 'language-reason')\"><code>re</code></a>" ..
+  "<a class=\"button-language-reason tablinks\" href=\"#\" onclick=\"openLangTab(event, 'language-reason')\"><code>re</code></a>" ..
   "<a class=\"tablinks\" href=\"#\" onclick=\"openLangTab(event, 'output-language-javascript')\"><code>js</code></a>" ..
   "</div>"
 

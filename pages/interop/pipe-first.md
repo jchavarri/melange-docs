@@ -67,7 +67,7 @@ let () = asyncRequest () |. setWaitDuration 400 |. send
 This works:
 
 ```ocaml
-let name = "arwen"
+let name = "Arwen"
 let preprocess name = "name: " ^ name
 let result = name |. preprocess |. Some
 ```
@@ -75,7 +75,7 @@ let result = name |. preprocess |. Some
 We turn this into:
 
 ```ocaml
-let name = "arwen"
+let name = "Arwen"
 let preprocess name = "name: " ^ name
 let result = Some(preprocess(name))
 ```

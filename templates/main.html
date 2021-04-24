@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   <meta http-equiv="cleartype" content="on">
   <title></title>
-  <link rel="stylesheet" href="/styles/just-the-docs-default.css">
-  <link rel="stylesheet" href="/styles/prism.css">
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/assets/styles/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/styles/prism.css">
+  <link rel="stylesheet" href="/assets/styles/main.css">
   <meta name="description"
     content="Melange is a mixture of tooling combined to produce JavaScript from OCaml & Reason.">
 </head>
@@ -81,6 +81,10 @@
             </svg></label></div>
         <div id="search-results" class="search-results"></div> -->
       </div>
+      <div id="toggleSyntaxContainer" class="BtnGroup">
+        <button class="btn BtnGroup-item btn-sm" type="button">re</button>
+        <button class="btn BtnGroup-item btn-sm" type="button">ml</button>
+      </div>
       <nav aria-label="Auxiliary" class="aux-nav">
         <ul class="aux-nav-list">
           <li class="aux-nav-list-item"> <a href="https://github.com/melange-re/melange" class="site-button"
@@ -113,7 +117,44 @@
     }
     Array.from(document.getElementsByClassName("button-language-ocaml")).forEach(function (element) { element.click(); });
   </script>
-  <script type="text/javascript" src="/js/just-the-docs.js"></script>
+  <script>
+    // Toggle syntax button
+    document.addEventListener('DOMContentLoaded', () => {
+      const SYNTAXES = ['reason', 'ocaml']
+      const CLASS_PREFIX = 'syntax__'
+      
+      const container = document.querySelector('#toggleSyntaxContainer');
+      const re = container.children[0];
+      const ml = container.children[1];
+      re.addEventListener("click", () => {
+        setCurrentSyntax("reason");
+      });
+      ml.addEventListener("click", () => {
+        setCurrentSyntax("ocaml");
+      });
+
+      let currentSyntax
+      let setCurrentSyntax = (syntax = SYNTAXES[0]) => {
+        document.body.classList.remove(`${CLASS_PREFIX}${currentSyntax}`)
+        document.body.classList.add(`${CLASS_PREFIX}${syntax}`)
+        for (let i = 0; i < container.children.length; i++) {
+          container.children[i].classList.remove(`selected`);
+        }
+        if (syntax === "reason") {
+          re.classList.add(`selected`)
+        } else {
+          ml.classList.add(`selected`)
+        }
+        Array.from(document.getElementsByClassName(`button-language-${syntax}`)).forEach(function (element) { element.click(); });
+
+        currentSyntax = syntax
+        localStorage.setItem('syntax', currentSyntax)
+      }
+
+      setCurrentSyntax(localStorage.getItem('syntax', currentSyntax) || SYNTAXES[0])
+    })
+  </script>
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
 </body>
 
 </html>

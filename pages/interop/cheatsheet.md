@@ -60,7 +60,7 @@ type action = {
   username: string;
 }
 external createAddUser : string -> action = "addUser" [@@bs.module "actions/addUser.js"]
-let myAction = createAddUser "arwen"
+let myAction = createAddUser "Arwen"
 ```
 
 ### Hash Map Mode
