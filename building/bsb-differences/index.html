@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   <meta http-equiv="cleartype" content="on">
   <title>
-   🍹 Melange — Melange.re
+   ReScript bsb vs Melange bsb — Melange.re
   </title>
   <link href="https://jchavarri.github.io/melange-docs/assets/styles/just-the-docs-default.css" rel="stylesheet">
   <link href="https://jchavarri.github.io/melange-docs/assets/styles/prism.css" rel="stylesheet">
@@ -142,7 +142,7 @@
      </li>
     </ul>
    </li>
-   <li class="nav-list-item">
+   <li class="nav-list-item active">
     <a href="#" class="nav-list-expander">
     <svg viewbox="0 0 24 24">
      <use href="#svg-arrow-right"></use>
@@ -150,8 +150,8 @@
    </a>
    <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
    <ul class="nav-list ">
-    <li class="nav-list-item">
-     <a href="https://jchavarri.github.io/melange-docs/building/bsb-differences" class="nav-list-link">ReScript <code>bsb</code> vs Melange <code>bsb</code></a>
+    <li class="nav-list-item active">
+     <a href="https://jchavarri.github.io/melange-docs/building/bsb-differences" class="nav-list-link active">ReScript <code>bsb</code> vs Melange <code>bsb</code></a>
     </li>
     <li class="nav-list-item">
      <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
@@ -188,87 +188,47 @@
 </div>
 <div id="main-content-wrap" class="main-content-wrap">
  <div id="content" class="main-content" role="main">
-  <header>
-   <h1 role="presentation">
-    🍹 Melange
-   </h1>
-   <h2>
-    A mixture of 🔧 tooling combined to produce JavaScript from 🐫 OCaml &amp; Reason.
-   </h2>
-   <hr>
-   <p>
-    This project is a fork of the <a href="https://github.com/rescript-lang/rescript-compiler/" target="_blank" rel="noopener noreferrer">ReScript compiler</a> with a focus on compatibility with the wider OCaml ecosystem. A
-    small write-up with more details on the motivation behind this project can be found in <a href="https://anmonteiro.com/2021/03/on-ocaml-and-the-js-platform/" target="_blank" rel="noopener noreferrer">
-      this blog post</a>.
-   </p>
-  </header>
-  <section aria-labelledby="features">
-   <h3 id="features">
-    Features
-   </h3>
-   <ul data-comfortable="">
-    <li>
-     Write your code in any syntax: ReScript, OCaml or Reason
-    </li>
-    <li>
-     Use any existing ReScript or OCaml libraries and tools without hassle
-    </li>
-    <li>
-     Compile using the latest version of the OCaml compiler
-    </li>
-    <li>
-     Write your code once, share between native and browser apps using Dune virtual libraries
-    </li>
-   </ul>
-  </section>
-  <section aria-labelledby="basic-usage">
-   <h3 id="basic-usage">
-    Getting started
-   </h3>
-   <ol data-comfortable="">
-    <li>
-     <p>
-      You will need <a href="https://esy.sh" target="_blank" rel="noopener noreferrer">esy</a> package manager to
-        obtain OCaml and Melange sources.
-        See <code>esy</code> installation instructions <a href="https://esy.sh/docs/en/getting-started.html#install-esy" target="_blank" rel="noopener noreferrer">here</a>.
-     </p>
-    </li>
-    <li>
-     <p>
-      Clone the basic template: <a href="https://github.com/melange-re/melange-basic-template" target="_blank" rel="noopener noreferrer">https://github.com/melange-re/melange-basic-template</a>
-     </p>
-    </li>
-    <li>
-     <p>
-      Run <code>esy</code> from the command line to install all dependencies.
-     </p>
-    </li>
-    <li>
-     <p>
-      Run <code>esy x node _build/default/src/Main.bs.js</code> to see the result of the script running.
-     </p>
-    </li>
-   </ol>
-  </section>
-  <section aria-labelledby="learn-more">
-   <h3 id="learn-more">
-    Learn more
-   </h3>
-   <ol class="plain" id="pages-index">
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/intro/">Intro</a>
-    </li>
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/installation/">Installation</a>
-    </li>
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/interop/">Interop</a>
-    </li>
-    <li>
-     <a href="https://jchavarri.github.io/melange-docs/building/">Build system</a>
-    </li>
-   </ol>
-  </section>
+  <h1 id="rescript-bsb-vs-melange-bsb" data-nav-order="601">
+   ReScript <code>bsb</code> vs Melange <code>bsb</code>
+  </h1>
+  <ol class="toc">
+   <li>
+    <a href="#calling-bsb--make-world-in-rescript">Calling <code>bsb -make-world</code> in ReScript</a>
+   </li>
+   <li>
+    <a href="#calling-bsb--make-world-in-melange">Calling <code>bsb -make-world</code> in Melange</a>
+   </li>
+  </ol>
+  <p>
+   At the moment, Melange shares the same name for the build tool <code>bsb</code>. But the behavior of this tool in Melange differs quite a lot from what <code>bsb</code> does in ReScript. This article explains in general terms what happens when calling <code>bsb -make-world</code> in ReScript and compares it with what happens when calling the same command in Melange.
+  </p>
+  <h2 id="calling-bsb--make-world-in-rescript">
+   <a class="here" href="#calling-bsb--make-world-in-rescript">→ </a>Calling <code>bsb -make-world</code> in ReScript
+  </h2>
+  <p>
+   ReScript build configurations are specified in a <code>bsconfig.json</code> file, that is added to the project root folder.
+  </p>
+  <p>
+   This file is used by ReScript build tool, called <code>bsb</code>. <code>bsb</code> itself is a fork of <a href="https://ninja-build.org/">Ninja</a>. When a ReScript user runs <code>bsb -make-world</code>, the build tool will read the <code>bsconfig.json</code> file, then the folders and files that are part of the project, and then generate all the build rules that are written to a file called <code>build.ninja</code>. This file can be found under the <code>lib/bs</code> folder.
+  </p>
+  <p>
+   At the end of the build process, ReScript will defer to Ninja to know which rules should be executed, which ones can be parallelized, and then execute them.
+  </p>
+  <h2 id="calling-bsb--make-world-in-melange">
+   <a class="here" href="#calling-bsb--make-world-in-melange">→ </a>Calling <code>bsb -make-world</code> in Melange
+  </h2>
+  <p>
+   Melange keeps all user-facing interfaces compatible with ReScript. For the build system, this means preserving <code>bsconfig.json</code> as the way to describe how an application should be built.
+  </p>
+  <p>
+   However, Melange replaces <code>bsb</code> behavior almost completely. When a Melange user runs <code>bsb -make-world</code>, instead of generating rules in a format that Ninja can understand —like ReScript does—, Melange version of <code>bsb</code> will generate rules in a format that Dune can understand. Instead of generating a <code>build.ninja</code> file, Melange <code>bsb</code> generates a <code>dune.bsb</code> file using Dune <a href="https://dune.readthedocs.io/en/stable/dune-files.html#stanza-reference">stanzas</a>.
+  </p>
+  <p>
+   After this <code>dune.bsb</code> file has been generated, the second part of <code>bsb -make-world</code> is to run the <code>dune build @bsb_world</code> command, which happens implicitly. This command leverages Dune <a href="https://dune.readthedocs.io/en/stable/dune-files.html#alias">aliases</a> to build exclusively the rules that have been generated from the <code>bsconfig.json</code> file, and not more. At the point where this command is called, Melange defers to Dune the execution of these rules, the same way ReScript defers to Ninja, so the same kind of optimizations can be performed: incremental builds, parallelization, etc.
+  </p>
+  <p>
+   In subsequent builds, users can decide to not call <code>bsb -make-world</code> and instead call <code>dune build @bsb_world</code> directly, to skip the <code>dune.bsb</code> file creation step if the original <code>bsconfig.json</code> has not changed.
+  </p>
  </div>
 </div>
 <div class="search-overlay"></div>

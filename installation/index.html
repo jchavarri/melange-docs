@@ -151,6 +151,9 @@
    <a href="https://jchavarri.github.io/melange-docs/building" class="nav-list-link">Build system</a>
    <ul class="nav-list ">
     <li class="nav-list-item">
+     <a href="https://jchavarri.github.io/melange-docs/building/bsb-differences" class="nav-list-link">ReScript <code>bsb</code> vs Melange <code>bsb</code></a>
+    </li>
+    <li class="nav-list-item">
      <a href="https://jchavarri.github.io/melange-docs/building/dune-integration" class="nav-list-link">Dune integration</a>
     </li>
     <li class="nav-list-item">
@@ -190,12 +193,12 @@
   </h1>
   <ol class="toc">
    <li>
-    <a href="#installation">Installation</a>
+    <a href="#existing-projects">Existing projects</a>
+   </li>
+   <li>
+    <a href="#help-to-get-started">Help to get started</a>
    </li>
   </ol>
-  <h2 id="installation">
-   <a class="here" href="#installation">→ </a>Installation
-  </h2>
   <p>
    This project is currently unreleased. The easiest way to get started
 is to clone the
@@ -203,6 +206,9 @@ is to clone the
 you do, make sure you have <a href="https://esy.sh/">Esy</a> installed (<code>npm install -g esy</code> should cover
 most workflows).
   </p>
+  <h2 id="existing-projects">
+   <a class="here" href="#existing-projects">→ </a>Existing projects
+  </h2>
   <p>
    If you have an existing project, you can get started by adding an <code>esy.json</code> file with the following configuration:
   </p>
@@ -222,8 +228,14 @@ most workflows).
 }
 </code></pre>
   <p>
-   Please reach out on the <a href="https://discord.gg/reasonml">ReasonML Discord</a> if you
-can't figure it out!
+   Then call <code>esy x bsb -make-world</code> to build the project with Melange.
+  </p>
+  <h2 id="help-to-get-started">
+   <a class="here" href="#help-to-get-started">→ </a>Help to get started
+  </h2>
+  <p>
+   If you are running into any issues while trying out Melange, Please reach out on the <a href="https://discord.gg/reasonml">ReasonML Discord</a>,
+there is a dedicated channel #melange where related discussions happen.
   </p>
  </div>
 </div>
