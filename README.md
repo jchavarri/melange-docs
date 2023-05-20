@@ -1,5 +1,8 @@
 # melange.re
 
+> **Note**
+> Melange documentation now hosted at https://github.com/melange-re/documentation-site/.
+
 This is the documentation site for the [Melange](https://github.com/melange-re/melange) project.
 
 ## Building
